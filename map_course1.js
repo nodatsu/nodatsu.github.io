@@ -10,18 +10,18 @@ var course1 = [
 
 //位置情報と表示データの組み合わせ
 var data = new Array();
-	data.push({ position:new google.maps.LatLng(40.828713, 140.734682) , content:'青森駅'});
-	data.push({ position:new google.maps.LatLng(40.831624, 140.736385) ,content:'八甲田丸周辺'});				//八甲田丸周辺
-	data.push({ position:new google.maps.LatLng(40.830260, 140.735127) , content:'A-FACTORY'});						//a-factory
-	data.push({ position:new google.maps.LatLng(40.830792, 140.736231), content:'青森ラブリッジ'});		//ラブリッジ
-	data.push({ position: new google.maps.LatLng(40.829496, 140.743653), content:'青い海公園'});		//青い海公園
-	data.push({ position:new google.maps.LatLng(40.829168, 140.745342), content:'聖徳公園'});		//聖徳公園
-	data.push({ position:new google.maps.LatLng(40.830335,140.745538), content:'青森港新中央埠頭'});		//青森港新中央埠頭
-	data.push({ position:new google.maps.LatLng(40.829503,140.747592),content:'浜町桟橋跡地'});		//浜町桟橋跡地
-	data.push({ position:new google.maps.LatLng(40.828478, 140.748212),content:'青森製氷(株)'});									//青森製氷
-	data.push({ position:new google.maps.LatLng(40.828128, 140.747530),content:'おもたか跡地'});		//おもだか跡地
-	data.push({ position:new google.maps.LatLng(40.825369, 140.746718),content:'太宰下宿跡地'});		//太宰下宿跡地
-	data.push({ position:new google.maps.LatLng(40.827098, 140.741516),content:'喫茶店マロン'});								//喫茶店マロン
+	data.push({ position:new google.maps.LatLng(40.828713, 140.734682) , content:'青森駅',icon:"pin/pin_a.png"});
+	data.push({ position:new google.maps.LatLng(40.831624, 140.736385) ,content:'八甲田丸周辺',icon:"pin/pin_b.png"});				//八甲田丸周辺
+	data.push({ position:new google.maps.LatLng(40.830260, 140.735127) , content:'A-FACTORY',icon:"pin/pin_c.png"});						//a-factory
+	data.push({ position:new google.maps.LatLng(40.830792, 140.736231), content:'青森ラブリッジ',icon:"pin/pin_d.png"});		//ラブリッジ
+	data.push({ position: new google.maps.LatLng(40.829496, 140.743653), content:'青い海公園',icon:"pin/pin_e.png"});		//青い海公園
+	data.push({ position:new google.maps.LatLng(40.829168, 140.745342), content:'聖徳公園',icon:"pin/pin_f.png"});		//聖徳公園
+	data.push({ position:new google.maps.LatLng(40.830335,140.745538), content:'青森港新中央埠頭',icon:"pin/pin_g.png"});		//青森港新中央埠頭
+	data.push({ position:new google.maps.LatLng(40.829503,140.747592),content:'浜町桟橋跡地',icon:"pin/pin_h.png"});		//浜町桟橋跡地
+	data.push({ position:new google.maps.LatLng(40.828478, 140.748212),content:'青森製氷(株)',icon:"pin/pin_i.png"});									//青森製氷
+	data.push({ position:new google.maps.LatLng(40.828128, 140.747530),content:'おもたか跡地',icon:"pin/pin_j.png"});		//おもだか跡地
+	data.push({ position:new google.maps.LatLng(40.825369, 140.746718),content:'太宰下宿跡地',icon:"pin/pin_k.png"});		//太宰下宿跡地
+	data.push({ position:new google.maps.LatLng(40.827098, 140.741516),content:'喫茶店マロン',icon:"pin/pin_l.png"});								//喫茶店マロン
 
 
 //var direction = new google.maps.DirectionsService();
@@ -79,7 +79,8 @@ google.maps.event.addDomListener(window, 'load', function() {
 	for (i = 0; i < data.length; i++) {
     var myMarker = new google.maps.Marker({
       position: data[i].position,
-      map: mapObj
+      map: mapObj,
+      icon:data[i].icon
     });
     
     attachMessage(myMarker, data[i].content);
