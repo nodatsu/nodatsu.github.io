@@ -4,8 +4,12 @@
  	<title>スポット－太宰治下宿跡地</title>
  	<meta charset="UTF-8">
  	<link href="../cs_cmn.css" rel="stylesheet" type="text/css">
- 	<link href="../spot_common.css" rel="stylesheet" type="text/css">
+ 	<link href="spot_common.css" rel="stylesheet" type="text/css">
+ 	<link href="../cs_menu3.css" rel="stylesheet" type="text/css">
+ 	<link href="../lightbox.css" rel="stylesheet" type="text/css">
  	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+ 	<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+ 	<script type="text/javascript" src="../lightbox.min.js"></script>
  	<script type="text/javascript" src="../footerFixed.js"></script>
  	<script type="text/javascript">
 		google.maps.event.addDomListener(window, 'load', function() {
@@ -42,56 +46,81 @@
 <body>
 
 <div id="wrapper_w">
-	<div id="wrapper">
-
-		<!--ヘッダー -->
- 		<div id="header">
- 			<div id="menu">
-	 			<img src="../imgs/course.png" width="180" height="40">
-				<a href="../courseA.html">コース1</a>
-				<a href="../courseB.html">コース2</a>
-				<a href="../courseC.html">コース3</a>
-				<a href="../courseD.html">コース4</a>
-	 			<a href="../spots.html"><img src="../imgs/spots.png" width="180" height="40"></a>
-	 			<a href="../link.html"><img src="../imgs/link.png" width="180" height="40"></a>
- 			</div>
- 		 </div>
- 		 
- 		<div id="logo">
- 			<a href="../index.html"><img src="../imgs/logo.png" width="200" height="200"></a>
- 		</div>
- 	
- 		<!--メイン-->
- 		<div id="mein">
- 			<div id="title">
- 				<!--<h2>青森の街並みを見渡せる穴場スポット</h2>-->
- 				<h3>太宰治下宿跡地　-下宿先-</h3>
- 			</div>
- 			<div id="gmap" style="width : 400px; height : 300px;"></div>
- 			<br>
-			<div id="exp">
-				太宰治の下宿先の跡地です。
+	<!--ヘッダー -->
+	<div id="header">
+		<div id="hd_menu">
+			<div id="logo"><a href="../index.html"><img src="../imgs/hedder_logo.png"></a></div>
+			<!--メニュー-->
+			<div id="dropmenu">
+				<ul id="menu">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="#">散歩コース</a>
+						<ul>
+						<li><a href="../courseA.html">コース1―太宰治と海をコンパクトに感じる</a></li>
+						<li><a href="../courseB.html">コース2―芥川龍之介の講演を聴いた場所へも</a></li>
+						<li><a href="../courseC.html">コース3―ゆかりの場所ほとんど全部＋海辺：合浦公園スタート編</a></li>
+						<li><a href="../courseD.html">コース4―海辺＋ゆかりの場所ほとんど全部：八甲田丸スタート編</a></li>
+						</ul>
+					</li>
+					<li><a href="../spots.html">スポット一覧</a></li>
+					<li><a href="../matinami.html">街並み再現</a></li>
+					<li><a href="../link.html">このwebサイトについて</a></li>
+				</ul>
 			</div>
+		</div>
+	</div>
+	
+	<div id="wrapper">
+ 		<h2>寺町通り＋太宰治下宿跡地<br><span class="sub">-「たいへん重大な時期」(太宰治「津軽」）の生活拠点-</span></h2>
+ 		写真をクリックすると拡大表示します。<br>
+ 		<a href="imgs/sp_station_bg.jpg" data-lightbox="sp_station" data-title="昭和初期の青森駅">
+ 			<img src="imgs/sp_station.jpg"></a>
+ 		<div id="gmap" style="width : 290px; height : 375px;"></div>
+		<div class="column">
+			青森市で過ごした4年間のことを、太宰治は「津軽」で次のように述べています（「太宰治全集第六巻」筑摩書房 1990）。
+			「私の生涯に於いて、たいへん重大な時期でもあったやうである」
+			「私にとって忘れがたい期間であったとも言へるであらう」
 			<br>
-			散歩してはいかかでしょうか？このスポットは全ての散歩コースに組み込まれてます。<br>
-			<a href="../courseA.html">コース1</a>
-			<a href="../courseB.html">コース2</a>
-			<a href="../courseC.html">コース3</a>
-			<a href="../courseD.html">コース4</a>
- 		</div>
+			自己の人生の行方に思いを巡らせ、自分の道を切り拓きたかったのであろう、
+			その「時期」「期間」の生活拠点となったのが、寺町通りの下宿先。老舗呉服店を営んでいた親類宅でした。
+			<br>
+			寺町通りは青森駅から東へ約1㎞。青森駅前から延びる新町通りの延長上に位置します。
+			4つのお寺が並び、今も寺町通りと呼ばれています。
+			お寺のほか、老舗の店舗が軒を並べる通りですが、太宰が暮らしていた呉服店は今はなく、駐車場となっています（写真左）。
+			<br>
+			太宰治の青森市在住時は、都市としての青森市の転換期と重なります。新町が青森市一の繁華街へと変化していったことも、その１つ。
+			象徴は1921年、デパート「松木屋呉服店」が開店したこと。太宰治が近くで暮らし始める約1年半前です。ドーム型屋根を持つ3階建て。
+			日本で当時、通りの角地に建つ建物のデザインとして最先端をいくものでした。（写真中　提供：青森まちかど歴史の庵 奏海)。
+			ヨーロッパ風のその建物を、学生服の太宰治は間近に見て毎日、通学していたはずです。
+			しかし、松木屋呉服店は1945年、アメリカ軍機による空襲に備えて取り壊されました。
+			戦後、松木屋百貨店として別の場所に新築され、数十年営業を続けましたが、閉業。
+			寺町通りから見る風景もすっかり変わりました（写真右）。
+			<br>
+			青森市で暮らしつつ、太宰治は作家になる気持ちを固めていきました。
+			そのことに影響を与えた青森市の街の何かが、都市の変遷に埋没せず、場所の力として残っているか。
+			青森市への旅で感じていただければ、と思います。
+		</div>
+		<div id="link">←<a href="spot_omotaka.html">おもたか跡地</a>　<a href="spot_hotel.html">ホテル青森</a>→<br></div>
+		散歩してはいかかでしょうか？このスポットは全ての散歩コースに組み込まれてます。<br>
+		<a href="../courseA.html"><img src="imgs/spot_cs_link1.png"></a>
+		<a href="../courseB.html"><img src="imgs/spot_cs_link2.png"></a><br>
+		<a href="../courseC.html"><img src="imgs/spot_cs_link3.png"></a>
+		<a href="../courseD.html"><img src="imgs/spot_cs_link4.png"></a>
+ 	</div>
 </div>
 
 <div id="footer">
 	<!--フッター-->
 	<div id="footer_c">
-	 	太宰治ゆかりの地と海辺の散歩道　　
-	 	<a href="../index.html">ホーム</a>
-	 	散歩コース
-	 	<a href="../courseA.html">コース1</a>
-		<a href="../courseB.html">コース2</a>
-	 	<a href="../spots.html">スポット一覧</a>
-	 	<a href="../link.html">リンク</a>
-	 	<br>
+	 	太宰治ゆかりの地と海辺の散歩道　<a href="index.html">ホーム</a><br>
+	 	散歩コース：
+	 	<a href="courseA.html">コース1</a>｜
+		<a href="courseB.html">コース2</a>｜
+		<a href="courseC.html">コース3</a>｜
+		<a href="courseD.html">コース4</a>｜<br>
+	 	<a href="spots.html">スポット一覧</a>｜
+	 	<a href="link.html">このwebサイトについて</a>｜
+	 	<a href="matinami.html">街並み再現</a><br>
 	 	Copyright-青森大学/社会学部・ソフトウェア情報学部
 	 </div>
 </div>
