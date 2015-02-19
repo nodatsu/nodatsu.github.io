@@ -4,8 +4,12 @@
  	<title>スポット－Coquelicot（コクリコ)</title>
  	<meta charset="UTF-8">
  	<link href="../cs_cmn.css" rel="stylesheet" type="text/css">
- 	<link href="../spot_common.css" rel="stylesheet" type="text/css">
+ 	<link href="spot_common.css" rel="stylesheet" type="text/css">
+ 	<link href="../cs_menu3.css" rel="stylesheet" type="text/css">
+ 	<link href="../lightbox.css" rel="stylesheet" type="text/css">
  	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+ 	<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+ 	<script type="text/javascript" src="../lightbox.min.js"></script>
  	<script type="text/javascript" src="../footerFixed.js"></script>
  	<script type="text/javascript">
 		google.maps.event.addDomListener(window, 'load', function() {
@@ -42,54 +46,66 @@
 <body>
 
 <div id="wrapper_w">
-	<div id="wrapper">
-
-		<!--ヘッダー -->
- 		<div id="header">
- 			<div id="menu">
-	 			<img src="../imgs/course.png" width="180" height="40">
-				<a href="../courseA.html">コース1</a>
-				<a href="../courseB.html">コース2</a>
-				<a href="../courseC.html">コース3</a>
-				<a href="../courseD.html">コース4</a>
-	 			<a href="../spots.html"><img src="../imgs/spots.png" width="180" height="40"></a>
-	 			<a href="../link.html"><img src="../imgs/link.png" width="180" height="40"></a>
- 			</div>
- 		 </div>
- 		 
- 		<div id="logo">
- 			<a href="../index.html"><img src="../imgs/logo.png" width="200" height="200"></a>
- 		</div>
- 	
- 		<!--メイン-->
- 		<div id="mein">
- 			<div id="title">
- 				<!--<h2>青森の街並みを見渡せる穴場スポット</h2>-->
- 				<h3>Coquelicot（コクリコ）　--</h3>
- 			</div>
- 			<div id="gmap" style="width : 400px; height : 300px;"></div>
- 			<br>
-			<div id="exp">
-				Coquelicot（コクリコ）の説明。
+	<!--ヘッダー -->
+	<div id="header">
+		<div id="hd_menu">
+			<div id="logo"><a href="../index.html"><img src="../imgs/hedder_logo.png"></a></div>
+			<!--メニュー-->
+			<div id="dropmenu">
+				<ul id="menu">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="#">散歩コース</a>
+						<ul>
+						<li><a href="../courseA.html">コース1―太宰治と海をコンパクトに感じる</a></li>
+						<li><a href="../courseB.html">コース2―芥川龍之介の講演を聴いた場所へも</a></li>
+						<li><a href="../courseC.html">コース3―ゆかりの場所ほとんど全部＋海辺：合浦公園スタート編</a></li>
+						<li><a href="../courseD.html">コース4―海辺＋ゆかりの場所ほとんど全部：八甲田丸スタート編</a></li>
+						</ul>
+					</li>
+					<li><a href="../spots.html">スポット一覧</a></li>
+					<li><a href="../matinami.html">街並み再現</a></li>
+					<li><a href="../link.html">このwebサイトについて</a></li>
+				</ul>
 			</div>
-			<br>
-			散歩してはいかかでしょうか？このスポットは次の散歩コースに組み込まれてます。<br>
-			<a href="../courseC.html">コース3</a>
-			<a href="../courseD.html">コース4</a>
- 		</div>
+		</div>
+	</div>
+	
+	<div id="wrapper">
+		<h2>Coquelicot（コクリコ）<br><span class="sub">散歩後の一服は格別</span></h2>
+ 		写真をクリックすると拡大表示します。<br>
+ 		<a href="imgs/sp_coq_bg.jpg" data-lightbox="sp_coq" data-title="Coquelicot（コクリコ）">
+ 			<img src="imgs/sp_coq.jpg"></a>
+ 		<div id="gmap" style="width : 290px; height : 375px;"></div>
+		<div class="column">
+			合浦（がっぽ）公園の西側に隣接したコーヒースタンドです。
+
+			太宰治が４年間過ごした学校跡地を訪ね、合浦公園を散歩し、
+			太宰の通学路だった道をぶらぶら歩いて左に折れるとあります。
+
+			コーヒーは自家焙煎。
+			すべて「手仕事」なのにこのお値段、という価格で美味しいコーヒーが楽しめます。
+			散歩後の一服は格別。オープンテラスも。
+		</div>
+		電話：017-742-0222　営業：
+		<div id="link">←<a href="spot_gappo.html">合浦公園</a>　<a href="spot_station.html">青森駅</a>→<br></div>
+		散歩してはいかかでしょうか？このスポットは次の散歩コースに組み込まれてます。<br>
+		<a href="../courseC.html"><img src="imgs/spot_cs_link3.png"></a>
+		<a href="../courseD.html"><img src="imgs/spot_cs_link4.png"></a>
+ 	</div>
 </div>
 
 <div id="footer">
 	<!--フッター-->
 	<div id="footer_c">
-	 	太宰治ゆかりの地と海辺の散歩道　　
-	 	<a href="../index.html">ホーム</a>
-	 	散歩コース
-	 	<a href="../courseA.html">コース1</a>
-		<a href="../courseB.html">コース2</a>
-	 	<a href="../spots.html">スポット一覧</a>
-	 	<a href="../link.html">リンク</a>
-	 	<br>
+	 	太宰治ゆかりの地と海辺の散歩道　<a href="index.html">ホーム</a><br>
+	 	散歩コース：
+	 	<a href="courseA.html">コース1</a>｜
+		<a href="courseB.html">コース2</a>｜
+		<a href="courseC.html">コース3</a>｜
+		<a href="courseD.html">コース4</a>｜<br>
+	 	<a href="spots.html">スポット一覧</a>｜
+	 	<a href="link.html">このwebサイトについて</a>｜
+	 	<a href="matinami.html">街並み再現</a><br>
 	 	Copyright-青森大学/社会学部・ソフトウェア情報学部
 	 </div>
 </div>
