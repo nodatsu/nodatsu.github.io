@@ -69,11 +69,11 @@ ul{
 	padding-bottom:20px;
 }
 
-.column{
-	/*columns:200px auto solid #0066FF 3px
+/*.column{
+	columns:200px auto solid #0066FF 3px
 	-webkit-columns: 200px auto;
 	-o-columns: 200px auto;
-	-ms-columns: 200px auto;*/
+	-ms-columns: 200px auto;
 
 	-moz-column-count: 2;
 	-moz-column-rule: 3px dotted yellowgreen;
@@ -90,7 +90,7 @@ ul{
 	-ms-column-count: 2;
 	-ms-column-rule: 3px dotted yellowgreen;
 	-ms-column-gap:40px;
-}
+}*/
 
 #footer{
 	width:100%;
