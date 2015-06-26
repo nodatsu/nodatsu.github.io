@@ -16,7 +16,7 @@ var data = new Array();
 	data.push({ position: new google.maps.LatLng(40.829735,140.778357),content:'合浦公園西口への道',icon:"pin/pin_d.png"});						//合浦公園西口への道
 	data.push({ position: new google.maps.LatLng(40.829327, 140.776723),content:'Coquelicot',icon:"pin/pin_e.png"});							//Coquelicot(コクリコ)
 	data.push({ position:new google.maps.LatLng(40.826535, 140.760442),content:'旭橋',icon:"pin/pin_f.png"});									//旭橋
-	data.push({ position:new google.maps.LatLng(40.826805, 140.755738),content:'スマイル＆スプーンキッチンスタジオ',icon:"pin/pin_g.png"});		//スマイル＆スプーンキッチンスタジオ
+	data.push({ position:new google.maps.LatLng(40.826431, 140.755521),content:'スマイル＆スプーンキッチンスタジオ',icon:"pin/pin_g.png"});		//スマイル＆スプーンキッチンスタジオ
 	data.push({ position:new google.maps.LatLng(40.828121, 140.747416),content:'おもたか跡地',icon:"pin/pin_h.png"});							//おもだか跡地
 	data.push({ position:new google.maps.LatLng(40.825369, 140.746718),content:'太宰下宿跡地',icon:"pin/pin_i.png"});							//太宰下宿跡地
 	data.push({ position:new google.maps.LatLng(40.825222, 140.755404),content:'ホテル青森',icon:"pin/pin_j.png"});								//ホテル青森

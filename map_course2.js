@@ -21,7 +21,7 @@ var data = new Array();
 	data.push({ position:new google.maps.LatLng(40.828478, 140.748212),content:'青森製氷（株）',icon:"pin/pin_i.png"});									//青森製氷
 	data.push({ position:new google.maps.LatLng(40.829347, 140.751304),content:'青森市公会堂跡（現・しあわせプラザ）',icon:"pin/pin_j.png"});	//青森市公会堂跡（現・しあわせプラザ）
 	data.push({ position:new google.maps.LatLng(40.826535, 140.760442),content:'旭橋',icon:"pin/pin_k.png"});		//旭橋
-	data.push({ position:new google.maps.LatLng(40.826805, 140.755738),content:'スマイル＆スプーンキッチンスタジオ',icon:"pin/pin_l.png"});			//スマイル＆スプーンキッチンスタジオ
+	data.push({ position:new google.maps.LatLng(40.826431, 140.755521),content:'スマイル＆スプーンキッチンスタジオ',icon:"pin/pin_l.png"});			//スマイル＆スプーンキッチンスタジオ
 	data.push({ position:new google.maps.LatLng(40.828121, 140.747416),content:'おもたか跡地',icon:"pin/pin_m.png"});		//おもだか跡地
 	data.push({ position:new google.maps.LatLng(40.825369, 140.746718),content:'太宰下宿跡地',icon:"pin/pin_n.png"});		//太宰下宿跡地
 
