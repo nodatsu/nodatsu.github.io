@@ -1,0 +1,92 @@
+﻿#mapd {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+#zoom {
+	position: absolute;
+	width: 2em;
+	height: 1.5em;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	filter: alpha(opacity=75);
+	-moz-opacity:0.75;
+	opacity:0.75;
+	color: #fff;
+	background-color: #79d;
+	text-align: center;
+}
+#pano {
+	position: absolute;
+	margin-left: 50%;
+	width: 50%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+table#cntpanel {
+	font: normal 10px verdana;
+	text-align: left;
+	margin: 5px;
+	border: solid 1px #6e8bcc;
+	background-color: #eee;
+	_border-Collapse: collapse;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-box-shadow: 2px 2px 3px #888;
+	-webkit-box-shadow: 2px 2px 3px #888;
+	background: -moz-linear-gradient(top, #fdfdfd, #e3e3e3);
+	background: -webkit-gradient(linear, left top, left bottom, from(#fdfdfd), to(#e3e3e3));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fdfdfd, endColorstr=#e3e3e3);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#fdfdfd, endColorstr=#e3e3e3)";
+}
+table#cntpanel td {
+	padding: 0 6px;
+	text-align: left;
+	vertical-align: middle;
+}
+table#cntpanel td#caption {
+	padding: 5px 6px;
+	font: bold 12px verdana;
+	color: #fff;
+	background-color: #79d;
+	background: -moz-linear-gradient(top, #7996d7, #6e8bcc);
+	background: -webkit-gradient(linear, left top, left bottom, from(#7996d7), to(#6e8bcc));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7996d7, endColorstr=#6e8bcc);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7996d7, endColorstr=#6e8bcc)";
+	width: 7em;
+}
+table#sldpanel td {
+	border: none;
+	padding: 0;
+}
+.tracks {
+	background-color: #ddf;
+	width: 100px;
+	height: 15px;
+	font-size: 0;
+	cursor: pointer;
+}
+.slider {
+	border: solid 1px #aaa;
+}
+.slider:hover {
+	border-color: #79d;
+}
+
+/* For modern browsers */
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom: 1;
+}

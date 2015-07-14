@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<title>Google マップ - OverlayMap</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="H.Kuma" />
+<meta name="description" content="Googlemap" />
+<link rel="stylesheet" type="text/css" href="./MTileLayer.css">
+<style type="text/css">
+#maparea {
+	margin: auto;
+	width: 600px;
+	height: 550px;
+	color: #000;
+	background-color: #ddd;
+}
+#wrap {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-bottom: solid 1px #baa;
+}
+</style>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="./js/MCustomTileLayer.js"></script>
+<script type="text/javascript" src="./js/MTileLayerControl_v3.js"></script>
+<script type="text/javascript" src="./js/prototype.js"></script> 
+<script type="text/javascript" src="./js/scriptaculous.js"></script><!-- needs slider.js -->
+<script type="text/javascript" src="./js/OverlayMap.js"></script>
+<script type="text/javascript">
+// Googlemap API
+var maptype  = 'satellite';			// roadmap, satellite, hybrid, terrain
+var imgfoldr = 'image';				// マップイメージフォルダ
+var maptheme = new Array('theme1');		// レイヤーするマップのサブフォルダ（複数指定可）
+var maptitle = new Array('title1');		// レイヤーするマップのタイトル（複数指定可）
+var mapvalue = new Array('50');			// レイヤーするマップの表示率（複数指定可）
+var mapnoimg = 'noimg.gif';			// タイル無しの時の表示
+var zoomsize = 17;				// 初期ズームレベル
+var mapcentr = new Array(40.817216, 140.745069);	// 初期座標
+var debugmap = 1;	// デバッグモード（タイル座標表示＋毎表示毎にタイルキャッシュクリア：公開時は0）
+var fullflag = 0;	// 全画面表示
+window.onload=function(){ gmapload(); }		// マップロード
+</script>
+</head>
+<body>
+
+<div id="maparea" class="clearfix">
+  <div id="wrap">
+    <div id="mapd"></div>
+    <div id="pano"></div>
+    <div id="zoom"></div>
+  </div><!-- end wrap -->
+  <div id="controlsDiv" style="float:left; margin-right: 1em;"></div>
+  <div style="margin: 10px 10px 0 0; font-size: 8pt; float: right;">[ <a href="./OverlayMap_full.html" target="_blank">大きな地図で見る</a> ]</div>
+</div><!-- end maparea -->
+
+</body>
+</html>
