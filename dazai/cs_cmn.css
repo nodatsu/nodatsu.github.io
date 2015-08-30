@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+html, body, div, span, applet, object, iframe,
+/*h1, h2, h3, h4, h5, h6, p,*/ blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+ul{
+	list-style-type:none;
+}
+
+
+#wrapper_w{
+	width:100%;
+	font-size: 15px;
+	font-family: "KozGoPro-Light", "小塚ゴシック Pro L", "ヒラギノ角ゴ ProN W3",
+	 "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+	line-height:1.8;
+}
+
+#header{
+	background-image: url("imgs/line.jpg");
+	background-repeat:repeat-x;
+	height:50px;
+}
+
+#hd_menu{
+	margin-left:auto;
+	margin-right:auto;
+	width:895px;
+}
+
+#dropmenu{
+	width:590px;
+	float:right;
+}
+
+#logo{
+	float:left;
+	z-index:100;
+}
+
+#wrapper{
+	z-index:10px;
+	margin-left:auto;
+	margin-right:auto;
+	width:810px;
+	background-color:#FFFFFF;
+	/*box-shadow: 0px 0px 6px 2px #AAAAAA;
+	-webkit-box-shadow: 0px 0px 6px 2px #AAAAAA;*/
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+}
+
+/*.column{
+	columns:200px auto solid #0066FF 3px
+	-webkit-columns: 200px auto;
+	-o-columns: 200px auto;
+	-ms-columns: 200px auto;
+
+	-moz-column-count: 2;
+	-moz-column-rule: 3px dotted yellowgreen;
+	-moz-column-gap:40px;
+
+	-webkit-column-count: 2;
+	-webkit-column-rule: 3px dotted yellowgreen;
+	-webkit-column-gap:40px;
+
+	-o-column-count: 2;
+	-o-column-rule: 3px dotted yellowgreen;
+	-o-column-gap:40px;
+
+	-ms-column-count: 2;
+	-ms-column-rule: 3px dotted yellowgreen;
+	-ms-column-gap:40px;
+}*/
+
+#footer{
+	width:100%;
+	clear:both;
+	background-image: url("imgs/line.jpg");
+	font-family: "KozGoPro-Light", "小塚ゴシック Pro L", "ヒラギノ角ゴ ProN W3",
+	 "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+}
+
+#footer a{
+	color:#ffffff;
+}
+
+#footer a:visited{
+	color:#FCFFC6;
+}
+
+#footer_c{
+	margin-left:auto;
+	margin-right:auto;
+	width:500px;
+	background-image: url("imgs/line.jpg");
+	color: #FFFFFF;
+	margin-top:5px;
+	padding:5px
+}

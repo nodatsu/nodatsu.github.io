@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang ="ja">
+<head>
+ 	<title>3DCGによる街並み再現</title>
+ 	<meta charset="UTF-8">
+ 	<link href="cs_cmn.css" rel="stylesheet" type="text/css">
+ 	<link href="cs_cg.css" rel="stylesheet" type="text/css">
+ 	<link href="cs_menu3.css" rel="stylesheet" type="text/css">
+ 	<link href="lightbox.css" rel="stylesheet" type="text/css">
+ 	<link href="jquery.simplyscroll_cg.css" rel="stylesheet" type="text/css">
+ 	<script type="text/javascript" src="footerFixed.js"></script>
+ 	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+ 	<script type="text/javascript" src="jquery.simplyscroll.js"></script>
+ 	<script type="text/javascript" src="lightbox.min.js"></script>
+ 	<script>
+	 	(function($) {
+			$(function() {
+				$("#scroller").simplyScroll();
+			});
+		})(jQuery);
+ 	</script>
+</head>
+
+<body>
+
+<div id="wrapper_w">
+	<!--ヘッダー -->
+	<div id="header">
+		<div id="hd_menu">
+			<div id="logo"><a href="index.html"><img src="imgs/hedder_logo.png"></a></div>
+			<!--メニュー-->
+			<div id="dropmenu">
+				<ul id="menu">
+					<li><a href="index.html">ホーム</a></li>
+					<li><a href="#">散歩コース</a>
+						<ul>
+						<li><a href="courseA.html">コース1―太宰治と海をコンパクトに感じる</a></li>
+						<li><a href="courseB.html">コース2―芥川龍之介の講演を聴いた場所へも</a></li>
+						<li><a href="courseC.html">コース3―ゆかりの場所ほとんど全部＋海辺：合浦公園スタート編</a></li>
+						<li><a href="courseD.html">コース4―海辺＋ゆかりの場所ほとんど全部：八甲田丸スタート編</a></li>
+						</ul>
+					</li>
+					<li><a href="spots.html">スポット一覧</a></li>
+					<li><a href="matinami.html">街並み再現</a></li>
+					<li><a href="link.html">このwebサイトについて</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+ 	
+	<div id="wrapper">
+		<img src="imgs/pagebn_3d.png">
+		画像はクリックすると拡大表示します。<br>
+		<ul id="scroller">
+			<li><img src="cgimg/01.jpg" width="355" height="200"></li>
+			<li><img src="cgimg/02.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/03.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/04.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/05.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/06.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/07.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/08.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/09.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/10.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/11.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/12.jpg" width="356" height="200"></li>
+			<li><img src="cgimg/13.jpg" width="356" height="200"></li>
+		</ul>
+		<h4><img src="imgs/title_cg1.png"></h4>
+		<div>
+			青森大学のソフトウェア情報学部が
+			社会学部と連携して太宰治が旧・青森中学校を通っていた
+			時代(昭和初期)の青森市の街並みをリアルに3Dで再現する
+			というプロジェクトです。<br>
+
+			作業は資料調査からはじまりました。
+			当時の写真や絵葉書、地図、映像資料などを集めました。<br>
+
+			当たり前ですが、資料となる写真は白黒ばかりで
+			色はわからない。絵葉書に塗られている色は制作者の
+			想像に過ぎないため、正確な情報ではありません。
+			色だけではなく、建物の形も同じような問題に直面しました。<br>
+
+			ですが、なんとかビューワーとして形にすることができました。
+			太宰が見ていた昭和初期の青森市の街並みをご覧ください。
+		</div>
+		
+		<h4><img src="imgs/title_cg2.png"></h4>
+		<div>
+			開発者達のこだわりが多く垣間見るものとなりました。<br>
+			
+			<div class="contents">
+				<a href="imgs/cg_topic1_bg.jpg" data-lightbox="cg_img_1" data-title="特徴1">
+				<img src="imgs/cg_topic1.jpg" class="con_img"></a>
+				<p class="topics">
+					建物の3Dモデルは建物の規格や各パーツの大きさをきめ細かく
+					調べ、各モデルに反映されています。光源、それに伴う影、雲・・・
+					それ以外にも様々な技術が使われ、よりリアルさを演出してくれます。<br>
+					レンズフレアはそのわかりやすい特徴のひとつでしょう。<br>
+				</p>
+			</div>
+			
+			<div class="contents">
+				<p class="topics2">
+					今回開発したビューワーは朝、昼、夕方、夜と4つの時間帯に
+					変更することができ、それぞれの時間帯に対して最適な光と影などの
+					設定が施されおります。<br>
+				<a href="imgs/cg_topic2_1_bg.jpg" data-lightbox="lightbox[group1]" data-title="朝">
+				<img src="imgs/cg_topic2_1.jpg" class="con_img"></a>
+				<a href="imgs/cg_topic2_2_bg.jpg" data-lightbox="lightbox[group1]" data-title="昼">
+				<img src="imgs/cg_topic2_2.jpg" class="con_img"></a>
+				<a href="imgs/cg_topic2_3_bg.jpg" data-lightbox="lightbox[group1]"data-title="夕方">
+				<img src="imgs/cg_topic2_3.jpg" class="con_img"></a>
+				<a href="imgs/cg_topic2_4_bg.jpg" data-lightbox="lightbox[group1]" data-title="夜">
+				<img src="imgs/cg_topic2_4.jpg" class="con_img"></a>
+				</p>
+			</div>
+			
+			<div class="contents">
+				<p>
+					また、物の質感や汚れをテクスチャで表現したり、店の看板や、自転車などの道端
+					においてある、より当時の生活感をだすためのアイテムを「ノイズ」
+					と定義し、それを配置しております。
+					ノイズを設置したり、汚れを表現することによりCGによくある独特な”綺麗すぎる違和感”
+					を回避できることができます。<br>
+				<a href="imgs/cg_topic3_1_bg.jpg" data-lightbox="lightbox[group2]" data-title="生活感をだすための「ノイズ」1">
+				<img src="imgs/cg_topic3_1.jpg" class="con_img"></a>
+				<a href="imgs/cg_topic3_2_bg.jpg" data-lightbox="lightbox[group2]" data-title="生活感をだすための「ノイズ」2">
+				<img src="imgs/cg_topic3_2.jpg" class="con_img"></a>
+				</p>
+			</div>
+		</div>
+		
+		<h4 class="title"><img src="imgs/title_cg3.png"></h4>
+		<div>
+			キューブマップを利用した街並み再現が擬似的に体験できます。
+			これは開発したビューワーでスクリーンショットを撮り、
+			その画像を利用して制作しました。
+			是非体験してください。<br>
+
+			注意！<br>
+			このキューブマップはインターネットエクスプローラー(IE)、Safari
+			ではみることができません！<br>
+			Firefox(<a href="https://www.mozilla.org/ja/firefox/new/">ダウンロードはこちら</a>)、
+			Google Chrome(<a href="https://www.google.co.jp/chrome/browser/desktop/index.html">ダウンロードはこちら</a>)をご利用ください。<br>
+			こちらからどうぞ!↓<br>
+			<a href="css3d_panorama.html"><img src="imgs/cubemap_banner.png" alt="3DCGによる街並み再現を体験しよう！"></a><br>
+		</div>
+		
+		<h3>開発者について</h3>
+		<div>
+			齋藤雄輝(青森大学/ソフトウェア情報学部)<br>
+			担当：建物の3Dモデル、小物の3Dモデル、テクスチャの制作<br>
+			開発環境：Blender2.72、Gimp2、Adobe Photoshop Elements 6.0、VisualStadio 2013<br>
+			人がいるような雰囲気を出す物を作成しました。また物の劣化などを研究しました。<br>
+		</div>
+	</div>
+</div>
+	 
+<div id="footer">
+	<!--フッター-->
+	<div id="footer_c">
+	 	太宰治ゆかりの地と海辺の散歩道　<a href="index.html">ホーム</a><br>
+	 	散歩コース：
+	 	<a href="courseA.html">コース1</a>｜
+		<a href="courseB.html">コース2</a>｜
+		<a href="courseC.html">コース3</a>｜
+		<a href="courseD.html">コース4</a>｜<br>
+	 	<a href="spots.html">スポット一覧</a>｜
+	 	<a href="link.html">このwebサイトについて</a>｜
+	 	<a href="matinami.html">街並み再現</a><br>
+	 	Copyright-青森大学/社会学部・ソフトウェア情報学部
+	 </div>
+</div>
+</body>
+
+</html>

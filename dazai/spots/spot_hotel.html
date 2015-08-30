@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang ="ja">
+<head>
+ 	<title>スポット－ホテル青森</title>
+ 	<meta charset="UTF-8">
+ 	<link href="../cs_cmn.css" rel="stylesheet" type="text/css">
+ 	<link href="spot_common.css" rel="stylesheet" type="text/css">
+ 	<link href="../cs_menu3.css" rel="stylesheet" type="text/css">
+ 	<link href="../lightbox.css" rel="stylesheet" type="text/css">
+ 	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+ 	<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+ 	<script type="text/javascript" src="../lightbox.min.js"></script>
+ 	<script type="text/javascript" src="../footerFixed.js"></script>
+ 	<script type="text/javascript">
+		google.maps.event.addDomListener(window, 'load', function() {
+			var lat = 40.825225;
+			var lng =140.755400; 
+            var latlng = new google.maps.LatLng(lat, lng); 
+        	var mapOptions = { 
+            	zoom: 17, 
+            	center:latlng,
+             	mapTypeId: google.maps.MapTypeId.ROADMAP,
+             	scaleControl: true
+           	}; 
+           	var mapObj = new google.maps.Map(document.getElementById('gmap'), mapOptions);
+           	
+           	var style =[{"featureType":"landscape","elementType":"all","stylers":[{"visibility":"simplified"},{"lightness":20}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"simplified"},{"lightness":20},{"hue":"#007bff"}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"visibility":"simplified"},{"color":"#929292"}]},{"featureType":"poi.park","elementType":"all","stylers":[{"color":"#D9EDC5"}]},{"featureType":"poi.school","elementType":"geometry.fill","stylers":[{"color":"#f2e5c1"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#386FAB"}]},{"featureType":"road","elementType":"labels.text","stylers":[{"saturation":"-100"},{"visibility":"on"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#A0BDDD"},{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#7FA6CF"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.fill","stylers":[{"invert_lightness":true},{"color":"#336396"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.stroke","stylers":[{"color":"#003e7e"}]},{"featureType":"road.highway.controlled_access","elementType":"labels.text","stylers":[{"invert_lightness":true},{"lightness":"16"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#D2E5F9"},{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#6699D0"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#B0C1D3"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"on"},{"lightness":"40"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"on"},{"lightness":40}]},{"featureType":"water","elementType":"all","stylers":[{"lightness":20},{"hue":"#007fff"}]}]
+	       var samplestyleOptions = {
+    	       name: "スタイル"
+  	       };
+	
+	       var sampleMapType = new google.maps.StyledMapType(style,samplestyleOptions);
+	
+	       mapObj.mapTypes.set('simple', sampleMapType);
+	        mapObj.setMapTypeId('simple');
+           	
+         	var marker = new google.maps.Marker({
+				position:latlng,
+				map:mapObj,
+				icon:"imgs/pin.png"
+			});
+     }); 
+</script>
+</head>
+
+<body>
+
+<div id="wrapper_w">
+	<!--ヘッダー -->
+	<div id="header">
+		<div id="hd_menu">
+			<div id="logo"><a href="../index.html"><img src="../imgs/hedder_logo.png"></a></div>
+			<!--メニュー-->
+			<div id="dropmenu">
+				<ul id="menu">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="#">散歩コース</a>
+						<ul>
+						<li><a href="../courseA.html">コース1―太宰治と海をコンパクトに感じる</a></li>
+						<li><a href="../courseB.html">コース2―芥川龍之介の講演を聴いた場所へも</a></li>
+						<li><a href="../courseC.html">コース3―ゆかりの場所ほとんど全部＋海辺：合浦公園スタート編</a></li>
+						<li><a href="../courseD.html">コース4―海辺＋ゆかりの場所ほとんど全部：八甲田丸スタート編</a></li>
+						</ul>
+					</li>
+					<li><a href="../spots.html">スポット一覧</a></li>
+					<li><a href="../matinami.html">街並み再現</a></li>
+					<li><a href="../link.html">このwebサイトについて</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div id="wrapper">
+ 		<h2>ホテル青森<br><span class="sub">-「あおもり食命人」が作るスープ＋眺めの良い部屋-</span></h2>
+ 		写真をクリックすると拡大表示します。<br>
+ 		<a href="imgs/sp_hotel_bg_2.jpg"  data-lightbox="sp_hotel" data-title="浪岡バサラコーンスープ">
+ 			<img src="imgs/sp_hotel_2.jpg"></a>
+ 		<div id="gmap" style="width : 290px; height : 375px;"></div>
+		<div class="column">
+			あおもり食命人（しょくめいじん）」に登録された方の料理をいただけます。
+			「あおもり食命人」とは、｢新鮮で安全・安心な旬の県産食材を活かした健康的な食事（＝いのちを支える食）をつくる人」(青森県)のこと。
+			青森県が健康政策の一環として育成しています。<br>
+			<br>
+			ホテル青森の１階にある「カフェレストラン スワン」。ここの「浪岡バサラコーンスープ」（税込410円）は、
+			「あおもり食命人」が作っています。<br>
+			材料のコーンは、青森市郊外の浪岡地区で、
+			環境と調和の取れた農業に取り組む農業者として青森県知事に認定された人々が育てたもの。<br>
+			このスープを口にすると、滋味とか滋養といった言葉が、美味と共に浮かんできます。<br>
+			<br>
+			ホテルの部屋は、大きな窓から海が見渡せる部屋と
+			、青森市を守るように南にそびえる八甲田山が眺められる部屋の２種類。
+			お勧めは・・。
+		</div>
+		電話：017-775-4141（ホテル代表）<br>
+		営業：カフェレストラン スワン11:00~21:00（ラストオーダー）喫茶のみの場合9:30~　<br>
+		定休日：年中無休<br>
+			<br>
+		<div id="link">←<a href="spot_gesyuku.html">寺町通り＋太宰治下宿跡地</a>　<a href="spot_kitchen.html">スマイル＆スプーンキッチンスタジオ</a>→<br></div>
+		散歩してはいかかでしょうか？このスポットは次の散歩コースに組み込まれてます。<br>
+		<a href="../courseC.html"><img src="imgs/spot_cs_link3.png"></a>
+		<a href="../courseD.html"><img src="imgs/spot_cs_link4.png"></a>
+ 	</div>
+</div>
+
+<div id="footer">
+	<!--フッター-->
+	<div id="footer_c">
+	 	太宰治ゆかりの地と海辺の散歩道　<a href="index.html">ホーム</a><br>
+	 	散歩コース：
+	 	<a href="courseA.html">コース1</a>｜
+		<a href="courseB.html">コース2</a>｜
+		<a href="courseC.html">コース3</a>｜
+		<a href="courseD.html">コース4</a>｜<br>
+	 	<a href="spots.html">スポット一覧</a>｜
+	 	<a href="link.html">このwebサイトについて</a>｜
+	 	<a href="matinami.html">街並み再現</a><br>
+	 	Copyright-青森大学/社会学部・ソフトウェア情報学部
+	 </div>
+</div>
+</body>
+
+</html>
