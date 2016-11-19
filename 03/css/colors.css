@@ -1,0 +1,161 @@
+/******************************************************************************/
+/* colors.css */
+/******************************************************************************/
+
+.div_shadow {
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.8); /* ボックスシャドウ */
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Link color */
+a , li a ,dt a ,dd a ,p a , .outer a {
+	color:#6c272d;
+}
+em {
+  color: #FF0000;
+}
+
+/* Layout */
+body {
+  color: #333;
+	background:#fafafa;
+}
+#outerwrapper {
+	background:#fafafa;
+}
+
+/* Header and Footer */
+#Header {
+	background: #000;
+}
+#Footer {
+	background: #000;
+	-moz-box-shadow: 0px -2px 10px rgba(0,0,0,0.4); /* Firefox用 */
+	-webkit-box-shadow: 0px -2px 10px rgba(0,0,0,0.4); /* Safari,Chrome用 */
+	box-shadow: 0px -2px 10px rgba(0,0,0,0.4); /* CSS3 */
+}
+#Header a {
+	color: #fafafa;
+}
+
+#Sitename {
+	color: #fafafa;
+	background:transparent;
+}
+#Sitename a:link ,
+#Sitename a:visited {
+	color: #fafafa;
+	text-shadow:
+		-1px -1px 1px rgba(0, 0, 0, 0.4),
+		1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+#Sitename .Slogan {
+	color: #fafafa;
+}
+
+/* Header Menu */
+#menu_m {
+	background:#dc143c;
+}
+
+#menu_m .selected {
+	background:#000;
+	border-radius: 0 0 15px 15px ;
+	-webkit-border-radius: 0 0 15px 15px;
+	-moz-border-radius: 0 0 15px 15px;
+	-moz-box-shadow: 1px 2px 5px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 1px 2px 5px rgba(0,0,0,0.4);
+	box-shadow: 1px 2px 5px rgba(0,0,0,0.4);
+}
+
+#menu_m ul.mm li a , #menu_m ul.mm li a:visited{
+	color:#fafafa;
+}
+#menu_m ul.mm li a:hover ,
+#menu_m ul.mm li a.mm_home:hover ,
+#menu_m ul.mm li a.mm_a:hover ,
+#menu_m ul.mm li a.mm_b:hover ,
+#menu_m ul.mm li a.mm_c:hover ,
+#menu_m ul.mm li a.mm_d:hover ,
+#menu_m ul.mm li a.mm_e:hover ,
+#menu_m ul.mm li a.mm_f:hover ,
+#menu_m ul.mm li a.mm_g:hover ,
+#menu_m ul.mm li a.mm_h:hover ,
+#menu_m ul.mm li a.mm_i:hover ,
+#menu_m ul.mm li a.mm_j:hover {
+	color:#ff7f50;
+  background:#000;  
+}
+
+/* SUB MENU */
+#menu_sub {
+	background:#ccc;
+	-moz-box-shadow: 0px 2px 10px rgba(0,0,0,0.4); /* Firefox用 */
+	-webkit-box-shadow: 0px 2px 10px rgba(0,0,0,0.4); /* Safari,Chrome用 */
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.4); /* CSS3 */
+}
+#menu_sub a:link , #menu_sub a:visited {
+	color:#000;
+}
+#menu_sub a:hover {
+	color:#dc143c;
+}
+
+#outerwrapper {
+	background:url(../images/wood_texture_3_by_rifificz-d38h5zl.jpg);
+}
+
+#Container {
+	background:transparent;
+}
+
+
+/* GRID CONTENT */
+
+#grid-content div.small , 
+#grid-content div.large {
+	background:#fafafa;
+	color: #000;
+	border:1px solid #d3d3d3;
+	border-radius: 5px;        /* CSS3草案 */  
+	-webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+	-moz-border-radius: 5px;   /* Firefox用 */
+}
+#grid-content div div , 
+#grid-content div.small div {
+	background:transparent;
+}
+
+/* タイトルの設定 */
+.BlockTitle_a, .BlockTitle_b, .BlockTitle_c, .BlockTitle_d, .BlockTitle_e {
+  border-top:1px solid #ccc ;
+  border-bottom:1px solid #ccc ;
+  background : #d3d3d3;
+	color:#665a1a;
+	text-shadow: 1px 1px 1px #fafafa;
+
+	background : -webkit-gradient(linear, left top, left bottom,
+		from(#F0F0F0),
+		color-stop(0.45, #FDFDFD),
+		color-stop(0.5, #CCCCCC),
+		to(#F3F3F3));
+	background : -moz-linear-gradient(top,
+		#F0F0F0,
+		#FDFDFD 45%,
+		#CCCCCC 50%,
+		#F3F3F3);
+}
+
+
+/* footer menu */
+
+#user_menu_block ul li a ,#user_menu_block ul li a:visited {
+	color:#fafafa;
+}
+#user_menu_block a:hover{
+	color:green;
+	background:orange;
+}
+
+

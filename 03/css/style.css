@@ -1,0 +1,337 @@
+/******************************************************************************/
+/* style.css */
+/******************************************************************************/
+
+/* Reset */
+a, abbr, acronym, address, applet, article, aside, audio,
+b, blockquote, big, body,
+center, canvas, caption, cite, code, command,
+datalist, dd, del, details, dfn, dl, div, dt,
+em, embed,
+fieldset, figcaption, figure, font, footer, form,
+h1, h2, h3, h4, h5, h6, header, hgroup, html,
+i, iframe, img, ins,
+kbd,
+keygen,
+label, legend, li,
+meter,
+nav,
+object, ol, output,
+p, pre, progress,
+q,
+s, samp, section, small, span, source, strike, strong, sub, sup,
+table, tbody, tfoot, thead, th, tr, tdvideo, tt,
+u, ul,
+var{
+    background: transparent;
+    border: 0 none;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline; }
+li {list-style: none;}
+
+/* Layout */
+html {
+	height:100%;
+}
+body {
+	height:100%;
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック','Helvetica Neue',sans-serif;
+  font-size: 80%;
+  text-align: center;
+}
+
+#outerwrapper {
+	height: 100%;
+}
+body>#outerwrapper {
+	height:auto;
+	min-height:100%;
+	margin-botom:-2px;
+}
+
+/* Headline */
+h1 {
+  font-size: 140%;
+}
+h2 {
+  font-size: 120%;
+}
+h3 {
+  font-size: 110%;
+}
+h4, h5 , h6 {
+  font-size: 100%;
+}
+
+em {
+  font-weight: bold;
+  font-style: normal;
+}
+p {
+  margin: 0;
+  clear:both;
+}
+
+/* Contents */
+#Container {
+	position:relative;
+	width:98%;
+	height:auto;
+  margin: 0 0 0 10px;
+  padding-bottom:80px;
+  text-align: left;
+}
+/* Header */
+#Header {
+  width: 100%;
+  height: auto;
+	margin: 0;
+	background: #000;
+}
+
+#Sitename {
+  font-family: Georgia normal, "Times New Roman", Times, serif;
+	height:50px;
+	font-size: 36px;
+	margin-left:14px;
+	text-align:left;
+	line-height:50px;
+	padding:5px;
+}
+#Sitename-h1 {
+	margin-left:-9999em;
+	height:0;
+}
+#Sitename a:link , #Sitename a:visited {
+	text-decoration:none;
+	text-align:left;
+}
+#Sitename .Slogan {
+	font-size: 13px;
+	margin-left:10px;
+	text-align:left;
+}
+#Sitename .Slogan span {
+	font-size:20px;
+}
+/* Header Menu */
+#menu_m {
+	display:block;
+  width:100%;
+	height:auto;
+	line-height:36px;;
+	margin:0 auto;
+	text-align:center;
+}
+ul.mm {
+	position:relative;
+	text-align:center;
+	list-style: none;
+}
+ul.mm li {
+  display: -moz-inline-box;
+  display: inline-block;
+ 	margin: 0;
+	padding: 0;
+	height: 36px;
+	line-height:36px;
+	liststyle:onne;
+}
+* html ul.mm li {
+    display: inline;
+    zoom: 1;
+}
+*+html ul.mm li {
+    display: inline;
+    zoom: 1;   
+}
+ul.mm li a {
+	display: block;  
+	padding: 0 10px;
+	line-height:36px;
+	text-decoration:none;
+}
+
+/* SUB MENU */
+#menu_sub {
+	display:block;
+  width:100%;
+	height:auto;
+	line-height:24px;
+	margin:0 auto;
+	text-align:center;
+}
+#menu_sub a:link , #menu_sub a:visited {
+	display:inline-block;
+	text-decoration:none;
+	font-weight:bold;
+	font-size:80%;
+	padding: 0 5px;
+}
+
+#leftcolumn {
+	position:relative;
+	float:left;
+	width: 222px;
+	margin:0;
+	padding:0;
+	z-index:3;
+}
+
+
+/* GRID CONTENT */
+#grid-content {
+	position:relative;
+	margin-top:20px;
+	margin-bottom:30px;
+}
+
+
+#grid-content div.imagebox {
+	padding:0;
+	margin:0 0 0 5px;
+}
+/* コンテンツ内画像横幅を自動縮小（IE以外） */
+.imagebox img {
+	max-width: 95% !important;
+	height: auto;
+	width: auto\9; /* ie8 */
+	margin:0;
+}
+
+#grid-content div.small {
+	float:left;
+	width: 222px;
+	margin: 0 6px 6px 0;
+	padding: 4px;
+}
+#grid-content .clear_block {
+	margin-rignt:0;
+	clear:both;
+}
+#grid-content div.large {
+	float:left;
+	width: 456px;
+	margin: 0 5px 5px 0;
+	padding: 4px;
+	padding-left:10px;
+}
+#grid-content div.small ,
+#grid-content div.large {
+	min-height:40px;
+}
+
+#grid-content div p {
+	margin: 0;
+	padding: 0;
+}
+
+* html #grid-content div.large {
+	overflow:hidden;
+}
+
+#grid-content div.large div {
+	width: 96%;
+	margin:5px auto;
+}
+
+
+
+#grid-content div.small {
+	width: 220px;
+	line-height:1.5;
+	color: #000;
+	margin: 5px;
+	padding: 3px 15px 10px;
+	background-color: #fafafa;
+}
+#grid-content div.large {
+	width: 480px;
+	margin: 5px;
+	padding: 3px 15px 10px;
+	font-size:14px;
+}
+#grid-content div p {
+	margin: 13px 0 0;
+}
+
+
+/* タイトルの設定 */
+.BlockTitle_a, .BlockTitle_b, .BlockTitle_c, .BlockTitle_d, .BlockTitle_e {
+	margin:10px 10px 5px 10px;
+	padding:3px;
+  padding-left:15px;
+	line-height:1.2;
+}
+
+/* Footer */
+#Footer {
+	position:relative;
+  width: 100%;
+  min-height:50px;
+	background: #000;
+	clear:both;
+	margin-top:-50px;
+	z-index:1;
+}
+* html #Footer {
+	margin-top:-30px;
+}
+
+/* footer menu */
+#user_menu_block {
+	position:relative;
+  margin: 0 auto;
+	text-align:center;
+}
+#user_menu_block ul{
+	text-align: center;
+	width:97%;
+	margin-left:2%;
+}
+#user_menu_block ul li{
+	height:20px;
+  display: -moz-inline-box;   
+  display: inline-block;
+	line-height:18px;
+	text-decoration:none;
+}
+* html #user_menu_block ul li{
+  display: inline;
+  zoom: 1;   
+}
+*+html #user_menu_block ul li{
+  display: inline;   
+  zoom: 1;   
+}
+
+#user_menu_block ul li a ,#user_menu_block ul li a:visited {
+  display: block;
+	padding: 5px;
+	text-decoration:none;
+}
+
+/******************************************************************************/
+
+/* clearfix */
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  display: inline-table;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+/******************************************************************************/
+
