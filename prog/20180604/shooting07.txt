@@ -1,0 +1,114 @@
+﻿--------------------------------------------------
+shooting07
+--------------------------------------------------
+--------------------------------------------------
+メインタブ
+--------------------------------------------------
+int scene;
+
+void setup() {
+  size(400, 400);
+  scene = 0;
+  rectMode(CENTER);
+}
+
+void draw() {
+  switch (scene) {
+  case 0:
+    opening();
+    break;
+  case 1:
+    playing();
+    break;
+  case 2:
+    result();
+    break;
+  default:
+    exit();
+  }
+}
+
+--------------------------------------------------
+openingタブ
+--------------------------------------------------
+void opening() {
+  background(0);
+  fill(255);
+
+  text("OPENING", 200, 200);
+  
+  if (mousePressed) {
+    scene = 1;
+  }
+}
+
+--------------------------------------------------
+playingタブ
+--------------------------------------------------
+int eN = 3;
+float eS = 30;
+float eX = 200;
+float eY = 50;
+
+float pS = 30;
+float pX = 200;
+float pY = 350;
+float pV = 5;
+
+float sS = 15;
+float sX = 200;
+float sY = 250;
+float sV = -3;
+boolean sL = false;
+
+void playing() {
+  background(0);
+  fill(255);
+
+  text("enemies = " + eN, 300, 20);
+
+  rect(eX, eY, eS, eS);
+
+  rect(pX, pY, pS, pS);
+
+  if (sL) {
+    ellipse(sX, sY, sS, sS);
+    sY += sV;
+    if (sY < 0) {
+      sL = false;
+    }
+  }
+
+  if (keyPressed) {
+    if (key == CODED) {
+      switch (keyCode) {
+      case LEFT:
+        pX -= pV;
+        break;
+      case RIGHT:
+        pX += pV;
+        break;
+      }
+    } else {
+      if (!sL) {
+        sX = pX;
+        sY = pY;
+        sL = true;
+      }
+    }
+  }
+}
+
+--------------------------------------------------
+resultタブ
+--------------------------------------------------
+void result() {
+  background(0);
+  fill(255);
+
+  text("RESULT", 200, 200);
+
+  if (mousePressed) {
+    scene = 3;
+  }
+}
