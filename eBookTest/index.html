@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang ="ja">
 <head>
+  <title>電子書籍のテスト</title>
+ 	<meta charset="UTF-8">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126744149-1"></script>
@@ -67,7 +69,8 @@
     duration: 1200, // アニメーション速度
     when: {
       turned: function(event, page, pageObj) {
-        console.log("the current page is " + page);
+        // console.log("the current page is " + page);
+        gtag('config', 'UA-126744149-1', {'_trackPageview': '/page/' + page + '/'});
       }
     }
   });
