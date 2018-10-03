@@ -28,12 +28,16 @@
   #flipbook .shadow {
     box-shadow: 0 4px 10px red;
   }
+  /* img.maxSize {
+    width: 100%;
+    height: 100%;
+  } */
   </style>
 </head>
 <body>
   <div id="flipbook">
     <div><img src="img/top.gif"></div>
-    <div><img src="img/op1.jpg" alt=""></div>
+    <div><img src="img/op1.jpg" class="maxSize"></div>
     <div><img src="img/op2.jpg" alt=""></div>
     <div><img src="img/1.jpg" alt=""></div>
     <div><img src="img/2.jpg" alt=""></div>
@@ -70,7 +74,11 @@
     when: {
       turned: function(event, page, pageObj) {
         console.log("the current page is " + page);
-        gtag('config', 'UA-126744149-1', {'_trackPageview': '/page/' + page + '/'});
+        // gtag('config', 'UA-126744149-1', {'_trackPageview': '/eBookTest/' + page + '/'});
+        gtag('config', 'UA-126744149-1', {
+            // 'page_title': '入力画面',
+            'page_path': '/eBookTest/' + page
+        });
       }
     }
   });
