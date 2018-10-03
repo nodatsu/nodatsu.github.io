@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang ="ja">
 <head>
-  <title>v04 電子書籍のテスト</title>
+  <title>電子書籍のテスト</title>
  	<meta charset="UTF-8">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -38,29 +38,29 @@
   <div id="flipbook">
     <div><img src="img/top.gif"></div>
     <div><img src="img/op1.jpg" class="maxSize"></div>
-    <div><img src="img/op2.jpg" alt=""></div>
-    <div><img src="img/1.jpg" alt=""></div>
-    <div><img src="img/2.jpg" alt=""></div>
-    <div><img src="img/3.jpg" alt=""></div>
-    <div><img src="img/4.jpg" alt=""></div>
-    <div><img src="img/5.jpg" alt=""></div>
-    <div><img src="img/6.jpg" alt=""></div>
-    <div><img src="img/7.jpg" alt=""></div>
-    <div><img src="img/8.jpg" alt=""></div>
-    <div><img src="img/9.jpg" alt=""></div>
-    <div><img src="img/10.jpg" alt=""></div>
-    <div><img src="img/11.jpg" alt=""></div>
-    <div><img src="img/12.jpg" alt=""></div>
-    <div><img src="img/13.jpg" alt=""></div>
-    <div><img src="img/14.jpg" alt=""></div>
-    <div><img src="img/15.jpg" alt=""></div>
-    <div><img src="img/16.jpg" alt=""></div>
-    <div><img src="img/17.jpg" alt=""></div>
-    <div><img src="img/18.jpg" alt=""></div>
-    <div><img src="img/19.jpg" alt=""></div>
-    <div><img src="img/20.jpg" alt=""></div>
-    <div><img src="img/ed1.jpg" alt=""></div>
-    <div><img src="img/ed2.jpg" alt=""></div>
+    <div><img src="img/op2.jpg"></div>
+    <div><img src="img/1.jpg"></div>
+    <div><img src="img/2.jpg"></div>
+    <div><img src="img/3.jpg"></div>
+    <div><img src="img/4.jpg"></div>
+    <div><img src="img/5.jpg"></div>
+    <div><img src="img/6.jpg"></div>
+    <div><img src="img/7.jpg"></div>
+    <div><img src="img/8.jpg"></div>
+    <div><img src="img/9.jpg"></div>
+    <div><img src="img/10.jpg"></div>
+    <div><img src="img/11.jpg"></div>
+    <div><img src="img/12.jpg"></div>
+    <div><img src="img/13.jpg"></div>
+    <div><img src="img/14.jpg"></div>
+    <div><img src="img/15.jpg"></div>
+    <div><img src="img/16.jpg"></div>
+    <div><img src="img/17.jpg"></div>
+    <div><img src="img/18.jpg"></div>
+    <div><img src="img/19.jpg"></div>
+    <div><img src="img/20.jpg"></div>
+    <div><img src="img/ed1.jpg"></div>
+    <div><img src="img/ed2.jpg"></div>
   </div>
 
   <script type="text/javascript">
@@ -74,9 +74,7 @@
     when: {
       turned: function(event, page, pageObj) {
         console.log("the current page is " + page);
-        // gtag('config', 'UA-126744149-1', {'_trackPageview': '/eBookTest/' + page + '/'});
         gtag('config', 'UA-126744149-1', {
-            // 'page_title': '入力画面',
             'page_path': '/eBookTest/' + page
         });
       }
