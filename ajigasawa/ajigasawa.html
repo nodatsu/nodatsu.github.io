@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html lang ="ja">
-
 <head>
   <title>鯵ヶ沢の海と雲</title>
- 	<meta charset="UTF-8">
-
+    <meta charset="UTF-8">
   <meta http-equiv="Content-Style-Type" content="text/css">
   <meta http-equiv="Content-Script-Type" content="text/javascript">
   <link rel="stylesheet" type="text/css" href="css/slider.css">
-
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122072726-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-122072726-1');
   </script>
-
   <script type="text/javascript" src="turnjs4/extras/jquery.min.1.7.js"></script>
   <script type="text/javascript" src="turnjs4/lib/turn.min.js"></script>
-
   <style>
   #flipbook {
     width: 950px;
     height: 1280px;
   }
-
   /*#flipbook .page{
     width: 475px;
     height: 1280px;
   }*/
-
   #flipbook {
     box-shadow: 2px 2px 25px 10px rgba(0, 0, 0, 0.5);
   }
@@ -42,14 +34,12 @@
   } */
   </style>
 </head>
-
 <body>
   <script type="text/javascript">
     function changeValue(value) {
       document.getElementById("val").innerHTML = value;
     }
   </script>
-
   <div id="flipbook">
     <div><img src="img/op.jpg"></div>
     <!-- <div><img src="img/0.jpg"></div> //-->
@@ -85,15 +75,12 @@
     <div><img src="img/22.jpg"></div>
     <div><img src="img/23.jpg"></div>
     <div><img src="img/24.jpg"></div>
-
     <div><img src="img/ed.jpg"></div>
   </div>
-
   <div id="range">
     <input id="range-bar" type="range" value="1" min="1" max="34" step="1" oninput="$('#flipbook').turn('page', this.value)" class="custom"  onchange="changeValue(this.value)" >
     <span id="val">1</span>
   </div>
-
   <script type="text/javascript">
     $('#flipbook').turn({
       // width:950,
@@ -111,27 +98,22 @@
            document.getElementById("val").innerHTML = page;
            document.getElementById("range-bar").value = page;
            document.getElementById("range-bar").onchange();
-
         }
       }
     });
   </script>
-
   <script type="text/javascript">
     var Sample = {
-      wait : 10000, //待機時間（秒)
+      wait : 300, //待機時間（秒)
       url : "http://aziocean.html.xdomain.jp/ajigasawa/ajigasawa.html" //ジャンプ先URL
     };
-
     Sample.record = function() {
       this.timeout = +new Date() + this.wait * 1000;
     };
-
     Sample.check = function() {
       if (this.timeout == undefined) this.record();
       if (this.timeout - new Date() < 0) location.href = this.url;
     }
-
     //@cc_on
     document.addEventListener('touchmove', function(){
       Sample.record()
@@ -140,6 +122,5 @@
       Sample.check()
     }, 500);
   </script>
-
 </body>
 </html>
