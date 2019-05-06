@@ -19,8 +19,8 @@
 		<div class="container">
 			<h1 class="display-3">3DCG制作入門</h1>
 			<p>
-				情報リテラシー(2019年度1年生向け)<br>
-				2019/05/07, 2018/05/14<br>
+				情報リテラシー(2018年度1年生向け)<br>
+				2018/05/09, 2018/05/16<br>
 				担当: 角田
 			</p>
 		</div>
@@ -28,7 +28,7 @@
 
 	<div class="container">
 
-		講義用データ(05/07)
+		講義用データ(05/09)
 		<ul>
 		<li><a href="sample.skp">マウス操作の練習用サンプルデータ</a></li>
 		<li><a href="tutorial1.skp">チュートリアル(1)</a></li>
@@ -36,11 +36,21 @@
 		<li><a href="tutorial3.skp">チュートリアル(3)</a></li>
 		</ul>
 
+		講義用データ(05/16)
+		<ul>
+		<li><a href="ASPAM.zip">アスパムの作成</a></li>
+		</ul>
+
+		写真テクスチャ用データ(07/26)
+		<ul>
+		<li><a href="laptop.skp">ノートPC</a></li>
+		</ul>
+
 		<hr>
 	</div>
 
 	<footer class="container">
-		<p>© Aomori Univ. 2019</p>
+		<p>© Aomori Univ. 2018</p>
 	</footer>
 
 </body>
