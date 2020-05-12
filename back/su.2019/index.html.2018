@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang ="ja">
+<head>
+ 	<title>3DCG制作入門</title>
+ 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- BootstrapのCSS読み込み -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- jQuery読み込み -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- BootstrapのJS読み込み -->
+	<script src="js/bootstrap.min.js"></script>
+	<link href="jumbotron.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="jumbotron">
+		<div class="container">
+			<h1 class="display-3">3DCG制作入門</h1>
+			<p>
+				情報リテラシー(2018年度1年生向け)<br>
+				2018/05/09, 2018/05/16<br>
+				担当: 角田
+			</p>
+		</div>
+	</div>
+
+	<div class="container">
+
+		講義用データ(05/09)
+		<ul>
+		<li><a href="sample.skp">マウス操作の練習用サンプルデータ</a></li>
+		<li><a href="tutorial1.skp">チュートリアル(1)</a></li>
+		<li><a href="tutorial2.skp">チュートリアル(2)</a></li>
+		<li><a href="tutorial3.skp">チュートリアル(3)</a></li>
+		</ul>
+
+		講義用データ(05/16)
+		<ul>
+		<li><a href="ASPAM.zip">アスパムの作成</a></li>
+		</ul>
+
+		写真テクスチャ用データ(07/26)
+		<ul>
+		<li><a href="laptop.skp">ノートPC</a></li>
+		</ul>
+
+		<hr>
+	</div>
+
+	<footer class="container">
+		<p>© Aomori Univ. 2018</p>
+	</footer>
+
+</body>
+
+</html>
