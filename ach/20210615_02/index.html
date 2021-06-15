@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <script src="../js/three.min.js"></script>
+  <script src="../js/controls/OrbitControls.js"></script>
+  <script src="../js/xmlhttp.js"></script>
+
+  <script>
+    var photo = [];  // 写真情報
+    var s = [];      // 写真を貼り付けた球オブジェクト
+    var marker = []; // 移動用マーカー
+    var map2d;       // 2Dマップ背景
+    var dots = [];   // 2Dマップ上の点
+    var sight;       // 2Dマップ上の視野
+    var mw;
+    var mh;
+    var dx = [ 175,  74,   20,  25,  95];    // x方向の位置調整
+    var dz = [-138, -125, -135, -132, -115];    // z方向の位置調整
+    var sc = [1.66, 2.70, 3.70, 4.00, 4.00];    // ポイント座標スケール
+
+    var defaultCamera = {x:0, y:0, z:0};     // カメラの初期位置
+    var defaultAngle =180;                    // 初期の視線方向
+    var targetDistance = 0.1;                // カメラから注視点まで
+    var defaultTarget = {};                  // 注視点の初期位置
+
+    defaultTarget.x = defaultCamera.x + targetDistance * Math.cos(Math.PI/180*defaultAngle);
+    defaultTarget.y = defaultCamera.y;
+    //defaultTarget.y = defaultCamera.y-0.052;
+    defaultTarget.z = defaultCamera.z + targetDistance * Math.sin(Math.PI/180*defaultAngle);
+    var pressed = false; // マウスボタン押下フラグ
+    var cno = 25;         // 現在地の番号
+    var dno = 0;         // 目的地の番号
+    var moving = false;  // 「移動中」フラグ
+    var mFrame = 30;     // 移動にかけるフレーム数
+    var cFrame = 0;      // 移動中の現在のフレーム
+    var debugging = true; //デバッグ中フラグ
+    var currentFloor = '1';
+
+    // スクロール禁止
+    function no_scroll() {
+      // PCでのスクロール禁止
+      document.addEventListener("mousewheel", scroll_control, { passive: false });
+      // スマホでのタッチ操作でのスクロール禁止
+      document.addEventListener("touchmove", scroll_control, { passive: false });
+    }
+    // スクロール禁止解除
+    function return_scroll() {
+      // PCでのスクロール禁止解除
+      document.removeEventListener("mousewheel", scroll_control, { passive: false });
+      // スマホでのタッチ操作でのスクロール禁止解除
+      document.removeEventListener('touchmove', scroll_control, { passive: false });
+    }
+    // スクロール関連メソッド
+    function scroll_control(event) {
+      event.preventDefault();
+    }
+
+    // 2Dマップ・3Dオブジェクト再読み込み
+    function resetObjects(photo){
+      if (map2d!=null){
+        for (var i=0; i<map2d.length; i++){
+          scene2.remove(map2d[i]);
+        }
+      }
+      if (dots!=null){
+        for (var i=0; i<dots.length; i++){
+          scene2.remove(dots[i]);
+        }
+      }
+      if (s!=null){
+        for (var i=0; i<s.length; i++){
+          scene.remove(s[i]);
+        }
+      }
+      if (marker!=null){
+        for (var i=0; i<marker.length; i++){
+          scene.remove(marker[i]);
+        }
+      }
+
+      const texLoader = new THREE.TextureLoader();
+      texLoader.crossOrigin = '*';
+
+      // 2Dマップ作成
+      THREE.ImageUtils.loadTexture("../map/map"+currentFloor+".png", undefined, function(texture) {
+        var material = new THREE.SpriteMaterial({map: texture, color: 0xFFFFFF, transparent: true, opacity:0.8, depthTest:false});
+        mw = texture.image.width, mh = texture.image.height;
+        map2d = new THREE.Sprite(material); // 2Dマップ背景のスプライト
+        map2d.position.set(-(document.body.offsetWidth-20)/2+mw/2, document.body.offsetHeight/2-mh/2-70, -1);
+        map2d.scale.set(mw, -mh, 1);
+        scene2.add(map2d);
+      });
+
+      // 2Dマップ上のマーカー作成
+      THREE.ImageUtils.loadTexture("../map/dot.png", undefined, function(texture) {
+        for(var i = 0; i< photo.length; i++){
+          var cl =0xFFFF00;
+          if (i==cno)
+            cl = 0xFF0000;
+          var dm = new THREE.SpriteMaterial({map: texture, color: cl, transparent: true, opacity:0.8, depthTest:false});
+          dots[i] = new THREE.Sprite(dm);
+          dots[i].position.set(-document.body.offsetWidth/2+photo[i].x*sc[currentFloor]+dx[currentFloor], document.body.offsetHeight/2-photo[i].z*sc[currentFloor]+dz[currentFloor], -0.8);
+          dots[i].scale.set(8, -8, 1);
+          scene2.add(dots[i]);
+        }
+      });
+
+      // 背景オブジェクト作成
+      var m = [];
+      for(var i = 0; i< photo.length; i++){
+        m[i] = new THREE.MeshPhongMaterial({map: texLoader.load('../photo/' + photo[i].pname+'.jpg')});
+        m[i].side = THREE.DoubleSide;
+        s[i] = new THREE.Mesh(new THREE.SphereGeometry(50,32,32), m[i]);
+        s[i].geometry.scale(-1,1,1);
+        s[i].rotation.x = Math.PI*photo[i].anglex/180;
+        s[i].rotation.y = Math.PI*photo[i].angley/180;
+        s[i].rotation.z = Math.PI*photo[i].anglez/180;
+        s[i].position.set(0, 0, 0);
+        s[i].ridge = photo[i].ridge;
+        s[i].floor = photo[i].floor;
+        s[i].no = photo[i].no;
+        s[i].x = photo[i].x;
+        s[i].z = photo[i].z;
+        s[i].material.transparent = true;
+        s[i].material.opacity = 1;
+      }
+      scene.add(s[cno]);
+
+      // マーカーオブジェクト作成
+      var material = new THREE.MeshBasicMaterial( {side: THREE.DoubleSide,  color: 0xffff00 } );
+      for(var i = 0; i< photo.length; i++){
+        var geometry = new THREE.CylinderGeometry(0.6, 0.6, 0.05, 60);
+        marker[i] = new THREE.Mesh( geometry, material );
+        marker[i].position.set(photo[i].x-photo[cno].x, photo[i].y-photo[cno].y-2, photo[i].z-photo[cno].z);
+        for(var j = 0; j < marker[i].geometry.faces.length; j++){
+          marker[i].geometry.faces[j].no = photo[i].no;
+        }
+        scene.add( marker[i] );
+      }
+    }
+
+    function initObjects(fname) {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+          if (xmlhttp.status == 200) {
+            // データ読み込み
+            var data = JSON.parse(xmlhttp.responseText);
+            photo = data.pdata;
+            for (var i=0; i<data.pdata.length; i++){
+              photo[i] = {ridge:data.pdata[i].ridge, floor:data.pdata[i].floor, no:i, 
+                          x:data.pdata[i].x, z:data.pdata[i].z,y:data.pdata[i].y, pname:data.pdata[i].pname,
+                          anglex:data.pdata[i].anglex,angley:data.pdata[i].angley,anglez:data.pdata[i].anglez,
+                          name:data.pdata[i].name, info:data.pdata[i].info};
+            }
+
+            const texLoader = new THREE.TextureLoader();
+            texLoader.crossOrigin = '*';
+
+            // 2Dマップ上の視野
+            THREE.ImageUtils.loadTexture("../map/sight.png", undefined, function(texture) {
+              var material = new THREE.SpriteMaterial({map: texture, color: 0x00FFFF, transparent: true, opacity:0.4, depthTest:false});
+              sight = new THREE.Sprite(material); // 2Dマップ背景のスプライト
+              sight.position.set(-document.body.offsetWidth/2+photo[cno].x*sc[currentFloor]+dx[currentFloor], document.body.offsetHeight/2-photo[cno].z*sc[currentFloor]+dz[currentFloor], -0.2);
+              sight.scale.set(80, -80, 1);
+              scene2.add(sight);
+            });
+            resetObjects(photo);
+          } else {
+          }
+        }
+      }
+      xmlhttp.open("GET", "data/"+fname+".json");
+      xmlhttp.send();
+    }
+
+    // 階移動前の位置(x, z)に最も近いポイントに移動する
+    function setCDPosition(fname, x, z){
+      cno=0;
+      dno=0;
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+          if (xmlhttp.status == 200) {
+            // データ読み込み
+            var data = JSON.parse(xmlhttp.responseText);
+            photo = data.pdata;
+            for (var i=0; i<data.pdata.length; i++){
+              photo[i] = {ridge:data.pdata[i].ridge, floor:data.pdata[i].floor, no:i,
+                          x:data.pdata[i].x, z:data.pdata[i].z,y:data.pdata[i].y, pname:data.pdata[i].pname,
+                          anglex:data.pdata[i].anglex,angley:data.pdata[i].angley,anglez:data.pdata[i].anglez,
+                          name:data.pdata[i].name, info:data.pdata[i].info};
+            }
+
+            var d=100000; // 水平距離の最小値
+            var ni=-1;    // 距離が最小になる点のインデックス
+            // 階移動後のすべてのポイントのうち、元のポイントに一番近いポイントを調べる→ni
+            for (var i=0; i<photo.length;i++){
+              var di=Math.sqrt((photo[i].x-x)*(photo[i].x-x)+(photo[i].z-z)*(photo[i].z-z));
+              if (di<d){
+                d=di;
+                ni=i;
+              }
+            }
+            // 一番近い点を開始位置にする
+            if (ni!=-1){
+              cno = ni;
+              dno = ni;
+            }
+            resetObjects(photo);
+            // 最上階以外なら上がるボタンを復活
+            if (currentFloor<4){
+              document.getElementById("up").disabled=false;
+            }
+            // 最下階以外なら下りるボタンを復活
+            if (currentFloor>0){
+              document.getElementById("down").disabled=false;
+            }
+          } else {
+          }
+
+        }
+      }
+      xmlhttp.open("GET", fname+".json");
+      xmlhttp.send();
+    }
+
+    function climbFloor(){
+      var n = parseInt(currentFloor);
+      currentFloor=(n+1);
+      var x = photo[cno].x; // 移動前の東西座標
+      var z = photo[cno].z; // 移動前の南北座標
+      setCDPosition(n+1, x, z);
+      document.getElementById("up").disabled=true;
+      document.getElementById("down").disabled=true;
+    }
+
+    function descendFloor(){
+      var n = parseInt(currentFloor);
+      currentFloor=(n-1);
+      var x = photo[cno].x; // 移動前の東西座標
+      var z = photo[cno].z; // 移動前の南北座標
+      setCDPosition(n-1, x, z);
+      document.getElementById("up").disabled=true;
+      document.getElementById("down").disabled=true;
+    }
+
+    function jump(no) {
+      if(debugging){
+        for(var i=0; i<marker.length; i++){
+          marker[i].visible = false;
+        }
+      }
+      for(var i=0; i<s.length; i++){
+        scene.remove(s[i]);
+      }
+      for(var i=0; i<s.length; i++){
+        if(s[i].no==no){
+          dno = i;
+        }
+      }
+      moving = true;
+      cFrame = 0;
+      s[dno].position.set(photo[dno].x-photo[cno].x, photo[dno].y-photo[cno].y, photo[dno].z-photo[cno].z);
+      s[cno].position.set(0, 0, 0);
+      s[dno].material.opacity = 0;
+      s[cno].material.opacity = 1;
+      s[dno].material.depthTest = false;
+      scene.add(s[dno]);
+      scene.add(s[cno]);
+    }
+
+    window.addEventListener('load', init);
+
+    // シーンを作成
+    const scene = new THREE.Scene();
+    const scene2 = new THREE.Scene();
+
+    function init() {
+      // サイズを指定
+      const width = document.body.offsetWidth-20;
+      const height = window.innerHeight-250;
+      // レンダラーを作成
+      const renderer = new THREE.WebGLRenderer({
+        canvas: document.querySelector('#myCanvas'),
+      });
+      renderer.autoClear = false;
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(width, height);
+      // カメラを作成
+      const camera = new THREE.PerspectiveCamera(45, width/height, 0.1, 10000);
+      // カメラの初期座標を設定
+      camera.position.set(defaultCamera.x, defaultCamera.y, defaultCamera.z);
+
+      // 2D描画用カメラ
+      const camera2 = new THREE.PerspectiveCamera(90, width/height, 0.1, 1000);
+//      const camera2 = new THREE.OrthographicCamera(0, width, 0, height, 0.001, 10000);
+      camera2.position.z = height / 2;
+
+      // カメラコントローラーを作成
+      const controls = new THREE.OrbitControls(camera);
+      controls.target.set(defaultTarget.x, defaultTarget.y, defaultTarget.z);
+      controls.update();
+
+      // 環境光を追加
+      const ambientLight = new THREE.AmbientLight(0xFFFFFF);
+      scene.add(ambientLight);
+
+      // canvas 要素の参照を取得する
+      const canvas = document.querySelector('#myCanvas');
+
+      // マウス座標管理用のベクトルを作成
+      const mouse = new THREE.Vector2();
+      // マウスイベントを登録
+      canvas.addEventListener('mousedown', handleMouseDown);
+      canvas.addEventListener('mousemove', handleMouseMove);
+      canvas.addEventListener('mouseup', handleMouseUp);
+      var dragged = false;
+      var clicked = false;
+      // マウスを動かしたときのイベント
+      function handleMouseDown(event) {
+        pressed = true;
+        dragged = false;
+        clicked = false;
+      }
+      function handleMouseMove(event) {
+        dragged = true;
+        var a = controls.getAzimuthalAngle();
+        sight.material.rotation = a;
+      }
+      function handleMouseUp(event) {
+        if(!dragged){
+          clicked = true;
+        }
+        pressed = false;
+        const element = event.currentTarget;
+        // canvas要素上のXY座標
+        const x = event.clientX - element.offsetLeft;
+        const y = event.clientY - element.offsetTop;
+        // canvas要素の幅・高さ
+        const w = element.offsetWidth;
+        const h = element.offsetHeight;
+
+        // -1?+1の範囲で現在のマウス座標を登録する
+        mouse.x = ( x / w ) * 2 - 1;
+        mouse.y = -( y / h ) * 2 + 1;
+      }
+
+      initObjects(currentFloor);
+      const raycaster = new THREE.Raycaster();
+      tick();
+      // 毎フレーム実行されるループイベント
+      function tick() {
+        const textarea1 = document.dForm.pname;
+        if(photo[cno] != null) {
+          textarea1.value = photo[cno].name;
+        }
+        const textarea2 = document.tForm.fname;
+        if(photo[cno] != null) {
+          if (currentFloor == 0){
+            textarea2.value = "校舎外";
+          } else if (currentFloor == 4){
+            textarea2.value = "屋上";
+          } else {
+            textarea2.value = currentFloor+"階";
+          }
+        }
+        const textarea3 = document.dForm.pinfo;
+        if(photo[cno] != null) {
+          textarea3.value = photo[cno].info;
+        }
+        controls.update();
+        // レイキャスト = マウス位置からまっすぐに伸びる光線ベクトルを生成
+        raycaster.setFromCamera(mouse, camera);
+        // その光線とぶつかったオブジェクトを得る
+        const intersects = raycaster.intersectObjects(scene.children);
+        if(!moving && intersects.length > 1){
+          if(clicked){
+            if(intersects[0].face.no != undefined){
+              jump(intersects[0].face.no);
+            }
+            clicked = false;
+          }
+        }
+        if (moving){
+          cFrame++;
+          s[cno].material.opacity = 1-cFrame/mFrame; // 移動前の球をだんだん透明に
+          s[dno].material.opacity = cFrame/mFrame;   // 移動先の球をだんだん不透明に
+          // 球を移動
+          s[cno].position.x -= (photo[dno].x - photo[cno].x)/mFrame;
+          s[dno].position.x -= (photo[dno].x - photo[cno].x)/mFrame;
+          s[cno].position.y -= (photo[dno].y - photo[cno].y)/mFrame;
+          s[dno].position.y -= (photo[dno].y - photo[cno].y)/mFrame;
+          s[cno].position.z -= (photo[dno].z - photo[cno].z)/mFrame;
+          s[dno].position.z -= (photo[dno].z - photo[cno].z)/mFrame;
+          // マーカーを移動
+          for(var i=0; i<s.length; i++){
+            marker[i].position.x -= (photo[dno].x - photo[cno].x)/mFrame;
+            marker[i].position.y -= (photo[dno].y - photo[cno].y)/mFrame;
+            marker[i].position.z -= (photo[dno].z - photo[cno].z)/mFrame;
+          }
+          // 2Dマップ上の視野を移動
+          sight.position.x = dots[cno].position.x*(1-cFrame/mFrame)+(dots[dno].position.x)*cFrame/mFrame;
+          sight.position.y = dots[cno].position.y*(1-cFrame/mFrame)+(dots[dno].position.y)*cFrame/mFrame;
+
+          // 規定フレーム進んだら移動終了
+          if (cFrame >= mFrame){
+            s[dno].material.opacity = 1;
+            s[dno].material.depthTest = true;
+            scene.remove(s[cno]);
+            dots[cno].material.color.setHex(0xFFFF00);
+            dots[dno].material.color.setHex(0xFF0000);
+            sight.position.x=dots[dno].position.x;
+            sight.position.y=dots[dno].position.y;
+            cno = dno;
+            moving = false;
+            if(debugging){
+              for(var i=0; i<marker.length; i++){
+                marker[i].visible = true;
+              }
+            }
+            if(currentFloor==4){
+              document.getElementById("up").disabled=true;
+            }
+          }
+        }
+        // レンダリング
+        renderer.render(scene, camera);
+        renderer.render(scene2, camera2);
+        requestAnimationFrame(tick);
+      }
+    }
+
+  </script>
+  <title>青森商業ウォークスルー</title>
+</head>
+<body bgcolor = "#000000">
+  <form name="tForm">
+    <input type="button" id="up" value="↑" onclick="climbFloor()" style= "font-size:2em">
+    <input type="button" id="down" value="↓" onclick="descendFloor()" style= "font-size:2em">
+    <textarea name="fname" rows="1" cols="20" style="border:none;color:#FFFFFF; background-color:#000000; font-size:2em"></textarea>
+  </form>
+  <center>
+    <canvas id="myCanvas">
+    </canvas>
+  </center>
+  <form name="dForm">
+   <textarea name="pname" rows="1" cols="40" style="border:none;color:#FFFFFF; background-color:#000000; font-size:2em"></textarea><br>
+   <textarea name="pinfo" rows="2" cols="80" style="border:none;color:#FFFFFF; background-color:#000000; font-size:2em"></textarea>
+  </form>
+</body>
+</html>

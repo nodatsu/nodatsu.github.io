@@ -1,0 +1,25 @@
+{
+  "pdata":[
+      {"ridge":"青森商業高校校舎","floor":2,"x":162,"z":0,"y":0,"pname":"2-1","anglex":0,"angley":-2.5,"anglez":0,"name":"2年1組","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":148,"z":0,"y":0,"pname":"2-2","anglex":0,"angley":-3.3,"anglez":0,"name":"2年2組","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":134,"z":0,"y":0,"pname":"2-3","anglex":0,"angley":4,"anglez":0,"name":"2年3組","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":120,"z":0,"y":0,"pname":"2-4","anglex":0,"angley":2,"anglez":0,"name":"2年4組","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":106,"z":0,"y":0,"pname":"2-5","anglex":0,"angley":2,"anglez":0,"name":"2年5組","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":73,"z":0,"y":0,"pname":"horu21","anglex":0,"angley":0.8,"anglez":0,"name":"2Fホール 西","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":85,"z":0,"y":0,"pname":"horu22","anglex":0,"angley":0.8,"anglez":0,"name":"2Fホール 東","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":59,"z":0,"y":0,"pname":"sentaku5","anglex":0,"angley":2,"anglez":0,"name":"選択教室5","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":45,"z":0,"y":0,"pname":"sentaku2","anglex":0,"angley":0.5,"anglez":0,"name":"選択教室2","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":26,"z":0,"y":0,"pname":"syogai","anglex":0,"angley":2,"anglez":0,"name":"渉外室","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":18,"z":0,"y":0,"pname":"tosyositunaka","anglex":0,"angley":2,"anglez":0,"name":"図書室","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":10,"z":0,"y":0,"pname":"tosyositu","anglex":0,"angley":3,"anglez":0,"name":"図書室内","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":0,"z":0,"y":0,"pname":"2fevhoru","anglex":0,"angley":0,"anglez":0,"name":"2F EVホール","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":37.5,"z":0,"y":-0.35,"pname":"2fkanritoue","anglex":0,"angley":91,"anglez":0,"name":"2F管理棟へ","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":37.5,"z":16,"y":0,"pname":"2fkeijiban","anglex":0,"angley":93,"anglez":0,"name":"2F掲示板","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":37.5,"z":32,"y":0,"pname":"newsyokuinsitu","anglex":0,"angley":93,"anglez":0,"name":"職員室","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":37.5,"z":43,"y":0,"pname":"newshinroousetusitu","anglex":0,"angley":92,"anglez":0,"name":"進路応接室","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":37.5,"z":55,"y":0,"pname":"insatusitu","anglex":0,"angley":92,"anglez":0,"name":"印刷室","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":37.5,"z":63,"y":0,"pname":"kaigisitu","anglex":0,"angley":182,"anglez":0,"name":"会議室","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":66,"z":-10,"y":-1,"pname":"23fjyositoire","anglex":0,"angley":-90,"anglez":0,"name":"女子トイレ","info":"・・・する場所。・・・には・・・をすることもある"},
+      {"ridge":"青森商業高校校舎","floor":2,"x":59,"z":-10,"y":-1,"pname":"23fdansitoire","anglex":0,"angley":-90,"anglez":0,"name":"男子トイレ","info":"・・・する場所。・・・には・・・をすることもある"}
+  ]
+}
