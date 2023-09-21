@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>サイコロ</title>
+    <style>
+      #button {
+        width: 100px;
+        height: 100px;
+        background: gray;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      .round {
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="button">
+    </div>
+
+    <script>
+      'use strict';
+
+      const button = document.getElementById('button');
+      let count = 0;
+
+      button.addEventListener('click', () => {
+        button.classList.toggle('round');
+        // button.textContent = ++count;
+        button.textContent = Math.ceil(Math.random() * 6);
+      });
+    </script>
+
+  </body>
+</html>

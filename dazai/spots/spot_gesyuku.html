@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang ="ja">
+<head>
+ 	<title>スポット－太宰治下宿跡地</title>
+ 	<meta charset="UTF-8">
+ 	<link href="../cs_cmn.css" rel="stylesheet" type="text/css">
+ 	<link href="spot_common.css" rel="stylesheet" type="text/css">
+ 	<link href="../cs_menu3.css" rel="stylesheet" type="text/css">
+ 	<link href="../lightbox.css" rel="stylesheet" type="text/css">
+ 	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+ 	<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+ 	<script type="text/javascript" src="../lightbox.min.js"></script>
+ 	<script type="text/javascript" src="../footerFixed.js"></script>
+ 	<script type="text/javascript">
+		google.maps.event.addDomListener(window, 'load', function() {
+			var lat = 40.825453;
+			var lng = 140.746560; 
+            var latlng = new google.maps.LatLng(lat, lng); 
+        	var mapOptions = { 
+            	zoom: 17, 
+            	center:latlng,
+             	mapTypeId: google.maps.MapTypeId.ROADMAP,
+             	scaleControl: true
+           	}; 
+           	var mapObj = new google.maps.Map(document.getElementById('gmap'), mapOptions);
+           	
+           		var style =[{"featureType":"landscape","elementType":"all","stylers":[{"visibility":"simplified"},{"lightness":20}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"simplified"},{"lightness":20},{"hue":"#007bff"}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"visibility":"simplified"},{"color":"#929292"}]},{"featureType":"poi.park","elementType":"all","stylers":[{"color":"#D9EDC5"}]},{"featureType":"poi.school","elementType":"geometry.fill","stylers":[{"color":"#f2e5c1"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#386FAB"}]},{"featureType":"road","elementType":"labels.text","stylers":[{"saturation":"-100"},{"visibility":"on"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#A0BDDD"},{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#7FA6CF"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.fill","stylers":[{"invert_lightness":true},{"color":"#336396"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.stroke","stylers":[{"color":"#003e7e"}]},{"featureType":"road.highway.controlled_access","elementType":"labels.text","stylers":[{"invert_lightness":true},{"lightness":"16"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#D2E5F9"},{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#6699D0"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#B0C1D3"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"on"},{"lightness":"40"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"on"},{"lightness":40}]},{"featureType":"water","elementType":"all","stylers":[{"lightness":20},{"hue":"#007fff"}]}]
+	       var samplestyleOptions = {
+    	       name: "スタイル"
+  	       };
+	
+	       var sampleMapType = new google.maps.StyledMapType(style,samplestyleOptions);
+	
+	       mapObj.mapTypes.set('simple', sampleMapType);
+	        mapObj.setMapTypeId('simple');
+           	
+         	var marker = new google.maps.Marker({
+				position:latlng,
+				map:mapObj,
+				icon:"imgs/pin.png"
+			});
+     }); 
+</script>
+</head>
+
+<body>
+
+<div id="wrapper_w">
+	<!--ヘッダー -->
+	<div id="header">
+		<div id="hd_menu">
+			<div id="logo"><a href="../index.html"><img src="../imgs/hedder_logo.png"></a></div>
+			<!--メニュー-->
+			<div id="dropmenu">
+				<ul id="menu">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="#">散歩コース</a>
+						<ul>
+						<li><a href="../courseA.html">コース1―太宰治と海をコンパクトに感じる</a></li>
+						<li><a href="../courseB.html">コース2―芥川龍之介の講演を聴いた場所へも</a></li>
+						<li><a href="../courseC.html">コース3―ゆかりの場所ほとんど全部＋海辺：合浦公園スタート編</a></li>
+						<li><a href="../courseD.html">コース4―海辺＋ゆかりの場所ほとんど全部：八甲田丸スタート編</a></li>
+						</ul>
+					</li>
+					<li><a href="../spots.html">スポット一覧</a></li>
+					<li><a href="../matinami.html">街並み再現</a></li>
+					<li><a href="../link.html">このwebサイトについて</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div id="wrapper">
+ 		<h2>寺町通り＋太宰治下宿跡地<br><span class="sub">-「たいへん重大な時期」(太宰治「津軽」）の生活拠点-</span></h2>
+ 		写真をクリックすると拡大表示します。<br>
+ 		<div id="gmap" style="width : 800px; height : 250px;"></div>
+ 			<a href="imgs/sp_gesyuku_bg_1.jpg" data-lightbox="lightbox[group_sp_gesyuku]" data-title="太宰治下宿跡地">
+ 				<img src="imgs/sp_gesyuku_1.jpg"></a>
+ 			<a href="imgs/sp_gesyuku_bg_2.jpg" data-lightbox="lightbox[group_sp_gesyuku]" data-title="当時の寺町から見た新町通り">
+ 				<img src="imgs/sp_gesyuku_2.jpg"></a>
+ 			<a href="imgs/sp_gesyuku_bg_3.jpg" data-lightbox="lightbox[group_sp_gesyuku]" data-title="現在の寺町通り">
+ 				<img src="imgs/sp_gesyuku_3.jpg"></a>
+		<div class="column">
+			青森市で過ごした4年間のことを、太宰治は「津軽」で次のように述べています（「太宰治全集第六巻」筑摩書房 1990）。<br>
+			「私の生涯に於いて、たいへん重大な時期でもあったやうである」<br>
+			「私にとって忘れがたい期間であったとも言へるであらう」<br>
+			<br>
+			自己の人生の行方に思いを巡らせ、自分の道を切り拓きたかったのであろう、
+			その「時期」「期間」の生活拠点となったのが、寺町通りの下宿先。老舗呉服店を営んでいた親類宅でした。<br>
+			<br>
+			寺町通りは青森駅から東へ約1㎞。青森駅前から延びる新町通りの延長上に位置します。
+			4つのお寺が並び、今も寺町通りと呼ばれています。
+			お寺のほか、老舗の店舗が軒を並べる通りですが、太宰が暮らしていた呉服店は今はなく、駐車場となっています（写真左）。
+			<br>
+			太宰治の青森市在住時は、都市としての青森市の転換期と重なります。新町が青森市一の繁華街へと変化していったことも、その１つ。<br>
+			象徴は1921年、デパート「松木屋呉服店」が開店したこと。太宰治が近くで暮らし始める約1年半前です。ドーム型屋根を持つ3階建て。
+			日本で当時、通りの角地に建つ建物のデザインとして最先端をいくものでした。（写真中　提供：青森まちかど歴史の庵 奏海)。<br>
+			ヨーロッパ風のその建物を、学生服の太宰治は間近に見て毎日、通学していたはずです。<br>
+			しかし、松木屋呉服店は1945年、アメリカ軍機による空襲に備えて取り壊されました。
+			戦後、松木屋百貨店として別の場所に新築され、数十年営業を続けましたが、閉業。<br>
+			寺町通りから見る風景もすっかり変わりました（写真右）。<br>
+			<br>
+			青森市で暮らしつつ、太宰治は作家になる気持ちを固めていきました。
+			そのことに影響を与えた青森市の街の何かが、都市の変遷に埋没せず、場所の力として残っているか。
+			青森市への旅で感じていただければ、と思います。
+		</div>
+		<div id="link">←<a href="spot_omotaka.html">おもたか跡地</a>　<a href="spot_hotel.html">ホテル青森</a>→<br></div>
+		散歩してはいかかでしょうか？このスポットは全ての散歩コースに組み込まれてます。<br>
+		<a href="../courseA.html"><img src="imgs/spot_cs_link1.png"></a>
+		<a href="../courseB.html"><img src="imgs/spot_cs_link2.png"></a><br>
+		<a href="../courseC.html"><img src="imgs/spot_cs_link3.png"></a>
+		<a href="../courseD.html"><img src="imgs/spot_cs_link4.png"></a>
+ 	</div>
+</div>
+
+<div id="footer">
+	<!--フッター-->
+	<div id="footer_c">
+	 	太宰治ゆかりの地と海辺の散歩道　<a href="index.html">ホーム</a><br>
+	 	散歩コース：
+	 	<a href="courseA.html">コース1</a>｜
+		<a href="courseB.html">コース2</a>｜
+		<a href="courseC.html">コース3</a>｜
+		<a href="courseD.html">コース4</a>｜<br>
+	 	<a href="spots.html">スポット一覧</a>｜
+	 	<a href="link.html">このwebサイトについて</a>｜
+	 	<a href="matinami.html">街並み再現</a><br>
+	 	Copyright-青森大学/社会学部・ソフトウェア情報学部
+	 </div>
+</div>
+</body>
+
+</html>

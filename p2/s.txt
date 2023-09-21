@@ -1,0 +1,39 @@
+float ex, ey;
+float vx;
+int es;
+
+void setup() {
+  size(600, 800);
+  ex = random(0, width);
+  ey = random(0, height);
+  vx = random(0, 20);
+  es = 50;
+}
+
+void draw() {
+  background(0);
+
+  ellipse(ex, ey, es, es);
+  
+  ex += vx;
+  if (ex < 0 || ex > width) {
+    vx *= -1;
+  }
+}
+
+class Enemy {
+  // フィールド
+  
+  // コンストラクタ
+  Enemy() {
+    // 初期化処理
+  }
+
+  // メソッド
+  void display() {
+    // 表示処理
+  }
+  void update() {
+    // 更新処理(移動)
+  }
+}

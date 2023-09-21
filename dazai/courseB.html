@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang ="ja">
+<head>
+ 	<title>太宰治ゆかりの地と海辺の散歩道-コース2</title>
+ 	<meta charset="UTF-8">
+ 	<link href="cs_cmn.css" rel="stylesheet" type="text/css">
+ 	<link href="cs_course.css" rel="stylesheet" type="text/css">
+ 	<link href="cs_menu3.css" rel="stylesheet" type="text/css">
+ 	<link href="jquery.simplyscroll.css" rel="stylesheet" type="text/css">
+ 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+ 	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+ 	<script type="text/javascript" src="map_course2.js"></script>
+ 	<script type="text/javascript" src="jquery.simplyscroll.js"></script>
+ 	<script type="text/javascript" src="footerFixed.js"></script>
+ 	<script>
+ 	    $('<img src="imgs/cs2_01.jpg">');
+        $('<img src="imgs/cs2_02.jpg">');
+        $('<img src="imgs/cs2_03.jpg">');
+        $('<img src="imgs/cs2_04.jpg">');
+        $('<img src="imgs/cs2_05.jpg">');
+        $('<img src="imgs/cs2_01.jpg">');
+        $('<img src="imgs/cs2_06.jpg">');
+        
+        $(document).ready(function () {
+	 	    (function($) {
+			    $(function() {
+				    $("#scroller").simplyScroll();
+			    });
+		    })(jQuery);
+		});
+ 	</script>
+</head>
+
+<body>
+
+<div id="wrapper_w">
+
+	<!--ヘッダー -->
+	<div id="header">
+		<div id="hd_menu">
+			<div id="logo"><a href="index.html"><img src="imgs/hedder_logo.png"></a></div>
+			<!--メニュー-->
+			<div id="dropmenu">
+				<ul id="menu">
+					<li><a href="index.html">ホーム</a></li>
+					<li><a href="#">散歩コース</a>
+						<ul>
+						<li><a href="courseA.html">コース1―太宰治と海をコンパクトに感じる</a></li>
+						<li><a href="courseB.html">コース2―芥川龍之介の講演を聴いた場所へも</a></li>
+						<li><a href="courseC.html">コース3―ゆかりの場所ほとんど全部＋海辺：合浦公園スタート編</a></li>
+						<li><a href="courseD.html">コース4―海辺＋ゆかりの場所ほとんど全部：八甲田丸スタート編</a></li>
+						</ul>
+					</li>
+					<li><a href="spots.html">スポット一覧</a></li>
+					<li><a href="matinami.html">街並み再現</a></li>
+					<li><a href="link.html">このwebサイトについて</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div id="wrapper">
+ 		<img src="imgs/pagebn_cs.png">
+ 		<h2 class="title"><img src="imgs/title_cs2.png"></h2>
+ 		<!--グーグルマップ-->
+	 	<div id="gmap"  style="width : 580px; height : 432px;"></div>
+	 	<div id="list">
+	 		当コースで行くスポット<br>
+	 		<ol type="A">
+		 		<li><a href="spots/spot_station.html">青森駅</a></li>
+		 		<li><a href="spots/spot_hakkouda.html">八甲田丸周辺</a></li>
+		 		<li><a href="spots/spot_factory.html">A-FACTORY</a></li>
+		 		<li><a href="spots/spot_bridge.html">青森ラブリッジ</a></li>
+		 		<li><a href="spots/spot_park.html">青い海公園</a></li>
+		 		<li><a href="spots/spot_seitoku.html">聖徳公園</a></li>
+		 		<li><a href="spots/spot_hutou.html">青森港新中央埠頭</a></li>
+		 		<li><a href="spots/spot_sanbasi.html">浜町桟橋跡地</a></li>
+		 		<li><a href="spots/spot_seihyo.html">青森製氷(株)</a></li>
+		 		<li><a href="spots/spot_kaido.html">青森市公会堂跡地</a></li>
+		 		<li><a href="spots/spot_asahi.html">旭橋</a></li>
+		 		<li><a href="spots/spot_kitchen.html">スマイル＆スプーンキッチンスタジオ</a></li>
+		 		<li><a href="spots/spot_omotaka.html">おもたか跡地</a></li>
+		 		<li><a href="spots/spot_gesyuku.html">太宰治下宿跡地</a></li>
+	 			</ol>
+	 	</div>
+	 	<div id ="pin">スポット名をクリックすると、コース詳細ページへ飛びます。<br></div>
+	 	<div id ="exp">
+	 		「当コースで行くスポット」のAから順に歩いて行きましょう！<br>
+	 		太宰治が、旧制・青森中学校への行き帰りによく佇んで物思いをした橋や、
+	 		1927(昭和2)年、芥川龍之介の講演を聴いて感動した場所にも向かいます。
+	 		健康に良い、バランスの取れたお食事ができるお店へも。<br>
+			所要時間・約2時間(飲食の時間は含みません)/距離・約3km<br>
+	 		<br>
+	 	</div>
+	</div>
+	<ul id="scroller">
+		<li><img src="imgs/cs2_01.jpg" width="400" height="300"></li>
+		<li><img src="imgs/cs2_02.jpg" width="400" height="300"></li>
+		<li><img src="imgs/cs2_03.jpg" width="402" height="300"></li>
+		<li><img src="imgs/cs2_04.jpg" width="400" height="300"></li>
+		<li><img src="imgs/cs2_05.jpg" width="400" height="300"></li>
+		<li><img src="imgs/cs2_06.jpg" width="400" height="300"></li>
+	</ul>
+</div>
+
+<div id="footer">
+	<!--フッター-->
+	<div id="footer_c">
+	 	太宰治ゆかりの地と海辺の散歩道<br>
+	 	<a href="index.html">ホーム</a>｜
+	 	散歩コース：
+	 	<a href="courseA.html">コース1</a>｜
+		<a href="courseB.html">コース2</a>｜
+		<a href="courseC.html">コース3</a>｜
+		<a href="courseD.html">コース4</a>｜
+	 	<a href="spots.html">スポット一覧</a>｜
+	 	<a href="link.html">リンク</a><br>
+	 	Copyright-青森大学/社会学部・ソフトウェア情報学部
+	 </div>
+</div>
+</body>
+
+</html>

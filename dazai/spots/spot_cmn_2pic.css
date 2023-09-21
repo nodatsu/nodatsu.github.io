@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/*スポット詳細ページで写真を2枚使うときのスタイルシート*/
+
+html, body, div, span, applet, object, iframe,
+/*h1, h2, h3, h4, h5, h6*/, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+#wrapper{
+	padding-top:30px;
+}
+
+h2{
+	border-bottom: 2px solid #003399;
+	text-align:left;
+	margin-bottom:5px;
+}
+
+.sub{
+	position:relative;
+	top:0px;
+	left:90px;
+	display:block;
+	font-size:70%;
+	color:#3366c;
+	margin:0 0 2px 0;
+}
+
+#gmap{
+	background:#666666;
+	/*padding-bottom:10px;*/
+}
+
+.column{
+	padding-top:20px;
+	padding-bottom:20px;
+
+}
+
+/*.column{
+	clear:both;
+	padding:10px;
+	columns:200px auto solid #0066FF 3px
+	-webkit-columns: 200px auto;
+	-o-columns: 200px auto;
+	-ms-columns: 200px auto;
+
+	-moz-column-count: 2;
+	-moz-column-rule: 3px dotted yellowgreen;
+	-moz-column-gap:50px;
+
+	-webkit-column-count: 2;
+	-webkit-column-rule: 3px dotted yellowgreen;
+	-webkit-column-gap:50px;
+
+	-o-column-count: 2;
+	-o-column-rule: 3px dotted yellowgreen;
+	-o-column-gap:50px;
+
+	-ms-column-count: 2;
+	-ms-column-rule: 3px dotted yellowgreen;
+	-ms-column-gap:50px;
+}*/
+
+#link{
+	text-align:center;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang ="ja">
+<head>
+ 	<title>スポット－青森市公会堂跡</title>
+ 	<meta charset="UTF-8">
+ 	<link href="../cs_cmn.css" rel="stylesheet" type="text/css">
+ 	<link href="spot_cmn_2pic.css" rel="stylesheet" type="text/css">
+ 	<link href="../cs_menu3.css" rel="stylesheet" type="text/css">
+ 	<link href="../lightbox.css" rel="stylesheet" type="text/css">
+ 	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+ 	<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+ 	<script type="text/javascript" src="../lightbox.min.js"></script>
+ 	<script type="text/javascript">
+		google.maps.event.addDomListener(window, 'load', function() {
+			var lat = 40.829348;
+			var lng = 140.751300; 
+            var latlng = new google.maps.LatLng(lat, lng); 
+        	var mapOptions = { 
+            	zoom: 17, 
+            	center:latlng,
+             	mapTypeId: google.maps.MapTypeId.ROADMAP,
+             	scaleControl: true
+           	}; 
+           	var mapObj = new google.maps.Map(document.getElementById('gmap'), mapOptions);
+           	
+           		var style =[{"featureType":"landscape","elementType":"all","stylers":[{"visibility":"simplified"},{"lightness":20}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"simplified"},{"lightness":20},{"hue":"#007bff"}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"visibility":"simplified"},{"color":"#929292"}]},{"featureType":"poi.park","elementType":"all","stylers":[{"color":"#D9EDC5"}]},{"featureType":"poi.school","elementType":"geometry.fill","stylers":[{"color":"#f2e5c1"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#386FAB"}]},{"featureType":"road","elementType":"labels.text","stylers":[{"saturation":"-100"},{"visibility":"on"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#A0BDDD"},{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#7FA6CF"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.fill","stylers":[{"invert_lightness":true},{"color":"#336396"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.stroke","stylers":[{"color":"#003e7e"}]},{"featureType":"road.highway.controlled_access","elementType":"labels.text","stylers":[{"invert_lightness":true},{"lightness":"16"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#D2E5F9"},{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#6699D0"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#B0C1D3"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"on"},{"lightness":"40"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"on"},{"lightness":40}]},{"featureType":"water","elementType":"all","stylers":[{"lightness":20},{"hue":"#007fff"}]}]
+	       var samplestyleOptions = {
+    	       name: "スタイル"
+  	       };
+	
+	       var sampleMapType = new google.maps.StyledMapType(style,samplestyleOptions);
+	
+	       mapObj.mapTypes.set('simple', sampleMapType);
+	        mapObj.setMapTypeId('simple');
+           	
+         	var marker = new google.maps.Marker({
+				position:latlng,
+				map:mapObj,
+				icon:"imgs/pin.png"
+			});
+     });
+     
+</script>
+</head>
+
+<body>
+
+<div id="wrapper_w">
+	<!--ヘッダー -->
+	<div id="header">
+		<div id="hd_menu">
+			<div id="logo"><a href="../index.html"><img src="../imgs/hedder_logo.png"></a></div>
+			<!--メニュー-->
+			<div id="dropmenu">
+				<ul id="menu">
+					<li><a href="../index.html">ホーム</a></li>
+					<li><a href="#">散歩コース</a>
+						<ul>
+						<li><a href="../courseA.html">コース1―太宰治と海をコンパクトに感じる</a></li>
+						<li><a href="../courseB.html">コース2―芥川龍之介の講演を聴いた場所へも</a></li>
+						<li><a href="../courseC.html">コース3―ゆかりの場所ほとんど全部＋海辺：合浦公園スタート編</a></li>
+						<li><a href="../courseD.html">コース4―海辺＋ゆかりの場所ほとんど全部：八甲田丸スタート編</a></li>
+						</ul>
+					</li>
+					<li><a href="../spots.html">スポット一覧</a></li>
+					<li><a href="../matinami.html">街並み再現</a></li>
+					<li><a href="../link.html">このwebサイトについて</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="wrapper">
+		<h2>青森市公会堂跡<br><span class="sub">-太宰治が芥川龍之介の講演を聴いて・・-</span></h2>
+ 		写真をクリックすると拡大表示します。<br>
+ 		<div id="gmap" style="width : 800px; height : 250px;"></div>
+ 		<a href="imgs/sp_kaido_bg_1.jpg" data-lightbox="lightbox[group_sp_kaido]" data-title="設立時の青森市公会堂">
+ 			<img src="imgs/sp_kaido_1.jpg"></a>
+ 		<a href="imgs/sp_kaido_bg_2.jpg" data-lightbox="lightbox[group_sp_kaido]" data-title="青森市公会堂跡（現しあわせプラザ）">
+ 			<img src="imgs/sp_kaido_2.jpg"></a>
+ 
+		<div class="column">
+			1927年5月、旧制・弘前高校1年生の太宰治が、芥川龍之介の講演を聴いた場所です。<br>
+			<br>
+			しかし、その講演から2カ月後の7月、芥川龍之介は自殺。<br>
+			「これを契機に、女師匠に義太夫を習う一方、泉鏡花作品などの影響もあって、
+			浜町の花柳界に出入りするようになった」（松村慎三「北国のまち・・ふるさとの風」北の会編『新編 太宰治と青森のまち』）。<br>
+			強い衝撃を受けたことがうかがわれます。<br>
+			<br>
+			当時の青森市公会堂は1925年竣工、鉄筋コンクリート3階建ての洋風建築でした（写真左　提供：青森まちかど歴史の庵 奏海）。<br>
+			ヘレン・ケラーも講演、「快い潮・磯の香りがしますね」と語ったといいます。<br>
+			1945年7月、アメリカ軍機による空襲。
+			しかし、公会堂は焼け残り、同9月～1952年7月、進駐軍が指令本部として使用。
+			サンフランシスコ講和条約による独立後は、再び青森市の施設になりました。<br>
+			1996年、道路拡幅工事のため、保存を求める声はあったものの、取り壊されました。<br>
+			現在は青森市福祉増進センター（しあわせプラザ）となっていますが（写真右）、<br>
+			正面外観には、太宰が芥川の講演を聴いた当時の建物のデザインが採用されています。
+		</div>
+		<div id="link">←<a href="spot_seihyo.html">青森製氷（株）</a>　<a href="spot_omotaka.html">浜町通り＋おもたか跡地</a>→<br></div>
+		散歩してはいかかでしょうか？このスポットは次の散歩コースに組み込まれてます。<br>
+		<a href="../courseB.html"><img src="imgs/spot_cs_link2.png"></a>
+		<a href="../courseC.html"><img src="imgs/spot_cs_link3.png"></a>
+		<a href="../courseD.html"><img src="imgs/spot_cs_link4.png"></a>
+ 		</div>
+</div>
+
+<div id="footer">
+	<!--フッター-->
+	<div id="footer_c">
+	 	太宰治ゆかりの地と海辺の散歩道　<a href="index.html">ホーム</a><br>
+	 	散歩コース：
+	 	<a href="courseA.html">コース1</a>｜
+		<a href="courseB.html">コース2</a>｜
+		<a href="courseC.html">コース3</a>｜
+		<a href="courseD.html">コース4</a>｜<br>
+	 	<a href="spots.html">スポット一覧</a>｜
+	 	<a href="link.html">このwebサイトについて</a>｜
+	 	<a href="matinami.html">街並み再現</a><br>
+	 	Copyright-青森大学/社会学部・ソフトウェア情報学部
+	 </div>
+</div>
+</body>
+
+</html>
