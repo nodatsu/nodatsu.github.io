@@ -95,7 +95,7 @@ public class CameraMovement : MonoBehaviour
 -------------------------------------------------------------------------------
 ＊デス判定＊
 (m)
-using UnityEngine.SceneManagement; //(m)
+using UnityEngine.SceneManagement;
 
 (n)
 private void OnCollisionEnter2D(Collision2D collision)
