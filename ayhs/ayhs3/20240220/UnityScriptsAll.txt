@@ -1,0 +1,124 @@
+
+完成版
+----------------------------------------------------------------------------------------------------
+PaddleScript
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+public class PaddleScri : MonoBehaviour
+{
+    //private float speed;
+    public float speed;
+    // Start is called before the first frame update
+    void Start()
+    {
+    // speed = 5f;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.position += new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime*speed, 0f, 0f);
+
+    }
+}
+
+------------------------------------------------------------------------------------------------------
+Ballscript
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Ballscript : MonoBehaviour
+{
+    private float speed;
+    // Start is called before the first frame update
+    void Start()
+    {
+        speed = Random.Range(5f, 15f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.position += new Vector3(0f, 0f, -1 * speed * Time.deltaTime);
+        if (transform.position.z < -13.0f)
+        {
+            //Time.timeScale = 0;
+            SceneManager.LoadScene("GameOverScens");
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Paddle"))
+        {
+            Destroy(gameObject);
+            collision.gameObject.transform.localScale -= new Vector3(Random.Range(0.2f,1.0f),0f,0f);
+            if (collision.gameObject.transform.localScale.x < 1.0f)
+            {
+                collision.gameObject.transform.localScale = new Vector3(1.0f,1.0f,1.0f);
+            }
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------------------
+BallFactoryScript
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BallFactoryScript : MonoBehaviour
+{
+    public GameObject ball;
+    // Start is called before the first frame update
+    void Start()
+    {
+        //Instantiate(ball,transform.position,transform.rotation);
+        InvokeRepeating("SpawnBall",0f,1f);
+    }
+
+    void SpawnBall()
+    {
+        Instantiate(ball,new Vector3(Random.Range(-5f,5f),transform.position.y,transform.position.z), transform.rotation);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+
+----------------------------------------------------------------------------------------------------------
+ButtonScript
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ButtonScript : MonoBehaviour
+{
+    public void ReplayGame()
+    {
+        SceneManager.LoadScene("main scenes");
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
