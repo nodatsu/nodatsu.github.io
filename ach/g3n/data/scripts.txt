@@ -1,25 +1,25 @@
-ƒuƒƒbƒN•ö‚µƒXƒNƒŠƒvƒg
-–Ball–
+ãƒ–ãƒ­ãƒƒã‚¯å´©ã—ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+ï¼ŠBallï¼Š
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    // ƒ{[ƒ‹‚ÌˆÚ“®‚Ì‘¬‚³‚ğw’è‚·‚é•Ï”
+    // ãƒœãƒ¼ãƒ«ã®ç§»å‹•ã®é€Ÿã•ã‚’æŒ‡å®šã™ã‚‹å¤‰æ•°
     public float speed = 5f;
     Rigidbody myRigidbody;
 
     private void Start()
     {
-        // Rigidbody‚ÉƒAƒNƒZƒX‚µ‚Ä•Ï”‚É•Û‚µ‚Ä‚¨‚­
+        // Rigidbodyã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦å¤‰æ•°ã«ä¿æŒã—ã¦ãŠã
         myRigidbody = GetComponent<Rigidbody>();
-        // ‰EÎ‚ß45“x‚Éi‚Ş
+        // å³æ–œã‚45åº¦ã«é€²ã‚€
         myRigidbody.velocity = new Vector3(speed, speed, 0f);
     }
 }
 
-–Bar–
+ï¼ŠBarï¼Š
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,23 +27,23 @@ using UnityEngine;
 public class Bar : MonoBehaviour
 
 {
-    // ƒvƒŒƒCƒ„[‚ÌˆÚ“®‚Ì‘¬‚³
+    // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•ã®é€Ÿã•
     public float speed = 10f;
     Rigidbody myRigidbody;
 
     void Start()
     {
-     // Rigidbody‚ÉƒAƒNƒZƒX‚µ‚Ä•Ï”‚É•Û
+     // Rigidbodyã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦å¤‰æ•°ã«ä¿æŒ
         myRigidbody = GetComponent<Rigidbody>();
     }
     void Update()
     {
-    // ¶‰E‚ÌƒL[“ü—Í‚É‚æ‚è‘¬“x‚ğ•ÏX‚·‚é
+    // å·¦å³ã®ã‚­ãƒ¼å…¥åŠ›ã«ã‚ˆã‚Šé€Ÿåº¦ã‚’å¤‰æ›´ã™ã‚‹
         myRigidbody.velocity = new Vector3(Input.GetAxis("Horizontal") * speed, 0f, 0f);
     }
 }
 
-–Block–
+ï¼ŠBlockï¼Š
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,22 +56,22 @@ public class Block : MonoBehaviour
     }
 }
 
-–GameOver1–
+ï¼ŠGameOver1ï¼Š
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 class GameOver : MonoBehaviour
 {
-   // Õ“Ë‚ÉŒÄ‚Î‚ê‚é
+   // è¡çªæ™‚ã«å‘¼ã°ã‚Œã‚‹
     void OnCollisionEnter(Collision collision)
     {
-        // “–‚½‚Á‚½ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚ğíœ‚·‚é
+        // å½“ãŸã£ãŸã‚²ãƒ¼ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å‰Šé™¤ã™ã‚‹
         Destroy(collision.gameObject);
     }
 }
 
-–GameClear–
+ï¼ŠGameClearï¼Š
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -82,13 +82,13 @@ class GameClear : MonoBehaviour
 
     void Start()
     {
-        // TransformƒRƒ“ƒ|[ƒlƒ“ƒg‚ğ•Û‚µ‚Ä‚¨‚­
+        // Transformã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ä¿æŒã—ã¦ãŠã
         myTransform = transform;
     }
 
     void Update()
     {
-        // q‹Ÿ‚ª‚¢‚È‚­‚È‚Á‚½‚çƒQ[ƒ€‚ğ’â~‚·‚é
+        // å­ä¾›ãŒã„ãªããªã£ãŸã‚‰ã‚²ãƒ¼ãƒ ã‚’åœæ­¢ã™ã‚‹
         if (myTransform.childCount == 0)
         {
             Time.timeScale = 0f;
@@ -97,7 +97,7 @@ class GameClear : MonoBehaviour
     }
 }
 
-–ResetText–
+ï¼ŠResetTextï¼Š
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -107,14 +107,14 @@ class ResetText : MonoBehaviour
 {
     void Start()
     {
-        // ƒAƒNƒZƒX‚Í1‰ñ‚«‚è‚È‚Ì‚ÅAƒtƒB[ƒ‹ƒh•Ï”‚ğ—pˆÓ‚µ‚È‚­‚Ä‚à‚¢‚¢
+        // ã‚¢ã‚¯ã‚»ã‚¹ã¯1å›ãã‚Šãªã®ã§ã€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å¤‰æ•°ã‚’ç”¨æ„ã—ãªãã¦ã‚‚ã„ã„
         Text myText = GetComponent<Text>();
-        // text‚É‹ó‚Ì•¶š—ñ‚ğİ’è‚·‚é
+        // textã«ç©ºã®æ–‡å­—åˆ—ã‚’è¨­å®šã™ã‚‹
         myText.text = "";
     }
 }
 
-–GameOver2–
+ï¼ŠGameOver2ï¼Š
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -122,21 +122,21 @@ using UnityEngine.UI;
 
 class GameOver : MonoBehaviour
 {
-    // public‚É‚µ‚ÄInspector‚©‚çİ’è‚Å‚«‚é‚æ‚¤‚É‚·‚é
+    // publicã«ã—ã¦Inspectorã‹ã‚‰è¨­å®šã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹
     public Text gameOverMessage;
 
-    // Õ“Ë‚ÉŒÄ‚Î‚ê‚é
+    // è¡çªæ™‚ã«å‘¼ã°ã‚Œã‚‹
     void OnCollisionEnter(Collision collision)
     {
-        // Game Over‚Æ•\¦‚·‚é
+        // Game Overã¨è¡¨ç¤ºã™ã‚‹
         gameOverMessage.text = "GAME OVER";
 
-        // “–‚½‚Á‚½ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚ğíœ‚·‚é
+        // å½“ãŸã£ãŸã‚²ãƒ¼ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å‰Šé™¤ã™ã‚‹
         Destroy(collision.gameObject);
     }
 }
 
-–GameClear2–
+ï¼ŠGameClear2ï¼Š
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -150,13 +150,13 @@ class GameClear : MonoBehaviour
 
     void Start()
     {
-        // TransformƒRƒ“ƒ|[ƒlƒ“ƒg‚ğ•Û‚µ‚Ä‚¨‚­
+        // Transformã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ä¿æŒã—ã¦ãŠã
         myTransform = transform;
     }
 
     void Update()
     {
-        // q‹Ÿ‚ª‚¢‚È‚­‚È‚Á‚½‚çƒQ[ƒ€‚ğ’â~‚·‚é
+        // å­ä¾›ãŒã„ãªããªã£ãŸã‚‰ã‚²ãƒ¼ãƒ ã‚’åœæ­¢ã™ã‚‹
         if (myTransform.childCount == 0)
         {
             gameClearMessage.text = "Game Clear";
