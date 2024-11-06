@@ -1,0 +1,167 @@
+ブロック崩しスクリプト
+＊Ball＊
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Ball : MonoBehaviour
+{
+    // ボールの移動の速さを指定する変数
+    public float speed = 5f;
+    Rigidbody myRigidbody;
+
+    private void Start()
+    {
+        // Rigidbodyにアクセスして変数に保持しておく
+        myRigidbody = GetComponent<Rigidbody>();
+        // 右斜め45度に進む
+        myRigidbody.velocity = new Vector3(speed, speed, 0f);
+    }
+}
+
+＊Bar＊
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Bar : MonoBehaviour
+
+{
+    // プレイヤーの移動の速さ
+    public float speed = 10f;
+    Rigidbody myRigidbody;
+
+    void Start()
+    {
+     // Rigidbodyにアクセスして変数に保持
+        myRigidbody = GetComponent<Rigidbody>();
+    }
+    void Update()
+    {
+    // 左右のキー入力により速度を変更する
+        myRigidbody.velocity = new Vector3(Input.GetAxis("Horizontal") * speed, 0f, 0f);
+    }
+}
+
+＊Block＊
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Block : MonoBehaviour
+{
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+}
+
+＊GameOver1＊
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+class GameOver : MonoBehaviour
+{
+   // 衝突時に呼ばれる
+    void OnCollisionEnter(Collision collision)
+    {
+        // 当たったゲームオブジェクトを削除する
+        Destroy(collision.gameObject);
+    }
+}
+
+＊GameClear＊
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+class GameClear : MonoBehaviour
+{
+    Transform myTransform;
+
+    void Start()
+    {
+        // Transformコンポーネントを保持しておく
+        myTransform = transform;
+    }
+
+    void Update()
+    {
+        // 子供がいなくなったらゲームを停止する
+        if (myTransform.childCount == 0)
+        {
+            Time.timeScale = 0f;
+
+        }
+    }
+}
+
+＊ResetText＊
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+class ResetText : MonoBehaviour
+{
+    void Start()
+    {
+        // アクセスは1回きりなので、フィールド変数を用意しなくてもいい
+        Text myText = GetComponent<Text>();
+        // textに空の文字列を設定する
+        myText.text = "";
+    }
+}
+
+＊GameOver2＊
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+class GameOver : MonoBehaviour
+{
+    // publicにしてInspectorから設定できるようにする
+    public Text gameOverMessage;
+
+    // 衝突時に呼ばれる
+    void OnCollisionEnter(Collision collision)
+    {
+        // Game Overと表示する
+        gameOverMessage.text = "GAME OVER";
+
+        // 当たったゲームオブジェクトを削除する
+        Destroy(collision.gameObject);
+    }
+}
+
+＊GameClear2＊
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+class GameClear : MonoBehaviour
+{
+    public Text gameClearMessage;
+    Transform myTransform;
+
+    void Start()
+    {
+        // Transformコンポーネントを保持しておく
+        myTransform = transform;
+    }
+
+    void Update()
+    {
+        // 子供がいなくなったらゲームを停止する
+        if (myTransform.childCount == 0)
+        {
+            gameClearMessage.text = "Game Clear";
+            Time.timeScale = 0f;
+
+        }
+    }
+}
