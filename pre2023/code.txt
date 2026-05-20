@@ -1,7 +1,0 @@
-# 偶数／奇数の判定
-
-for i in range(10):
-    if (i % 2 == 0):
-        print(str(i) + "は偶数です。")
-    else:
-        print(str(i) + "は奇数です。")
