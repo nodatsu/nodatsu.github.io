@@ -92,7 +92,7 @@
 //            前の行は書き換えない。
 // v1  白い四角が、音の大きさに合わせて伸び縮みする
 
-const OTO_URL = 'dojo_loop.mp3';   // 音源の場所
+const OTO_URL = 'https://nodatsu.github.io/gdg/dojo_loop.mp3';   // 音源の場所
 
 let song;      // 音楽
 let amp;       // 音の大きさをはかるもの
@@ -393,16 +393,18 @@ const SETTINGS = {
 // ==============================================================
 
 // 音源URLをこのページの場所から自動で組み立てる
+// (置き場所を変えても追従します。JSが動かない場合は上に書いてあるURLがそのまま使われます)
 (function () {
   const pre = document.getElementById('c-sketch');
   if (!pre) return;
-  let url = 'dojo_loop.mp3';
   try {
-    if (location.protocol.indexOf('http') === 0) {
-      url = new URL('dojo_loop.mp3', location.href).href;
-    }
+    if (location.protocol.indexOf('http') !== 0) return;
+    const url = new URL('dojo_loop.mp3', location.href).href;
+    pre.textContent = pre.textContent.replace(
+      /const OTO_URL = '[^']*';/,
+      "const OTO_URL = '" + url + "';"
+    );
   } catch (e) {}
-  pre.textContent = pre.textContent.replace("'dojo_loop.mp3'", "'" + url + "'");
 })();
 
 // 設定されたリンクだけ表示
