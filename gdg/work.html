@@ -199,7 +199,8 @@ canvas {
 <h3>鳴っている音について</h3>
 <p class="muted">この曲は今日のために作ったオリジナルです。誰の権利もかかっていないので、
   自由に使えます。19秒でくり返しています。<br>
-  自分の好きな音楽に変えたい人は <a href="#motto" style="color:var(--blue)">7 もっとやりたい人へ</a>。</p>
+  好きな音楽に変えたい人は、無料で使える音源をダウンロードして差し替えられます →
+  <a href="#motto" style="color:var(--blue)">7 もっとやりたい人へ</a></p>
 
 <!-- 2 AI -->
 <h2><i style="background:#34A853">2</i>AIをひらく</h2>
@@ -336,18 +337,28 @@ p5.js の p5.AudioIn を使ってください。
   <tr><td class="q">「キーン」と鳴ったら</td><td>すぐ音量を下げる</td></tr>
 </table>
 
-<h3>B. 自分の好きな音楽を使う</h3>
+<h3>B. 好きな音楽に変える</h3>
+<p class="muted">CDや配信で買った曲は、作品を人に見せるときに権利の問題が出ます。
+   <b>無料で使える音源を配っているサイト</b>から選ぶのが安心です。</p>
+<div class="links">
+  <a href="https://maou.audio/" target="_blank" rel="noopener">魔王魂</a>
+  <a href="https://dova-s.jp/" target="_blank" rel="noopener">DOVA-SYNDROME</a>
+  <a href="https://pixabay.com/music/" target="_blank" rel="noopener">Pixabay Music</a>
+</div>
+<p class="muted" style="font-size:13px">
+   ダウンロードする前に、そのサイトの利用条件を見ておいてください。</p>
 <details>
-  <summary>手順を見る(5分ほどかかります)</summary>
-  <p style="margin-top:10px">音楽ファイルを置くために、p5.js のアカウントが必要です。</p>
-  <ol>
-    <li>右上の <b>Sign up</b> で登録(Googleアカウントがあると早い)</li>
-    <li>左のファイル一覧「▼」→ <b>Upload file</b> で音楽を追加</li>
-    <li>sketch.js の1行目あたり <b>OTO_URL</b> をそのファイル名に書き換える</li>
+  <summary>差し替える手順を見る(5分ほどかかります)</summary>
+  <ol style="margin-top:10px">
+    <li>上のサイトなどから、気に入った曲をダウンロードする(mp3)</li>
+    <li>p5.js Web Editor の右上 <b>Sign up</b> で登録<br>
+        <span class="muted">音楽ファイルを置くにはアカウントが要ります。Googleアカウントがあると早い</span></li>
+    <li>左のファイル一覧「▼」→ <b>Upload file</b> で、その曲を追加</li>
+    <li>sketch.js の上のほう <b>OTO_URL</b> を、その曲のファイル名に書き換える<br>
+        <span class="muted">例: <code style="font-family:ui-monospace,Consolas,monospace">const OTO_URL = 'mysong.mp3';</code></span></li>
   </ol>
   <p class="note">アカウントを作ると作品が保存されます。その場合、共有ドキュメントには
-     コードではなく<b>スケッチのURL</b>を貼ってください。<br>
-     市販の曲を使った作品は、動画にしてネットに公開しないでください。</p>
+     コードではなく<b>スケッチのURL</b>を貼ってください。</p>
 </details>
 
 <!-- 8 失敗も発表しよう -->
