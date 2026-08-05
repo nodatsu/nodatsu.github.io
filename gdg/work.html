@@ -72,182 +72,21 @@
   <a href="index.html">← 今日の流れ</a>
 </div>
 
-<!-- 1 じゅんび -->
-<h2><i style="background:#4285F4">1</i>じゅんび</h2>
+<!-- 1 ひな形のコードを動かす -->
+<h2><i style="background:#4285F4">1</i>ひな形のコードを動かす</h2>
 <p>p5.js Web Editor で新しいスケッチを作り、<b>3つとも全部を貼り替えます。</b></p>
-<div class="links" style="margin-bottom:12px">
+<div class="links" style="margin-bottom:8px">
   <a href="https://editor.p5js.org/" target="_blank" rel="noopener">p5.js Web Editor をひらく</a>
 </div>
+<p class="muted" style="margin-bottom:12px">
+  アカウントを持っている人は、ログインしておくと作品が保存されます。
+  なくてもそのまま使えます。</p>
 
 <div class="row">
   <span class="lbl mono">sketch.js<small>1番目に貼る</small></span>
   <button data-target="c-sketch">コピー</button>
 </div>
-<div class="row">
-  <span class="lbl mono">style.css<small>2番目に貼る</small></span>
-  <button data-target="c-css">コピー</button>
-</div>
-<div class="row">
-  <span class="lbl mono">index.html<small>3番目に貼る</small></span>
-  <button data-target="c-html">コピー</button>
-</div>
-<p class="note">エディタ側を全部選んで(Ctrl+A)、上書きしてください。</p>
-
-<h3>動かす</h3>
-<ol>
-  <li>▶ を押す</li>
-  <li>画面をクリック → 音が鳴る</li>
-  <li>白い四角が音に合わせて動いたら成功。手を挙げてください</li>
-</ol>
-
-<!-- 2 AI -->
-<h2><i style="background:#34A853">2</i>AIをひらく</h2>
-<p class="muted">どれか1つ。ログインなしで使えます。上限が来たら別のに乗り換えて。</p>
-<div class="links">
-  <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>
-  <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a>
-  <a href="https://duck.ai/" target="_blank" rel="noopener">duck.ai</a>
-</div>
-
-<h3>最初の1回だけ、コードを丸ごと渡す</h3>
-<div class="row">
-  <span class="lbl">① sketch.js を全部コピー</span>
-  <button data-target="c-sketch">コピー</button>
-</div>
-<div class="row">
-  <span class="lbl">② この文を書いて、①を貼って送る<small>これはp5.jsのスケッチです。四角を円に…</small></span>
-  <button data-copy="これはp5.jsのスケッチです。&#10;四角を円に変えてください。&#10;変更したコード全体を出してください。&#10;&#10;">コピー</button>
-</div>
-<p class="muted">2回目からはコードを貼らなくてOK。続けて指示するだけ。</p>
-
-<!-- 3 鉄則 -->
-<h2><i style="background:#F9AB00">3</i>3つの鉄則</h2>
-<div class="rules">
-  <div><b>ひとつずつ頼む</b>まとめて頼むと失敗します</div>
-  <div><b>動いたら保存</b>コードをどこかにコピー</div>
-  <div><b>エラーはAIに貼る</b>英語は読まなくていい</div>
-</div>
-
-<!-- 4 お題 -->
-<h2><i style="background:#4285F4">4</i>お題</h2>
-<p class="muted">押してコピー → AIに貼って送るだけ。</p>
-
-<div class="row"><span class="lbl">色を変える</span>
-  <button data-copy="図形の色を、明るい暖色系に変えてください。">コピー</button></div>
-<div class="row"><span class="lbl">数を増やす</span>
-  <button data-copy="図形の数を増やして、画面の中心のまわりに広がるようにしてください。">コピー</button></div>
-<div class="row"><span class="lbl">回転させる</span>
-  <button data-copy="図形全体が画面の中心を軸にゆっくり回転するようにしてください。">コピー</button></div>
-<div class="row"><span class="lbl">音で色が変わる</span>
-  <button data-copy="音が大きいときと小さいときで、色が変わるようにしてください。">コピー</button></div>
-<div class="row"><span class="lbl">残像を出す</span>
-  <button data-copy="背景を毎回塗りつぶさず、少しずつ薄く重ねて、残像が残るようにしてください。">コピー</button></div>
-
-<h3>慣れてきたら</h3>
-<div class="row"><span class="lbl">音で輪が広がる</span>
-  <button data-copy="音が一定より大きくなった瞬間に、中心から輪が広がるようにしてください。">コピー</button></div>
-<div class="row"><span class="lbl">低い音と高い音</span>
-  <button data-copy="低い音と高い音で、別の色の図形が反応するようにしてください。">コピー</button></div>
-<div class="row"><span class="lbl">万華鏡にする</span>
-  <button data-copy="左右対称にして、万華鏡のような模様にしてください。">コピー</button></div>
-<div class="row"><span class="lbl">意味を教えてもらう</span>
-  <button data-copy="このコードが何をしているのか、プログラミング初心者にも分かるように3行で説明してください。">コピー</button></div>
-
-<!-- 5 こまったら -->
-<h2><i style="background:#EA4335">5</i>こまったら</h2>
-<div class="row"><span class="lbl">赤いエラーが出た<small>エラーを全部コピーして、この文と一緒に送る</small></span>
-  <button data-copy="次のエラーが出ました。原因を直したコード全体を出してください。&#10;&#10;">コピー</button></div>
-<div class="row"><span class="lbl">画面が真っ白</span>
-  <button data-copy="実行しても画面が真っ白のままです。原因を調べて、動くコード全体を出してください。">コピー</button></div>
-<div class="row"><span class="lbl">前より悪くなった</span>
-  <button data-copy="さっきの状態に戻してください。">コピー</button></div>
-<div class="row"><span class="lbl">一部しか返ってこない</span>
-  <button data-copy="コード全体を出してください。">コピー</button></div>
-<table>
-  <tr><td class="q">音が鳴らない</td><td>画面を一度クリック。PCの音量とミュートも確認</td></tr>
-  <tr><td class="q">どうにもならない</td><td><b>手を挙げる。</b>それが一番早いです</td></tr>
-</table>
-
-<!-- 6 ドームに映す -->
-<h2><i style="background:#34A853">6</i>ドームに映す</h2>
-<p>できたら、その場で映します。完成してなくてOK。</p>
-<ol>
-  <li>スタッフに「映したい」と声をかける</li>
-  <li><b>投影席</b>にPCを持って移動、HDMIをつなぐ<br>
-      <span class="muted">アダプタは貸出あり。足元に注意</span></li>
-  <li>▶ を押して、画面をクリック</li>
-  <li>ひとこと説明する</li>
-</ol>
-<p class="muted">つないだ直後、数秒暗くなります。故障ではありません。</p>
-
-<h3>ドームで映えるコツ</h3>
-<div class="rules">
-  <div><b>暗く</b>背景は黒っぽく</div>
-  <div><b>大きく</b>太く、ゆっくり</div>
-  <div><b>中心に</b>まん中が主役</div>
-</div>
-
-<!-- 7 のこす -->
-<h2><i style="background:#4285F4">7</i>作品をのこす</h2>
-<p><b>今日のコードは、閉じると消えます。</b>持ち帰りたい人は貼っておいてください。</p>
-<ol>
-  <li>共有ドキュメントを開く</li>
-  <li>いちばん下に見出しを足す → <b>「名前 v3」</b></li>
-  <li>sketch.js を貼る</li>
-</ol>
-<p class="note">貼るときは <b>Ctrl+Shift+V</b>(Macは ⌘+Shift+V)。
-   ふつうに貼ると記号が変わって動かなくなります。</p>
-<div class="row" id="row-submit"><span class="lbl">共有ドキュメント</span>
-  <a id="link-submit" href="#" target="_blank" rel="noopener"><button type="button">ひらく</button></a></div>
-
-<!-- 8 もっと -->
-<h2><i style="background:#EA4335">8</i>もっとやりたい人へ</h2>
-<p class="muted">うまくいかないこともあります。それでOKです。</p>
-
-<div class="row"><span class="lbl">マイクの音で動かす<small>まわりの音に反応するようになります</small></span>
-  <button data-copy="音楽ファイルではなく、パソコンのマイクから音を拾うように変更してください。&#10;p5.js の p5.AudioIn を使ってください。&#10;変更したコード全体を出してください。">コピー</button></div>
-<table>
-  <tr><td class="q">許可を聞かれる</td><td>「許可」を押す</td></tr>
-  <tr><td class="q">拾うのは会場の音</td><td>手を叩くと分かりやすい</td></tr>
-  <tr><td class="q">マイクがないPCも</td><td>その場合は動きません</td></tr>
-  <tr><td class="q">「キーン」と鳴ったら</td><td>すぐ音量を下げる</td></tr>
-</table>
-
-<details>
-  <summary>自分の好きな音楽を使いたい(5分ほどかかります)</summary>
-  <p style="margin-top:10px">p5.js のアカウントが必要です。</p>
-  <ol>
-    <li>右上の <b>Sign up</b> で登録(Googleアカウントがあると早い)</li>
-    <li>左のファイル一覧「▼」→ <b>Upload file</b> で音楽を追加</li>
-    <li>sketch.js の1行目あたり <b>OTO_URL</b> をそのファイル名に書き換える</li>
-  </ol>
-  <p class="note">アカウントを作ると作品が保存されます。その場合、共有ドキュメントには
-     コードではなく<b>スケッチのURL</b>を貼ってください。<br>
-     市販の曲を使った作品は、動画にしてネットに公開しないでください。</p>
-</details>
-
-<!-- 9 うまくいかなかったら -->
-<h2><i style="background:#F9AB00">9</i>うまくいかなかったら</h2>
-<p>ぜひ上映会で発表してください。話すのはこの3つだけです。</p>
-<table>
-  <tr><td class="q">何を試したか</td><td>だいたいでOK</td></tr>
-  <tr><td class="q">どうなったか</td><td>エラー、変な動き、何も起きない</td></tr>
-  <tr><td class="q">なぜだと思うか</td><td><b>ここが一番大事。</b>当たってなくてOK</td></tr>
-</table>
-
-<!-- 10 -->
-<h2><i style="background:#4285F4">10</i>今日のあとに</h2>
-<p>9月から、この道場は月1回のペースで続きます。</p>
-<div class="links">
-  <a id="link-community" href="#" target="_blank" rel="noopener">道場の案内を受け取る</a>
-  <a id="link-survey" href="#" target="_blank" rel="noopener">アンケート</a>
-</div>
-
-<footer>東北TECH道場 むつ・下北・青森道場(Google Developer Group)</footer>
-
-<!-- コピー用のコード本体(画面には出しません) -->
-<div class="hide">
-<pre id="c-sketch">// 音に反応する四角 / p5.js
+<details><summary>sketch.js の中身を見る</summary><pre id="c-sketch">// 音に反応する四角 / p5.js
 //
 // [変更履歴] 変更するたびに、いちばん下に1行だけ追記する。
 //            前の行は書き換えない。
@@ -298,8 +137,13 @@ function mousePressed() {
     playing = true;
   }
 }
-</pre>
-<pre id="c-css">html, body {
+</pre></details>
+
+<div class="row" style="margin-top:12px">
+  <span class="lbl mono">style.css<small>2番目に貼る</small></span>
+  <button data-target="c-css">コピー</button>
+</div>
+<details><summary>style.css の中身を見る</summary><pre id="c-css">html, body {
   margin: 0;
   padding: 0;
   background: #000;
@@ -318,8 +162,13 @@ canvas {
   max-width: 100%;
   height: auto;
 }
-</pre>
-<pre id="c-html">&lt;!DOCTYPE html&gt;
+</pre></details>
+
+<div class="row" style="margin-top:12px">
+  <span class="lbl mono">index.html<small>3番目に貼る</small></span>
+  <button data-target="c-html">コピー</button>
+</div>
+<details><summary>index.html の中身を見る</summary><pre id="c-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="ja"&gt;
   &lt;head&gt;
     &lt;meta charset="utf-8" /&gt;
@@ -336,8 +185,190 @@ canvas {
     &lt;script src="sketch.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+</pre></details>
+
+<p class="note" style="margin-top:12px">エディタ側を全部選んで(Ctrl+A)、上書きしてください。</p>
+
+<h3>動かす</h3>
+<ol>
+  <li>▶ を押す</li>
+  <li>画面をクリック → 音が鳴る</li>
+  <li>白い四角が音に合わせて動いたら成功。手を挙げてください</li>
+</ol>
+
+<h3>鳴っている音について</h3>
+<p class="muted">この曲は今日のために作ったオリジナルです。誰の権利もかかっていないので、
+  自由に使えます。19秒でくり返しています。<br>
+  自分の好きな音楽に変えたい人は <a href="#motto" style="color:var(--blue)">7 もっとやりたい人へ</a>。</p>
+
+<!-- 2 AI -->
+<h2><i style="background:#34A853">2</i>AIをひらく</h2>
+<p class="muted">どれか1つ。ログインなしでも使えます。
+  <b>アカウントを持っている人はログインを。</b>使える回数がぐっと増えます。
+  上限が来たら別のAIに乗り換えて。</p>
+<div class="links">
+  <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>
+  <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a>
+  <a href="https://duck.ai/" target="_blank" rel="noopener">duck.ai</a>
 </div>
+
+<h3>最初の1回だけ、コードを丸ごと渡す</h3>
+<div class="row">
+  <span class="lbl">① sketch.js を全部コピー</span>
+  <button data-target="c-sketch">コピー</button>
+</div>
+<div class="row">
+  <span class="lbl">② この文を書いて、そのあとに①を貼って送る</span>
+  <button data-target="c-first">コピー</button>
+</div>
+<details open><summary>送る文</summary><pre id="c-first">これはp5.jsのスケッチです。
+四角を円に変えてください。
+変更したコード全体を出してください。
+
+</pre></details>
+<p class="muted" style="margin-top:10px">2回目からはコードを貼らなくてOK。続けて指示するだけ。</p>
+
+<!-- 3 改造例 -->
+<h2><i style="background:#4285F4">3</i>改造例</h2>
+<p>ここから先は、<b>自分の言葉でAIに頼みます。</b>やりたいことを日本語で書くだけです。</p>
+<div class="row" style="display:block">
+  <span class="lbl" style="display:block;margin-bottom:8px">書き方の見本</span>
+  <span class="muted" style="font-size:13.5px">
+    ・「〜してください」と書く<br>
+    ・<b>ひとつだけ</b>書く(まとめて頼むと失敗します)<br>
+    ・最後に「変更したコード全体を出してください」とつけると確実</span>
+</div>
+<div class="row"><span class="lbl">例: 色を変える<small>図形の色を、明るい暖色系に変えてください。</small></span>
+  <button data-copy="図形の色を、明るい暖色系に変えてください。">コピー</button></div>
+
+<h3>やってみたいこと(自分の言葉で頼んでみよう)</h3>
+<div class="rules">
+  <div><b>数を増やす</b></div>
+  <div><b>回転させる</b></div>
+  <div><b>音で色が変わる</b></div>
+  <div><b>残像を出す</b></div>
+  <div><b>形を変える</b></div>
+  <div><b>大きさの変化を派手に</b></div>
+</div>
+
+<h3>慣れてきたら</h3>
+<div class="rules">
+  <div><b>音に合わせて図形が生まれる</b></div>
+  <div><b>低い音と高い音で分ける</b></div>
+  <div><b>万華鏡のような模様に</b></div>
+  <div><b>コードの意味を説明してもらう</b></div>
+</div>
+<p class="muted" style="margin-top:10px">
+  思いついたことは何でも頼んでみてください。できるかどうかは、やってみないと分かりません。</p>
+
+<!-- 4 うまくいかないとき -->
+<h2><i style="background:#F9AB00">4</i>うまくいかないとき</h2>
+<div class="rules" style="margin-bottom:14px">
+  <div><b>ひとつずつ頼む</b>まとめて頼むと失敗します</div>
+  <div><b>動いたら保存</b>コードをどこかにコピー</div>
+  <div><b>エラーはAIに貼る</b>英語は読まなくていい</div>
+</div>
+<p class="muted">下の文はそのまま使ってください。ここは考えなくて大丈夫です。</p>
+<div class="row"><span class="lbl">赤いエラーが出た<small>「次のエラーが出ました。原因を直したコード全体を出してください。」<br>
+  ↑これを送って、そのあとにエラーを全部貼る</small></span>
+  <button data-copy="次のエラーが出ました。原因を直したコード全体を出してください。&#10;&#10;">コピー</button></div>
+<div class="row"><span class="lbl">画面が真っ白<small>「実行しても画面が真っ白のままです。原因を調べて、動くコード全体を出してください。」</small></span>
+  <button data-copy="実行しても画面が真っ白のままです。原因を調べて、動くコード全体を出してください。">コピー</button></div>
+<div class="row"><span class="lbl">前より悪くなった<small>「さっきの状態に戻してください。」</small></span>
+  <button data-copy="さっきの状態に戻してください。">コピー</button></div>
+<div class="row"><span class="lbl">一部しか返ってこない<small>「コード全体を出してください。」</small></span>
+  <button data-copy="コード全体を出してください。">コピー</button></div>
+<table>
+  <tr><td class="q">音が鳴らない</td><td>画面を一度クリック。PCの音量とミュートも確認</td></tr>
+  <tr><td class="q">どうにもならない</td><td><b>手を挙げる。</b>それが一番早いです</td></tr>
+</table>
+
+<!-- 5 ドームに映す -->
+<h2><i style="background:#34A853">5</i>ドームに映す</h2>
+<p><b>どんどん映してください。許可は要りません。</b>
+   完成していなくても、途中でも大丈夫です。</p>
+<ol>
+  <li><b>投影席</b>(2つあります)が空いていたら、PCを持って座る</li>
+  <li>HDMIをつなぐ<br>
+      <span class="muted">変換アダプタが必要な人は、スタッフに言えば貸します</span></li>
+  <li>▶ を押して、画面をクリック</li>
+  <li>ひとこと説明する。「ここをこうしました」だけでOK</li>
+</ol>
+<p class="muted">つないだ直後、数秒暗くなります。故障ではありません。<br>
+   2人同時に映せます。音が重なったら、どちらかが音量を下げて。<br>
+   暗いので、移動するときは足元に気をつけて。</p>
+
+<h3>ドームで映えるコツ</h3>
+<div class="rules">
+  <div><b>暗く</b>背景は黒っぽく</div>
+  <div><b>大きく</b>太く、ゆっくり</div>
+  <div><b>中心に</b>まん中が主役</div>
+</div>
+
+<!-- 6 のこす -->
+<h2><i style="background:#4285F4">6</i>作品をのこす</h2>
+<p><b>今日のコードは、閉じると消えます。</b>持ち帰りたい人は貼っておいてください。</p>
+<ol>
+  <li>共有ドキュメントを開く</li>
+  <li>いちばん下に見出しを足す → <b>「名前 v3」</b></li>
+  <li>sketch.js を貼る</li>
+</ol>
+<p class="note">貼るときは <b>Ctrl+Shift+V</b>(Macは ⌘+Shift+V)。
+   ふつうに貼ると記号が変わって動かなくなります。</p>
+<div class="row" id="row-submit"><span class="lbl">共有ドキュメント</span>
+  <a id="link-submit" href="#" target="_blank" rel="noopener"><button type="button">ひらく</button></a></div>
+
+<!-- 7 もっと -->
+<h2 id="motto"><i style="background:#EA4335">7</i>もっとやりたい人へ</h2>
+<p class="muted">うまくいかないこともあります。それでOKです。</p>
+
+<h3>A. マイクの音で動かす</h3>
+<div class="row"><span class="lbl">まわりの音に反応するようになります</span>
+  <button data-target="c-mic">コピー</button></div>
+<details open><summary>送る文</summary><pre id="c-mic">音楽ファイルではなく、パソコンのマイクから音を拾うように変更してください。
+p5.js の p5.AudioIn を使ってください。
+変更したコード全体を出してください。
+</pre></details>
+<table style="margin-top:10px">
+  <tr><td class="q">許可を聞かれる</td><td>「許可」を押す</td></tr>
+  <tr><td class="q">拾うのは会場の音</td><td>手を叩くと分かりやすい</td></tr>
+  <tr><td class="q">マイクがないPCも</td><td>その場合は動きません</td></tr>
+  <tr><td class="q">「キーン」と鳴ったら</td><td>すぐ音量を下げる</td></tr>
+</table>
+
+<h3>B. 自分の好きな音楽を使う</h3>
+<details>
+  <summary>手順を見る(5分ほどかかります)</summary>
+  <p style="margin-top:10px">音楽ファイルを置くために、p5.js のアカウントが必要です。</p>
+  <ol>
+    <li>右上の <b>Sign up</b> で登録(Googleアカウントがあると早い)</li>
+    <li>左のファイル一覧「▼」→ <b>Upload file</b> で音楽を追加</li>
+    <li>sketch.js の1行目あたり <b>OTO_URL</b> をそのファイル名に書き換える</li>
+  </ol>
+  <p class="note">アカウントを作ると作品が保存されます。その場合、共有ドキュメントには
+     コードではなく<b>スケッチのURL</b>を貼ってください。<br>
+     市販の曲を使った作品は、動画にしてネットに公開しないでください。</p>
+</details>
+
+<!-- 8 失敗も発表しよう -->
+<h2><i style="background:#F9AB00">8</i>失敗も発表しよう</h2>
+<p>作品ができなくても、途中で止まっても、ぜひ上映会で発表してください。
+   話すのはこの3つだけです。</p>
+<table>
+  <tr><td class="q">何を試したか</td><td>だいたいでOK</td></tr>
+  <tr><td class="q">どうなったか</td><td>エラー、変な動き、何も起きない</td></tr>
+  <tr><td class="q">なぜだと思うか</td><td><b>ここが一番大事。</b>当たってなくてOK</td></tr>
+</table>
+
+<!-- 9 -->
+<h2><i style="background:#4285F4">9</i>今日のあとに</h2>
+<p>9月から、この道場は月1回のペースで続きます。</p>
+<div class="links">
+  <a id="link-community" href="#" target="_blank" rel="noopener">道場の案内を受け取る</a>
+  <a id="link-survey" href="#" target="_blank" rel="noopener">アンケート</a>
+</div>
+
+<footer>東北TECH道場 むつ・下北・青森道場(Google Developer Group)</footer>
 
 </div>
 
