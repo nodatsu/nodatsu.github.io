@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作業ページ — 東北TECH道場 2026.10.3</title>
+<style>
+  :root{--bg:#16181b;--card:#212429;--line:#33373d;--fg:#e8eaed;--muted:#9aa0a6;
+        --blue:#4285F4;--red:#EA4335;--yellow:#F9AB00;--green:#34A853}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;
+       font-family:"Yu Gothic","Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
+  .wrap{max-width:640px;margin:0 auto;padding:20px 18px 70px}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .top span{font-size:12.5px;color:var(--muted)}
+  .top a{font-size:12.5px;color:var(--blue);text-decoration:none}
+  h2{font-size:18px;margin:34px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  h2 i{display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;
+       border-radius:50%;font-size:13px;font-style:normal;color:#fff;margin-right:8px;vertical-align:2px}
+  h3{font-size:15px;margin:20px 0 8px;color:var(--yellow)}
+  p{margin:0 0 10px}
+  .muted{color:var(--muted);font-size:14px}
+  ol{padding-left:20px;margin:0 0 10px}
+  ol li{margin-bottom:7px}
+  .row{display:flex;align-items:center;gap:10px;background:var(--card);
+       border:1px solid var(--line);border-radius:8px;padding:11px 13px;margin-bottom:8px}
+  .row .lbl{flex:1;font-size:15px;min-width:0}
+  .row .lbl small{display:block;color:var(--muted);font-size:12.5px}
+  .row .mono{font-family:ui-monospace,Consolas,monospace;font-weight:700}
+  button{background:var(--green);color:#fff;border:0;border-radius:7px;padding:9px 16px;
+         font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit}
+  button:hover{filter:brightness(1.12)}
+  button.done{background:var(--blue)}
+  .links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .links a{flex:1;min-width:150px;text-align:center;text-decoration:none;color:var(--fg);
+     background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 8px;
+     font-size:14px;font-weight:700}
+  .links a small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+  .links a:hover{border-color:var(--blue)}
+  .rules{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+  .rules div{flex:1;min-width:170px;background:var(--card);border:1px solid var(--line);
+     border-radius:8px;padding:11px 13px;font-size:14px}
+  .rules b{display:block;color:var(--yellow);font-size:14.5px;margin-bottom:2px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td{border-bottom:1px solid var(--line);padding:8px 4px;vertical-align:top}
+  td.q{width:38%;color:var(--yellow)}
+  details{margin:10px 0 0}
+  summary{cursor:pointer;color:var(--muted);font-size:13.5px}
+  pre{background:#0f1113;border:1px solid var(--line);border-radius:7px;padding:12px;
+      overflow-x:auto;font-size:12px;line-height:1.55;margin:9px 0 0;white-space:pre;
+      font-family:ui-monospace,Consolas,"Courier New",monospace}
+  .note{border-left:3px solid var(--yellow);padding-left:12px;color:var(--muted);font-size:13.5px}
+  .hide{display:none}
+  footer{margin:40px 0 0;padding-top:16px;border-top:1px solid var(--line);
+         color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="top">
+  <span>東北TECH道場 2026.10.3 ／ 作業ページ</span>
+  <a href="index.html">← 今日の流れ</a>
+</div>
+
+<!-- 1 -->
+<h2><i style="background:#4285F4">1</i>ひな形を動かす</h2>
+<p>p5.js Web Editor で新しいスケッチを作り、<b>3つとも全部を貼り替えます。</b></p>
+<div class="links" style="margin-bottom:8px">
+  <a href="https://editor.p5js.org/" target="_blank" rel="noopener">p5.js Web Editor をひらく</a>
+</div>
+<p class="muted" style="margin-bottom:12px">
+  ログインは要りません。そのまま使えます。</p>
+
+<div class="row">
+  <span class="lbl mono">sketch.js<small>1番目に貼る</small></span>
+  <button data-target="c-js">コピー</button>
+</div>
+<details><summary>sketch.js の中身を見る</summary><pre id="c-js">// おしゃべりボット / ブラウザだけで動きます
+//
+// --- 変更履歴 ------------------------------------
+// v1  決まった言葉に、決まった返事をするだけのボット
+// --- ここまで ------------------------------------
+// ※ 変更したら「ここまで」の行の1つ上に、v2, v3 … と1行だけ足してください。
+//   すでにある行は書き換えないでください。
+
+// 「この言葉が入っていたら、こう返す」を並べたもの
+const RULES = [
+  { kotoba: 'こんにちは', henji: 'こんにちは。' },
+  { kotoba: '名前',       henji: 'まだ名前はありません。' },
+  { kotoba: 'ありがとう', henji: 'どういたしまして。' },
+];
+
+// どのルールにも当てはまらなかったときの返事
+const WAKARANAI = 'よくわかりません。';
+
+// 言われた言葉から、返事を決める
+function kangaeru(hatsugen) {
+  for (const rule of RULES) {
+    if (hatsugen.includes(rule.kotoba)) {
+      return rule.henji;
+    }
+  }
+  return WAKARANAI;
+}
+
+// ------------------------------------------------------------
+// ここから下は、画面に出すための部分です。
+// はじめのうちは、さわらなくて大丈夫です。
+// ------------------------------------------------------------
+
+const log = document.getElementById('log');
+const input = document.getElementById('input');
+
+function hanasu() {
+  const hatsugen = input.value.trim();
+  if (hatsugen === '') return;
+
+  kakidasu('あなた', hatsugen);
+  kakidasu('ボット', kangaeru(hatsugen));
+
+  input.value = '';
+  input.focus();
+}
+
+function kakidasu(dare, kotoba) {
+  const gyou = document.createElement('p');
+  gyou.textContent = dare + '：' + kotoba;
+  log.appendChild(gyou);
+  log.scrollTop = log.scrollHeight;
+}
+
+document.getElementById('send').addEventListener('click', hanasu);
+input.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') hanasu();
+});
+</pre></details>
+
+<div class="row" style="margin-top:12px">
+  <span class="lbl mono">style.css<small>2番目に貼る</small></span>
+  <button data-target="c-css">コピー</button>
+</div>
+<details><summary>style.css の中身を見る</summary><pre id="c-css">body {
+  margin: 0;
+  padding: 20px;
+  background: #f5f5f5;
+  color: #202124;
+  font-family: "Yu Gothic", "Hiragino Sans", sans-serif;
+}
+
+h1 {
+  font-size: 18px;
+  margin: 0 0 14px;
+}
+
+#log {
+  height: 320px;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+#log p {
+  margin: 0 0 10px;
+  line-height: 1.7;
+}
+
+#bar {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+#input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+}
+
+#send {
+  padding: 10px 22px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #34a853;
+  color: #ffffff;
+  cursor: pointer;
+}
+</pre></details>
+
+<div class="row" style="margin-top:12px">
+  <span class="lbl mono">index.html<small>3番目に貼る</small></span>
+  <button data-target="c-html">コピー</button>
+</div>
+<details><summary>index.html の中身を見る</summary><pre id="c-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+    &lt;title&gt;おしゃべりボット&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;おしゃべりボット&lt;/h1&gt;
+
+    &lt;div id="log"&gt;&lt;/div&gt;
+
+    &lt;div id="bar"&gt;
+      &lt;input id="input" type="text" placeholder="話しかけてみてください" autocomplete="off" /&gt;
+      &lt;button id="send"&gt;送る&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;script src="sketch.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></details>
+
+<p class="note" style="margin-top:12px">エディタ側を全部選んで(Ctrl+A)、上書きしてください。</p>
+
+<h3>動かす</h3>
+<ol>
+  <li>▶ を押す</li>
+  <li>「こんにちは」と打って、送る</li>
+  <li>返事が来たら成功。手を挙げてください</li>
+</ol>
+<p class="muted">3つの言葉にしか反応しません。ここから育てます。</p>
+
+<!-- 2 -->
+<h2><i style="background:#34A853">2</i>AIをひらく</h2>
+<p class="muted"><b>アカウントを持っていない人は duck.ai。</b>登録なしで使えて、コードのコピーも楽です。<br>
+  Googleアカウントを持っている人は Gemini にログインすると使いやすくなります。<br>
+  回数の上限が来たら、別のAIに乗り換えてください。</p>
+<div class="links">
+  <a href="https://duck.ai/" target="_blank" rel="noopener">duck.ai<small>登録なし・コピーが楽</small></a>
+  <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini<small>ログインすると便利</small></a>
+  <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT<small>回数は少なめ</small></a>
+</div>
+<p class="note"><b>コピーボタンが出ないとき</b>(ログインしていないGeminiなど)は、こうすると全部選べます。<br>
+  コードの1行目の先頭をクリック → いちばん下までスクロール →
+  最後の行の終わりを <b>Shiftキーを押しながらクリック</b> → コピー。</p>
+
+<h3>最初の1回だけ、コードを丸ごと渡す</h3>
+<div class="row">
+  <span class="lbl">① sketch.js を全部コピー</span>
+  <button data-target="c-js">コピー</button>
+</div>
+<div class="row">
+  <span class="lbl">② この文を書いて、そのあとに①を貼って送る</span>
+  <button data-target="c-first">コピー</button>
+</div>
+<details open><summary>送る文</summary><pre id="c-first">これはブラウザで動くチャットボットのコードです。
+「元気?」と聞かれたら「元気です。」と返すルールを足してください。
+変更したコード全体を出してください。
+
+</pre></details>
+<p class="muted" style="margin-top:10px">2回目からはコードを貼らなくてOK。続けて指示するだけ。</p>
+
+<!-- 3 -->
+<h2><i style="background:#4285F4">3</i>育て方の例</h2>
+<p>ここから先は、<b>自分の言葉でAIに頼みます。</b>やりたいことを日本語で書くだけです。</p>
+<div class="row" style="display:block">
+  <span class="lbl" style="display:block;margin-bottom:8px">書き方の見本</span>
+  <span class="muted" style="font-size:13.5px">
+    ・「〜してください」と書く<br>
+    ・<b>ひとつだけ</b>書く(まとめて頼むと失敗します)<br>
+    ・最後に「変更したコード全体を出してください」とつけると確実</span>
+</div>
+<div class="row"><span class="lbl">例: 返事を足す<small>「元気?」と聞かれたら「元気です。」と返すルールを足してください。</small></span>
+  <button data-copy="「元気?」と聞かれたら「元気です。」と返すルールを足してください。">コピー</button></div>
+
+<h3>やってみたいこと(自分の言葉で頼んでみよう)</h3>
+<div class="rules">
+  <div><b>返事を増やす</b></div>
+  <div><b>いろんな言い方に対応する</b></div>
+  <div><b>同じ質問でも返事を変える</b></div>
+  <div><b>ボットに名前をつける</b></div>
+  <div><b>わからないときの返事を工夫する</b></div>
+  <div><b>見た目を変える</b></div>
+</div>
+
+<h3>慣れてきたら</h3>
+<div class="rules">
+  <div><b>こちらの名前を覚えてもらう</b></div>
+  <div><b>時間帯であいさつを変える</b></div>
+  <div><b>聞き返してくるようにする</b></div>
+  <div><b>前に話したことを覚えている</b></div>
+</div>
+<p class="muted" style="margin-top:10px">
+  何を答えるボットにするかは自由です。案内役、お店の紹介、相談相手、物語の登場人物。
+  思いついたものを作ってください。</p>
+
+<!-- 4 -->
+<h2><i style="background:#F9AB00">4</i>うまくいかないとき</h2>
+<div class="rules" style="margin-bottom:14px">
+  <div><b>ひとつずつ頼む</b>まとめて頼むと失敗します</div>
+  <div><b>動いたら保存</b>コードをどこかにコピー</div>
+  <div><b>エラーはAIに貼る</b>英語は読まなくていい</div>
+</div>
+<p class="muted">下の文はそのまま使ってください。ここは考えなくて大丈夫です。</p>
+<div class="row"><span class="lbl">赤いエラーが出た<small>「次のエラーが出ました。原因を直したコード全体を出してください。」<br>
+  ↑これを送って、そのあとにエラーを全部貼る</small></span>
+  <button data-copy="次のエラーが出ました。原因を直したコード全体を出してください。&#10;&#10;">コピー</button></div>
+<div class="row"><span class="lbl">送っても返事が出ない<small>「送るボタンを押しても返事が出ません。原因を調べて、動くコード全体を出してください。」</small></span>
+  <button data-copy="送るボタンを押しても返事が出ません。原因を調べて、動くコード全体を出してください。">コピー</button></div>
+<div class="row"><span class="lbl">前より悪くなった<small>「さっきの状態に戻してください。」</small></span>
+  <button data-copy="さっきの状態に戻してください。">コピー</button></div>
+<div class="row"><span class="lbl">一部しか返ってこない<small>「コード全体を出してください。」</small></span>
+  <button data-copy="コード全体を出してください。">コピー</button></div>
+<table>
+  <tr><td class="q">画面が真っ白</td><td>貼り忘れたファイルがないか、3つとも確認</td></tr>
+  <tr><td class="q">どうにもならない</td><td><b>手を挙げる。</b>それが一番早いです</td></tr>
+</table>
+
+<!-- 5 -->
+<h2><i style="background:#EA4335">5</i>よその席へ行ってみる</h2>
+<ol>
+  <li>席を立って、ほかの人のボットに話しかけに行く</li>
+  <li><b>打ちこむのは、そのボットを作った人</b>。あなたは声で「こう聞いてみて」と伝える</li>
+  <li>崩れたら、それが発見</li>
+</ol>
+
+<h3>こんなことを試すと、よく崩れます</h3>
+<table>
+  <tr><td class="q">言い方を変える</td><td>「〜は?」→「〜ってどうすればいいんだっけ」</td></tr>
+  <tr><td class="q">タメ口で聞く</td><td>ていねいな言葉しか想定していないことが多い</td></tr>
+  <tr><td class="q">長い文で聞く</td><td>「あのー、ちょっと聞きたいんですけど…」</td></tr>
+  <tr><td class="q">関係ない話をする</td><td>まったく別の話題を振ってみる</td></tr>
+  <tr><td class="q">同じことを2回聞く</td><td>同じ返事が返ってくるか</td></tr>
+</table>
+<p class="muted" style="margin-top:12px">
+  席に戻ったら、見つかった穴をふさいでみてください。<br>
+  ふさぎきれないと気づいたら、それも大事な結果です。</p>
+
+<!-- 6 -->
+<h2><i style="background:#4285F4">6</i>作品をのこす</h2>
+<p><b>今日のコードは、閉じると消えます。</b>持ち帰りたい人は貼っておいてください。</p>
+<ol>
+  <li>共有ドキュメントを開く</li>
+  <li>いちばん下に見出しを足す → <b>「名前 v3」</b></li>
+  <li>sketch.js を貼る</li>
+</ol>
+<p class="note"><b>「書式なし貼り付け」を使ってください。</b>ふつうに貼ると記号が変わって、あとで動かなくなります。<br>
+   Windows: <b>Ctrl + Shift + V</b> ／ Mac: <b>Option + Shift + Command + V</b><br>
+   効かないときは、メニューの「編集」→「特殊貼り付け」→「書式なしテキストとして貼り付け」。</p>
+<div class="row" id="row-submit"><span class="lbl">共有ドキュメント</span>
+  <a id="link-submit" href="#" target="_blank" rel="noopener"><button type="button">ひらく</button></a></div>
+
+<!-- 7 -->
+<h2><i style="background:#EA4335">7</i>もっとやりたい人へ</h2>
+<p class="muted">うまくいかないこともあります。それでOKです。</p>
+
+<h3>A. ボットにしゃべらせる</h3>
+<div class="row"><span class="lbl">返事を音声で読み上げます</span>
+  <button data-target="c-voice">コピー</button></div>
+<details open><summary>送る文</summary><pre id="c-voice">ボットの返事を、パソコンにしゃべらせてください。
+ブラウザの音声合成(speechSynthesis)を使って、日本語で読み上げてください。
+変更したコード全体を出してください。
+</pre></details>
+<p class="muted" style="margin-top:10px">音が出ます。まわりの迷惑にならないよう、音量は小さめに。</p>
+
+<h3>B. 作品を保存して、URLで見せる</h3>
+<details>
+  <summary>手順を見る(5分ほどかかります)</summary>
+  <p style="margin-top:10px">p5.js Web Editor のアカウントを作ると、作品が保存されて、URLで人に見せられます。</p>
+  <ol>
+    <li>右上の <b>Sign up</b> で登録(Googleアカウントがあると早い)</li>
+    <li>ログインすると、作ったものが自動で保存されるようになります</li>
+    <li><b>Share</b> から出てくるURLを、共有ドキュメントに貼ってください</li>
+  </ol>
+  <p class="note">登録した人は、共有ドキュメントにはコードではなく<b>スケッチのURL</b>を貼ればOKです。</p>
+</details>
+
+<!-- 8 -->
+<h2><i style="background:#F9AB00">8</i>うまくいかなかった話も聞かせてください</h2>
+<p>最後に、みんなで作品を見る時間があります。完成していなくて大丈夫です。</p>
+<table>
+  <tr><td class="q">何を作ろうとしたか</td><td>だいたいでOK</td></tr>
+  <tr><td class="q">どこで崩れたか</td><td>どんな質問に負けたか</td></tr>
+  <tr><td class="q">なぜだと思うか</td><td><b>ここが一番大事。</b>当たってなくてOK</td></tr>
+</table>
+<p class="muted" style="margin-top:10px">
+  ぶつかった壁は、この作り方の限界であって、失敗ではありません。</p>
+
+<!-- 9 -->
+<h2><i style="background:#4285F4">9</i>今日のあとに</h2>
+
+<div class="row" style="display:block">
+  <span class="lbl" style="display:block;margin-bottom:6px"><b>この先にあるもの</b></span>
+  <span class="muted" style="font-size:13.5px;display:block;margin-bottom:10px">
+    今日ぶつかった壁の、向こう側の話。<br>
+    生成AIをつなぐとどうなるか、何が要るか。あとでゆっくり読んでください。</span>
+  <a href="next.html" style="color:var(--blue);font-size:14.5px">読んでみる →</a>
+</div>
+
+<p style="margin-top:14px">この道場は月1回のペースで続きます。次回のご案内をお送りします。</p>
+<div class="links">
+  <a id="link-community" href="#" target="_blank" rel="noopener">道場の案内を受け取る</a>
+  <a id="link-survey" href="#" target="_blank" rel="noopener">アンケート</a>
+</div>
+
+<footer>東北TECH道場 むつ・下北・青森道場(Google Developer Group)</footer>
+
+</div>
+
+<script>
+// ===== 道場主が編集するのはここだけ(空ならボタンは隠れます) =====
+const SETTINGS = {
+  共有ドキュメントURL: 'https://docs.google.com/document/d/1A7CXzZdlYmYw4f2nUZC2cEHDiJkHteotoVk_FUhD1wI/edit',
+  コミュニティURL:     'https://forms.gle/pVbARQJeXmrYvjj56',
+  アンケートURL:       'https://docs.google.com/forms/d/e/1FAIpQLSdFZ-Akh6j_pdom75Ip2zwv6iqzr2ZDpc-fGjlMGTOmz0643w/viewform'
+};
+// ==============================================================
+
+// 設定されたリンクだけ表示
+[['link-submit','共有ドキュメントURL','row-submit'],
+ ['link-community','コミュニティURL',null],
+ ['link-survey','アンケートURL',null]].forEach(function (t) {
+  const el = document.getElementById(t[0]);
+  const url = SETTINGS[t[1]];
+  if (!el) return;
+  if (url) { el.href = url; }
+  else { (document.getElementById(t[2]) || el).classList.add('hide'); }
+});
+
+// コピー処理
+function flash(btn) {
+  const before = btn.textContent;
+  btn.textContent = 'コピーしました';
+  btn.classList.add('done');
+  setTimeout(function () { btn.textContent = before; btn.classList.remove('done'); }, 1500);
+}
+function manual(text, btn) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); flash(btn); }
+  catch (e) { btn.textContent = 'コピーできません'; }
+  document.body.removeChild(ta);
+}
+document.querySelectorAll('button[data-copy],button[data-target]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    let text = btn.dataset.copy;
+    if (!text) {
+      const pre = document.getElementById(btn.dataset.target);
+      if (!pre) return;
+      text = pre.textContent;
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { flash(btn); })
+        .catch(function () { manual(text, btn); });
+    } else { manual(text, btn); }
+  });
+});
+</script>
+</body>
+</html>

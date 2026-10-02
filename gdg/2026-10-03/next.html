@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>この先にあるもの — 東北TECH道場</title>
+<style>
+  :root{--bg:#16181b;--card:#212429;--line:#33373d;--fg:#e8eaed;--muted:#9aa0a6;
+        --blue:#4285F4;--red:#EA4335;--yellow:#F9AB00;--green:#34A853}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);line-height:1.8;font-size:16px;
+       font-family:"Yu Gothic","Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
+  .wrap{max-width:680px;margin:0 auto;padding:20px 18px 80px}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+  .top span{font-size:12.5px;color:var(--muted)}
+  .top a{font-size:12.5px;color:var(--blue);text-decoration:none}
+  h1{font-size:27px;line-height:1.35;margin:0 0 10px}
+  .lead{color:var(--muted);font-size:15px;margin:0 0 6px}
+  h2{font-size:19px;margin:38px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  h2 i{display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;
+       border-radius:50%;font-size:13px;font-style:normal;color:#fff;margin-right:8px;vertical-align:2px}
+  h3{font-size:15.5px;margin:22px 0 8px;color:var(--yellow)}
+  p{margin:0 0 12px}
+  .muted{color:var(--muted);font-size:14.5px}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:0 0 12px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:#2a2e34;font-weight:700;font-size:13.5px}
+  td.q{color:var(--yellow);width:30%}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:15px 17px;margin:0 0 12px}
+  .card b{display:block;margin-bottom:5px}
+  .warn{border-left:3px solid var(--red);padding-left:13px;color:var(--muted);font-size:14.5px;margin:0 0 12px}
+  .good{border-left:3px solid var(--green);padding-left:13px;color:var(--muted);font-size:14.5px;margin:0 0 12px}
+  .note{border-left:3px solid var(--yellow);padding-left:13px;color:var(--muted);font-size:14.5px;margin:0 0 12px}
+  pre{background:#0f1113;border:1px solid var(--line);border-radius:7px;padding:13px;
+      overflow-x:auto;font-size:12.5px;line-height:1.6;margin:0 0 12px;white-space:pre;
+      font-family:ui-monospace,Consolas,"Courier New",monospace}
+  pre.bad{border-color:#5c2b28}
+  /* 構成図 */
+  .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 8px}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:8px;
+       padding:10px 12px;font-size:13px;text-align:center;flex:1;min-width:110px}
+  .box small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+  .box.key{border-color:var(--red)}
+  .box.safe{border-color:var(--green)}
+  .arrow{color:var(--muted);font-size:15px}
+  ul{padding-left:20px;margin:0 0 12px}
+  li{margin-bottom:7px}
+  footer{margin:46px 0 0;padding-top:18px;border-top:1px solid var(--line);
+         color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="top">
+  <span>東北TECH道場 むつ・下北・青森道場</span>
+  <a href="work.html">← 作業ページ</a>
+</div>
+
+<h1>この先にあるもの</h1>
+<p class="lead">今日ぶつかった壁の、向こう側の話です。</p>
+<p class="muted">読み物です。今日やる必要はありません。次回以降の道場で扱っていきます。</p>
+
+<!-- 1 -->
+<h2><i style="background:#EA4335">1</i>今日ぶつかった壁</h2>
+<p>今日つくったボットは、<b>決まった言葉が入っているかどうか</b>だけを見ています。
+   だから、言い方を少し変えられると答えられなくなります。</p>
+<table>
+  <tr><th>聞き方</th><th>今日のボット</th></tr>
+  <tr><td class="q">ゴミの日はいつ？</td><td>燃えるゴミは火曜と金曜です。　<span style="color:var(--green)">答えられた</span></td></tr>
+  <tr><td class="q">燃えるゴミっていつ出せばいいんだっけ</td>
+      <td>ゴミの分別表は市のサイトにあります。　<span style="color:var(--yellow)">「ゴミ」に反応したが、答えになっていない</span></td></tr>
+  <tr><td class="q">あしたって何ゴミだっけ？</td>
+      <td>よくわかりません。　<span style="color:var(--red)">お手上げ</span></td></tr>
+</table>
+<p>ルールを足せば足すほど答えられる範囲は広がりますが、<b>言い回しは無限にあります。</b>
+   書き切ることはできません。ここが、この作り方の限界です。</p>
+<p class="note">これは失敗ではありません。<b>限界の場所を自分の手で確かめた</b>ということです。
+   ここから先に、何が必要になるのかが見えてきます。</p>
+
+<!-- 2 -->
+<h2><i style="background:#4285F4">2</i>生成AIなら、どうなるか</h2>
+<p>同じ質問を生成AIに投げると、たとえばこうなります。</p>
+<table>
+  <tr><th>聞き方</th><th>生成AI</th></tr>
+  <tr><td class="q">燃えるゴミっていつ出せばいいんだっけ</td>
+      <td>燃えるゴミは火曜と金曜です。</td></tr>
+  <tr><td class="q">あしたって何ゴミだっけ？</td>
+      <td>今日は月曜なので、明日は火曜、燃えるゴミの日です。</td></tr>
+  <tr><td class="q">ゴミ出すの忘れてた…</td>
+      <td>次の回収は金曜です。それまで保管をお願いします。</td></tr>
+</table>
+<p class="muted">※ 実際の返事は毎回変わります。同じようには返りません。</p>
+
+<h3>何が違うのか</h3>
+<p>今日のボットは<b>言葉が一致するか</b>を見ていました。生成AIは<b>意味が近いか</b>を見ます。
+   大量の文章から学んだパターンをもとに、続きとして自然な言葉を選んでいます。</p>
+<div class="card">
+  <b>いちばん大きな違いは、ルールを書かなくていいことです。</b>
+  <span class="muted">代わりに「どう振る舞ってほしいか」を、日本語で書いておきます。</span>
+</div>
+<pre>あなたはむつ市役所の窓口案内係です。
+ていねいな言葉で、短く答えてください。
+・燃えるゴミ：火曜と金曜
+・燃えないゴミ：第2・第4水曜
+・分からないことは「窓口にお問い合わせください」と答えてください</pre>
+<p><b>これは、今日みなさんがやっていたことと同じです。</b>
+   日本語でAIに指示を出す。その相手が、自分のボットの中に入るだけです。</p>
+<p class="muted">今日「思った通りにならない」と苦労した経験が、そのまま効いてきます。
+   どう書けば意図が伝わるかを知っている人ほど、良いボットが作れます。</p>
+
+<!-- 3 -->
+<h2><i style="background:#34A853">3</i>どうやって作るのか</h2>
+<p>ボットの中から、AIのサーバーに質問を送って、返ってきた答えを表示します。
+   そのために<b>APIキー</b>という合鍵が要ります。</p>
+
+<h3>やってはいけない形</h3>
+<div class="flow">
+  <div class="box key">ブラウザ<small>HTML + APIキー</small></div>
+  <div class="arrow">→</div>
+  <div class="box">AIのサーバー</div>
+</div>
+<pre class="bad">// これは絶対にやってはいけません
+const API_KEY = "sk-abcd1234...";   // ← 見ようと思えば誰でも見られます</pre>
+<p class="warn"><b>ブラウザに書いたものは、すべて読まれます。</b>
+   公開されたキーを探して回るプログラムが実際に動いていて、
+   数日の不正利用で数万ドルの請求が発生した例が報告されています。
+   キーを持つのはあなたなので、使われた分の請求もあなたに来ます。</p>
+
+<h3>正しい形</h3>
+<div class="flow">
+  <div class="box">ブラウザ<small>キーを持たない</small></div>
+  <div class="arrow">→</div>
+  <div class="box safe">自分のサーバー<small>キーはここ</small></div>
+  <div class="arrow">→</div>
+  <div class="box">AIのサーバー</div>
+</div>
+<p class="good">キーはサーバーに置いて、ブラウザからは渡しません。
+   こうすると、使いすぎを止めたり、記録を残したりもできるようになります。</p>
+<p class="muted">つまり<b>「サーバーを用意する」ところから始まります。</b>
+   これが、今日の2時間では扱えなかった理由のひとつです。</p>
+
+<!-- 4 -->
+<h2><i style="background:#F9AB00">4</i>始めるのに要るもの</h2>
+<table>
+  <tr><th>要るもの</th><th>実際のところ</th></tr>
+  <tr><td class="q">APIキー</td>
+      <td>各サービスのサイトで発行します。Google AI Studio なら、クレジットカードなしで取れます</td></tr>
+  <tr><td class="q">お金</td>
+      <td>使った分だけかかります。無料枠のあるサービスもあります。
+          練習のうちは無料枠で足ります</td></tr>
+  <tr><td class="q">置き場所</td>
+      <td>キーを置くサーバー。無料で使えるものもあります</td></tr>
+  <tr><td class="q">年齢の条件</td>
+      <td><b>サービスごとに違います。</b>次の節で説明します</td></tr>
+</table>
+
+<!-- 5 -->
+<h2><i style="background:#EA4335">5</i>年齢の条件は、サービスごとに違います</h2>
+<table>
+  <tr><th>サービス</th><th>条件</th></tr>
+  <tr><td class="q">Gemini API<br>(Google)</td>
+      <td><b>18歳以上</b>。18歳未満が使う可能性のあるものに組み込むことも認められていません</td></tr>
+  <tr><td class="q">OpenAI API</td>
+      <td><b>13歳以上</b>。18歳未満は<b>保護者の許可と監督</b>が必要です</td></tr>
+</table>
+<p class="muted">※ 条件は変わることがあります。使う前に、必ず各サービスの規約をご自身で確認してください。</p>
+
+<h3>高校生のみなさんへ</h3>
+<div class="card">
+  <b>「まだできない」ではなく、「順番がある」と考えてください。</b>
+  <span class="muted">今日の道場では扱いませんが、道が閉じているわけではありません。</span>
+</div>
+<ul>
+  <li>Gemini の API は18歳から。<b>大学生になれば、自分で使えます</b></li>
+  <li>OpenAI の API は13歳から。ただし<b>保護者の許可と監督</b>が必要です。
+      支払いもクレジットカードなので、おうちの人と一緒に相談してみてください</li>
+  <li>学校の授業で使えるようになっている生成AIもあります。先生に聞いてみてください</li>
+</ul>
+<p>そして何より、<b>今日やったことは、その準備そのものです。</b>
+   AIにどう伝えれば思った通りに動くのか。この感覚を持っている人が、いちばん良いものを作ります。
+   道具が手に入ったときに、すぐ走り出せます。</p>
+
+<!-- 6 -->
+<h2><i style="background:#4285F4">6</i>窓口の案内を、本気で作るなら</h2>
+<p class="muted">むつ市の窓口対応を想定している方へ。技術よりも先に、決めることがあります。</p>
+<table>
+  <tr><th>決めること</th><th>なぜ</th></tr>
+  <tr><td class="q">キーを誰が持つか</td>
+      <td>従量課金なので、漏れれば請求が来ます。置き場所と管理者を先に決めます</td></tr>
+  <tr><td class="q">市民の情報を送ってよいか</td>
+      <td><b>ここが最大の論点です。</b>氏名や住所を外部のAIに送ってよいか。
+          送らない設計にできるか</td></tr>
+  <tr><td class="q">間違えたときどうするか</td>
+      <td>生成AIは、もっともらしい誤りを返すことがあります。
+          「必ず窓口で確認してください」と添えるなどの歯止めが要ります</td></tr>
+  <tr><td class="q">記録をどう残すか</td>
+      <td>何を聞かれ、何と答えたか。改善にも、説明責任にも使います</td></tr>
+</table>
+<p>スマートシティ推進戦略では、窓口改革とAIによる案内が構想に入っています。
+   <b>この道場は、その実験場として使っていただけます。</b>
+   小さく作って、試して、駄目なら作り直す。それが一番速い道だと思います。</p>
+
+<!-- 7 -->
+<h2><i style="background:#34A853">7</i>次回以降、やっていきたいこと</h2>
+<div class="card">
+  <b>APIを使ったボットを作る</b>
+  <span class="muted">今日のボットに、生成AIをつなぎます。18歳以上の方、または保護者の方と一緒の方が対象です。
+  年齢の条件で参加できない方には、別の役割を用意します。</span>
+</div>
+<div class="card">
+  <b>作ったものを、インターネットに公開する</b>
+  <span class="muted">自分のURLを持って、人に見てもらえる状態にします。年齢の条件はありません。
+  今日作ったボットも公開できます。</span>
+</div>
+<div class="card">
+  <b>暮らしや仕事の中の、小さな困りごとを解く</b>
+  <span class="muted">窓口の案内、お店の情報、学校の連絡。
+  題材は、参加するみなさんが持ち込んでください。</span>
+</div>
+<p class="muted" style="margin-top:14px">
+  日程が決まりましたら、ご案内をお送りします。都合のよいときに、ふらっとお越しください。</p>
+
+<footer>
+  東北TECH道場 むつ・下北・青森道場(Google Developer Group)<br>
+  お問い合わせ: 青森大学 角田(つのだ)
+</footer>
+
+</div>
+</body>
+</html>

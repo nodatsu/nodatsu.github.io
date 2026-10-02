@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作業ページ — プレ道場 2026.8.9</title>
+<style>
+  :root{--bg:#16181b;--card:#212429;--line:#33373d;--fg:#e8eaed;--muted:#9aa0a6;
+        --blue:#4285F4;--red:#EA4335;--yellow:#F9AB00;--green:#34A853}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;
+       font-family:"Yu Gothic","Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
+  .wrap{max-width:640px;margin:0 auto;padding:20px 18px 70px}
+
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .top span{font-size:12.5px;color:var(--muted)}
+  .top a{font-size:12.5px;color:var(--blue);text-decoration:none}
+
+  h2{font-size:18px;margin:34px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  h2 i{display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;
+       border-radius:50%;font-size:13px;font-style:normal;color:#fff;margin-right:8px;vertical-align:2px}
+  h3{font-size:15px;margin:20px 0 8px;color:var(--yellow)}
+  p{margin:0 0 10px}
+  .muted{color:var(--muted);font-size:14px}
+
+  ol{padding-left:20px;margin:0 0 10px}
+  ol li{margin-bottom:7px}
+
+  /* コピー行 */
+  .row{display:flex;align-items:center;gap:10px;background:var(--card);
+       border:1px solid var(--line);border-radius:8px;padding:11px 13px;margin-bottom:8px}
+  .row .lbl{flex:1;font-size:15px;min-width:0}
+  .row .lbl small{display:block;color:var(--muted);font-size:12.5px}
+  .row .mono{font-family:ui-monospace,Consolas,monospace;font-weight:700}
+  button{background:var(--green);color:#fff;border:0;border-radius:7px;padding:9px 16px;
+         font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit}
+  button:hover{filter:brightness(1.12)}
+  button.done{background:var(--blue)}
+
+  .links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .links a{flex:1;min-width:150px;text-align:center;text-decoration:none;color:var(--fg);
+     background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 8px;
+     font-size:14px;font-weight:700}
+  .links a small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+  .links a:hover{border-color:var(--blue)}
+
+  .rules{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+  .rules div{flex:1;min-width:170px;background:var(--card);border:1px solid var(--line);
+     border-radius:8px;padding:11px 13px;font-size:14px}
+  .rules b{display:block;color:var(--yellow);font-size:14.5px;margin-bottom:2px}
+
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td{border-bottom:1px solid var(--line);padding:8px 4px;vertical-align:top}
+  td.q{width:38%;color:var(--yellow)}
+
+  details{margin:10px 0 0}
+  summary{cursor:pointer;color:var(--muted);font-size:13.5px}
+  pre{background:#0f1113;border:1px solid var(--line);border-radius:7px;padding:12px;
+      overflow-x:auto;font-size:12px;line-height:1.55;margin:9px 0 0;white-space:pre;
+      font-family:ui-monospace,Consolas,"Courier New",monospace}
+  .note{border-left:3px solid var(--yellow);padding-left:12px;color:var(--muted);font-size:13.5px}
+  .hide{display:none}
+  footer{margin:40px 0 0;padding-top:16px;border-top:1px solid var(--line);
+         color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="top">
+  <span>プレ道場 2026.8.9 ／ 作業ページ</span>
+  <a href="index.html">← 今日の流れ</a>
+</div>
+
+<!-- 1 ひな形のコードを動かす -->
+<h2><i style="background:#4285F4">1</i>ひな形のコードを動かす</h2>
+<p>p5.js Web Editor で新しいスケッチを作り、<b>3つとも全部を貼り替えます。</b></p>
+<div class="links" style="margin-bottom:8px">
+  <a href="https://editor.p5js.org/" target="_blank" rel="noopener">p5.js Web Editor をひらく</a>
+</div>
+<p class="muted" style="margin-bottom:12px">
+  アカウントを持っている人は、ログインしておくと作品が保存されます。
+  なくてもそのまま使えます。</p>
+
+<div class="row">
+  <span class="lbl mono">sketch.js<small>1番目に貼る</small></span>
+  <button data-target="c-sketch">コピー</button>
+</div>
+<details><summary>sketch.js の中身を見る</summary><pre id="c-sketch">// 音に反応する四角 / p5.js
+//
+// [変更履歴] 変更するたびに、いちばん下に1行だけ追記する。
+//            前の行は書き換えない。
+// v1  白い四角が、音の大きさに合わせて伸び縮みする
+
+const OTO_URL = 'https://nodatsu.github.io/gdg/dojo_loop.mp3';   // 音源の場所
+
+let song;      // 音楽
+let amp;       // 音の大きさをはかるもの
+let playing = false;
+
+function preload() {
+  song = loadSound(OTO_URL);
+}
+
+function setup() {
+  createCanvas(960, 540);
+  amp = new p5.Amplitude();
+  rectMode(CENTER);          // 四角を「中心の位置」で置く
+  noStroke();
+}
+
+function draw() {
+  background(0);             // 背景を黒でぬりつぶす
+
+  // まだ音が鳴っていないときは案内を出す
+  if (!playing) {
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(26);
+    text('画面をクリックすると音が鳴ります', width / 2, height / 2);
+    return;
+  }
+
+  const oto = amp.getLevel();        // 今の音の大きさ(0〜0.3くらい)
+  const ookisa = 60 + oto * 1000;    // 音が大きいほど大きく
+
+  fill(255);
+  rect(width / 2, height / 2, ookisa, ookisa);
+}
+
+// 画面をクリックしたら音を鳴らす
+// (ブラウザの決まりで、一度クリックしないと音を出せません)
+function mousePressed() {
+  if (!playing) {
+    userStartAudio();
+    song.loop();
+    playing = true;
+  }
+}
+</pre></details>
+
+<div class="row" style="margin-top:12px">
+  <span class="lbl mono">style.css<small>2番目に貼る</small></span>
+  <button data-target="c-css">コピー</button>
+</div>
+<details><summary>style.css の中身を見る</summary><pre id="c-css">html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+</pre></details>
+
+<div class="row" style="margin-top:12px">
+  <span class="lbl mono">index.html<small>3番目に貼る</small></span>
+  <button data-target="c-html">コピー</button>
+</div>
+<details><summary>index.html の中身を見る</summary><pre id="c-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+    &lt;title&gt;音に反応する四角&lt;/title&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/addons/p5.sound.min.js"&gt;&lt;/script&gt;
+
+    &lt;link rel="stylesheet" href="style.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;main&gt;&lt;/main&gt;
+    &lt;script src="sketch.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></details>
+
+<p class="note" style="margin-top:12px">エディタ側を全部選んで(Ctrl+A)、上書きしてください。</p>
+
+<h3>動かす</h3>
+<ol>
+  <li>▶ を押す</li>
+  <li>画面をクリック → 音が鳴る</li>
+  <li>白い四角が音に合わせて動いたら成功。手を挙げてください</li>
+</ol>
+
+<h3>鳴っている音について</h3>
+<p class="muted">この曲は今日のために作ったオリジナルです。誰の権利もかかっていないので、
+  自由に使えます。19秒でくり返しています。<br>
+  好きな音楽に変えたい人は、無料で使える音源をダウンロードして差し替えられます →
+  <a href="#motto" style="color:var(--blue)">7 もっとやりたい人へ</a></p>
+
+<!-- 2 AI -->
+<h2><i style="background:#34A853">2</i>AIをひらく</h2>
+<p class="muted"><b>アカウントを持っていない人は duck.ai。</b>登録なしで使えて、コードのコピーも楽です。<br>
+  Googleアカウントを持っている人は Gemini にログインすると使いやすくなります。<br>
+  回数の上限が来たら、別のAIに乗り換えてください。</p>
+<div class="links">
+  <a href="https://duck.ai/" target="_blank" rel="noopener">duck.ai<small>登録なし・コピーが楽</small></a>
+  <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini<small>ログインすると便利</small></a>
+  <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT<small>回数は少なめ</small></a>
+</div>
+<p class="note"><b>コピーボタンが出ないとき</b>(ログインしていないGeminiなど)は、こうすると全部選べます。<br>
+  コードの1行目の先頭をクリック → いちばん下までスクロール →
+  最後の行の終わりを <b>Shiftキーを押しながらクリック</b> → コピー。</p>
+
+<h3>最初の1回だけ、コードを丸ごと渡す</h3>
+<div class="row">
+  <span class="lbl">① sketch.js を全部コピー</span>
+  <button data-target="c-sketch">コピー</button>
+</div>
+<div class="row">
+  <span class="lbl">② この文を書いて、そのあとに①を貼って送る</span>
+  <button data-target="c-first">コピー</button>
+</div>
+<details open><summary>送る文</summary><pre id="c-first">これはp5.jsのスケッチです。
+四角を円に変えてください。
+変更したコード全体を出してください。
+
+</pre></details>
+<p class="muted" style="margin-top:10px">2回目からはコードを貼らなくてOK。続けて指示するだけ。</p>
+
+<!-- 3 改造例 -->
+<h2><i style="background:#4285F4">3</i>改造例</h2>
+<p>ここから先は、<b>自分の言葉でAIに頼みます。</b>やりたいことを日本語で書くだけです。</p>
+<div class="row" style="display:block">
+  <span class="lbl" style="display:block;margin-bottom:8px">書き方の見本</span>
+  <span class="muted" style="font-size:13.5px">
+    ・「〜してください」と書く<br>
+    ・<b>ひとつだけ</b>書く(まとめて頼むと失敗します)<br>
+    ・最後に「変更したコード全体を出してください」とつけると確実</span>
+</div>
+<div class="row"><span class="lbl">例: 色を変える<small>図形の色を、明るい暖色系に変えてください。</small></span>
+  <button data-copy="図形の色を、明るい暖色系に変えてください。">コピー</button></div>
+
+<h3>やってみたいこと(自分の言葉で頼んでみよう)</h3>
+<div class="rules">
+  <div><b>数を増やす</b></div>
+  <div><b>回転させる</b></div>
+  <div><b>音で色が変わる</b></div>
+  <div><b>残像を出す</b></div>
+  <div><b>形を変える</b></div>
+  <div><b>大きさの変化を派手に</b></div>
+</div>
+
+<h3>慣れてきたら</h3>
+<div class="rules">
+  <div><b>音に合わせて図形が生まれる</b></div>
+  <div><b>低い音と高い音で分ける</b></div>
+  <div><b>万華鏡のような模様に</b></div>
+  <div><b>コードの意味を説明してもらう</b></div>
+</div>
+<p class="muted" style="margin-top:10px">
+  思いついたことは何でも頼んでみてください。できるかどうかは、やってみないと分かりません。</p>
+
+<!-- 4 うまくいかないとき -->
+<h2><i style="background:#F9AB00">4</i>うまくいかないとき</h2>
+<div class="rules" style="margin-bottom:14px">
+  <div><b>ひとつずつ頼む</b>まとめて頼むと失敗します</div>
+  <div><b>動いたら保存</b>コードをどこかにコピー</div>
+  <div><b>エラーはAIに貼る</b>英語は読まなくていい</div>
+</div>
+<p class="muted">下の文はそのまま使ってください。ここは考えなくて大丈夫です。</p>
+<div class="row"><span class="lbl">赤いエラーが出た<small>「次のエラーが出ました。原因を直したコード全体を出してください。」<br>
+  ↑これを送って、そのあとにエラーを全部貼る</small></span>
+  <button data-copy="次のエラーが出ました。原因を直したコード全体を出してください。&#10;&#10;">コピー</button></div>
+<div class="row"><span class="lbl">画面が真っ白<small>「実行しても画面が真っ白のままです。原因を調べて、動くコード全体を出してください。」</small></span>
+  <button data-copy="実行しても画面が真っ白のままです。原因を調べて、動くコード全体を出してください。">コピー</button></div>
+<div class="row"><span class="lbl">前より悪くなった<small>「さっきの状態に戻してください。」</small></span>
+  <button data-copy="さっきの状態に戻してください。">コピー</button></div>
+<div class="row"><span class="lbl">一部しか返ってこない<small>「コード全体を出してください。」</small></span>
+  <button data-copy="コード全体を出してください。">コピー</button></div>
+<table>
+  <tr><td class="q">音が鳴らない</td><td>画面を一度クリック。PCの音量とミュートも確認</td></tr>
+  <tr><td class="q">どうにもならない</td><td><b>手を挙げる。</b>それが一番早いです</td></tr>
+</table>
+
+<!-- 5 ドームに映す -->
+<h2><i style="background:#34A853">5</i>ドームに映す</h2>
+<p><b>どんどん映してください。許可は要りません。</b>
+   完成していなくても、途中でも大丈夫です。</p>
+<ol>
+  <li><b>投影席</b>(2つあります)が空いていたら、PCを持って座る</li>
+  <li>HDMIをつなぐ<br>
+      <span class="muted">変換アダプタが必要な人は、スタッフに言えば貸します</span></li>
+  <li>▶ を押して、画面をクリック</li>
+  <li>ひとこと説明する。「ここをこうしました」だけでOK</li>
+</ol>
+<p class="muted">つないだ直後、数秒暗くなります。故障ではありません。<br>
+   2人同時に映せます。音が重なったら、どちらかが音量を下げて。<br>
+   暗いので、移動するときは足元に気をつけて。</p>
+
+<h3>ドームで映えるコツ</h3>
+<div class="rules">
+  <div><b>暗く</b>背景は黒っぽく</div>
+  <div><b>大きく</b>太く、ゆっくり</div>
+  <div><b>中心に</b>まん中が主役</div>
+</div>
+
+<!-- 6 のこす -->
+<h2><i style="background:#4285F4">6</i>作品をのこす</h2>
+<p><b>今日のコードは、閉じると消えます。</b>持ち帰りたい人は貼っておいてください。</p>
+<ol>
+  <li>共有ドキュメントを開く</li>
+  <li>いちばん下に見出しを足す → <b>「名前 v3」</b></li>
+  <li>sketch.js を貼る</li>
+</ol>
+<p class="note"><b>「書式なし貼り付け」を使ってください。</b>ふつうに貼ると記号が変わって、あとで動かなくなります。<br>
+   Windows: <b>Ctrl + Shift + V</b>　／　Mac: <b>Option + Shift + Command + V</b><br>
+   効かないときは、メニューの「編集」→「特殊貼り付け」→「書式なしテキストとして貼り付け」。</p>
+<div class="row" id="row-submit"><span class="lbl">共有ドキュメント</span>
+  <a id="link-submit" href="#" target="_blank" rel="noopener"><button type="button">ひらく</button></a></div>
+
+<!-- 7 もっと -->
+<h2 id="motto"><i style="background:#EA4335">7</i>もっとやりたい人へ</h2>
+<p class="muted">うまくいかないこともあります。それでOKです。</p>
+
+<h3>A. マイクの音で動かす</h3>
+<div class="row"><span class="lbl">まわりの音に反応するようになります</span>
+  <button data-target="c-mic">コピー</button></div>
+<details open><summary>送る文</summary><pre id="c-mic">音楽ファイルではなく、パソコンのマイクから音を拾うように変更してください。
+p5.js の p5.AudioIn を使ってください。
+変更したコード全体を出してください。
+</pre></details>
+<table style="margin-top:10px">
+  <tr><td class="q">許可を聞かれる</td><td>「許可」を押す</td></tr>
+  <tr><td class="q">拾うのは会場の音</td><td>手を叩くと分かりやすい</td></tr>
+  <tr><td class="q">マイクがないPCも</td><td>その場合は動きません</td></tr>
+  <tr><td class="q">「キーン」と鳴ったら</td><td>すぐ音量を下げる</td></tr>
+</table>
+
+<h3>B. 好きな音楽に変える</h3>
+<p class="muted">CDや配信で買った曲は、作品を人に見せるときに権利の問題が出ます。
+   <b>無料で使える音源を配っているサイト</b>から選ぶのが安心です。</p>
+<div class="links">
+  <a href="https://maou.audio/" target="_blank" rel="noopener">魔王魂</a>
+  <a href="https://dova-s.jp/" target="_blank" rel="noopener">DOVA-SYNDROME</a>
+  <a href="https://pixabay.com/music/" target="_blank" rel="noopener">Pixabay Music</a>
+</div>
+<p class="muted" style="font-size:13px">
+   ダウンロードする前に、そのサイトの利用条件を見ておいてください。</p>
+<details>
+  <summary>差し替える手順を見る(5分ほどかかります)</summary>
+  <ol style="margin-top:10px">
+    <li>上のサイトなどから、気に入った曲をダウンロードする(mp3)</li>
+    <li>p5.js Web Editor の右上 <b>Sign up</b> で登録<br>
+        <span class="muted">音楽ファイルを置くにはアカウントが要ります。Googleアカウントがあると早い</span></li>
+    <li>左のファイル一覧「▼」→ <b>Upload file</b> で、その曲を追加</li>
+    <li>sketch.js の上のほう <b>OTO_URL</b> を、その曲のファイル名に書き換える<br>
+        <span class="muted">例: <code style="font-family:ui-monospace,Consolas,monospace">const OTO_URL = 'mysong.mp3';</code></span></li>
+  </ol>
+  <p class="note">アカウントを作ると作品が保存されます。その場合、共有ドキュメントには
+     コードではなく<b>スケッチのURL</b>を貼ってください。</p>
+</details>
+
+<!-- 8 失敗も発表しよう -->
+<h2><i style="background:#F9AB00">8</i>失敗も発表しよう</h2>
+<p>作品ができなくても、途中で止まっても、ぜひ上映会で発表してください。
+   話すのはこの3つだけです。</p>
+<table>
+  <tr><td class="q">何を試したか</td><td>だいたいでOK</td></tr>
+  <tr><td class="q">どうなったか</td><td>エラー、変な動き、何も起きない</td></tr>
+  <tr><td class="q">なぜだと思うか</td><td><b>ここが一番大事。</b>当たってなくてOK</td></tr>
+</table>
+
+<!-- 9 -->
+<h2><i style="background:#4285F4">9</i>今日のあとに</h2>
+<p>9月から、この道場は月1回のペースで続きます。</p>
+<div class="links">
+  <a id="link-community" href="#" target="_blank" rel="noopener">道場の案内を受け取る</a>
+  <a id="link-survey" href="#" target="_blank" rel="noopener">アンケート</a>
+</div>
+
+<footer>東北TECH道場 むつ・下北・青森道場(Google Developer Group)</footer>
+
+</div>
+
+<script>
+// ===== 道場主が編集するのはここだけ(空ならボタンは隠れます) =====
+const SETTINGS = {
+  共有ドキュメントURL: 'https://docs.google.com/document/d/1gaRcV_KSWb0iZ7EMvRSk1P9t8xFOTfp1ccMB3QR2dvM/edit?usp=sharing',
+  コミュニティURL:     '',
+  アンケートURL:       'https://forms.gle/vyFGuSV8ZdeqaciM9'
+};
+// ==============================================================
+
+// 音源URLをこのページの場所から自動で組み立てる
+// (置き場所を変えても追従します。JSが動かない場合は上に書いてあるURLがそのまま使われます)
+(function () {
+  const pre = document.getElementById('c-sketch');
+  if (!pre) return;
+  try {
+    if (location.protocol.indexOf('http') !== 0) return;
+    const url = new URL('dojo_loop.mp3', location.href).href;
+    pre.textContent = pre.textContent.replace(
+      /const OTO_URL = '[^']*';/,
+      "const OTO_URL = '" + url + "';"
+    );
+  } catch (e) {}
+})();
+
+// 設定されたリンクだけ表示
+[['link-submit','共有ドキュメントURL','row-submit'],
+ ['link-community','コミュニティURL',null],
+ ['link-survey','アンケートURL',null]].forEach(function (t) {
+  const el = document.getElementById(t[0]);
+  const url = SETTINGS[t[1]];
+  if (!el) return;
+  if (url) { el.href = url; }
+  else { (document.getElementById(t[2]) || el).classList.add('hide'); }
+});
+
+// コピー処理
+function flash(btn) {
+  const before = btn.textContent;
+  btn.textContent = 'コピーしました';
+  btn.classList.add('done');
+  setTimeout(function () { btn.textContent = before; btn.classList.remove('done'); }, 1500);
+}
+document.querySelectorAll('button[data-copy],button[data-target]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    let text = btn.dataset.copy;
+    if (!text) {
+      const pre = document.getElementById(btn.dataset.target);
+      if (!pre) return;
+      text = pre.textContent;
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { flash(btn); })
+        .catch(function () { manual(text, btn); });
+    } else { manual(text, btn); }
+  });
+});
+function manual(text, btn) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); flash(btn); }
+  catch (e) { btn.textContent = 'コピーできません'; }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>
