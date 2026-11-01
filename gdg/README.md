@@ -11,10 +11,12 @@
 │   ├── index.html
 │   ├── work.html
 │   └── dojo_loop.mp3    ← 2つ目のコピー(理由は下記)
-└── 2026-10-03/          第1回(おしゃべりボット)
-    ├── index.html
-    ├── work.html
-    └── next.html
+├── 2026-10-03/          第1回(おしゃべりボット)
+│   ├── index.html
+│   ├── work.html
+│   └── next.html
+└── 2026-11-15/          キャンパス祭(音と光)
+    └── index.html       ← 1枚だけ。案内と作業を兼ねる
 ```
 
 公開後のURL:
@@ -24,6 +26,7 @@
 | `nodatsu.github.io/gdg/` | トップページ |
 | `nodatsu.github.io/gdg/2026-08-09/` | 8月の案内 |
 | `nodatsu.github.io/gdg/2026-10-03/` | 10月の案内 |
+| `nodatsu.github.io/gdg/2026-11-15/` | 11月の作業ページ |
 | `nodatsu.github.io/gdg/work.html` | 8月の作業ページへ自動で移動 |
 
 ---
@@ -83,14 +86,18 @@ const OTO_URL = 'https://nodatsu.github.io/gdg/dojo_loop.mp3';
 
 ---
 
-## 10月3日の前にやること
+## 11月15日の前にやること
 
-- [x] `2026-10-03/work.html` の `SETTINGS` に3つのURLを入れる
-      (共有ドキュメント・コミュニティ・アンケート) → 設定済み
-- [ ] 実機で作業ページを開き、コピーボタンが動くか
-- [ ] コピーした3ファイルを p5.js Web Editor に貼って、返事が出るか
-- [ ] トップページから各回へ行けるか
-- [ ] `nodatsu.github.io/gdg/work.html` が8月のページへ飛ぶか
+- [ ] `2026-11-15/index.html` の `SETTINGS` にURLを入れる
+      (コミュニティは必須。共有ドキュメント・アンケートは任意。空なら非表示)
+- [ ] 実機で開き、コピーボタンが動くか
+- [ ] コピーした3ファイルを p5.js Web Editor に貼って、**音が鳴るか**
+- [ ] トップページの「今日のページ」が 2026-11-15 を指しているか
+
+### 済んだこと(10月)
+
+- [x] `2026-10-03/work.html` の `SETTINGS` に3つのURLを入れた
+- [x] 公開・リンク確認
 
 ---
 

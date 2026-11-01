@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>音と光を、AIと作る — 東北TECH道場 2026.11.15</title>
+<style>
+  :root{--bg:#16181b;--card:#212429;--line:#33373d;--fg:#e8eaed;--muted:#9aa0a6;
+        --blue:#4285F4;--red:#EA4335;--yellow:#F9AB00;--green:#34A853}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);line-height:1.7;font-size:16px;
+       font-family:"Yu Gothic","Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
+  .wrap{max-width:680px;margin:0 auto;padding:22px 18px 70px}
+  .dots{display:flex;gap:7px;margin-bottom:10px}
+  .dots i{width:10px;height:10px;border-radius:50%;display:block}
+  .brand{font-size:12px;color:var(--muted);margin:0}
+  h1{font-size:23px;line-height:1.35;margin:5px 0 6px}
+  .lead{color:var(--muted);font-size:14px;margin:0 0 22px}
+
+  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;
+        padding:16px 18px;margin:0 0 14px}
+  .step>.n{display:flex;align-items:center;gap:10px;margin:0 0 10px}
+  .step>.n b{width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;
+        display:flex;align-items:center;justify-content:center;font-size:17px;flex:none}
+  .step>.n span{font-size:19px;font-weight:700}
+  .step p{margin:0 0 8px}
+  .step p:last-child{margin-bottom:0}
+  ul{padding-left:20px;margin:0 0 8px}
+  li{margin-bottom:6px}
+  .muted{color:var(--muted);font-size:13.5px}
+
+  .ai{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+  .ai a{flex:1;min-width:120px;text-decoration:none;background:#2a2e34;border:1px solid var(--line);
+       border-radius:8px;padding:10px 12px;color:var(--fg);font-size:14px;text-align:center}
+  .ai a:hover{border-color:var(--blue);color:var(--blue)}
+  .ai a small{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+  .age{background:#1b1e22;border-left:3px solid var(--yellow);border-radius:0 8px 8px 0;
+       padding:10px 13px;margin:0 0 10px;font-size:14px}
+  .age b{color:var(--yellow)}
+
+  .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;
+       background:#1b1e22;border:1px solid var(--line);border-radius:8px;padding:11px 13px;margin:0 0 9px}
+  .row .lbl{flex:1}
+  .row small{display:block;color:var(--muted);font-size:13px;margin-top:3px}
+  button{flex:none;background:var(--blue);color:#fff;border:0;border-radius:7px;
+         padding:8px 15px;font-size:13.5px;cursor:pointer;font-family:inherit}
+  button:hover{opacity:.88} button.done{background:var(--green)}
+
+  pre{background:#0e1013;border:1px solid var(--line);border-radius:8px;padding:12px 13px;
+      overflow-x:auto;font-size:12.5px;line-height:1.6;margin:8px 0 0;
+      font-family:"SFMono-Regular",Consolas,"Courier New",monospace}
+  details{margin:8px 0 0} summary{cursor:pointer;color:var(--muted);font-size:13.5px}
+  code{background:#0e1013;border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-size:13px}
+
+  hr.sep{border:0;border-top:1px solid var(--line);margin:34px 0 26px}
+  h2{font-size:17px;margin:28px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+  .fuda{background:#1b1e22;border:1px dashed var(--line);border-radius:8px;padding:13px 15px;
+        font-size:14px;margin:10px 0}
+  .fuda b{color:var(--yellow)}
+  a.cta{display:inline-block;background:var(--yellow);color:#16181b;text-decoration:none;
+        font-weight:700;border-radius:8px;padding:11px 22px;font-size:15px;margin:4px 6px 4px 0}
+  a.cta.sub{background:#2a2e34;color:var(--fg);border:1px solid var(--line);font-weight:400}
+  .hide{display:none}
+  footer{margin:42px 0 0;padding-top:16px;border-top:1px solid var(--line);
+         color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="dots"><i style="background:#4285F4"></i><i style="background:#EA4335"></i>
+    <i style="background:#F9AB00"></i><i style="background:#34A853"></i></div>
+  <p class="brand">Google Developer Group ／ 東北TECH道場</p>
+  <h1>音と光を、AIと作る</h1>
+  <p class="lead">コードは書きません。日本語でAIにたのむだけです。<br>
+    3分でもできます。とちゅうで帰っても大丈夫です。</p>
+
+  <!-- ====== 3ステップ ====== -->
+
+  <div class="step">
+    <div class="n"><b>1</b><span>すわる</span></div>
+    <ul>
+      <li>札が <b>「引き継いでOK」</b> の席にすわってください</li>
+      <li>もう音が鳴っています。<b>画面をクリック</b>すると、その高さの音が出ます</li>
+      <li>下をクリックすると低い音、上をクリックすると高い音</li>
+    </ul>
+    <p class="muted">まっさらから作りたい人は、下の「ゼロから作る」へ。</p>
+  </div>
+
+  <div class="step">
+    <div class="n"><b>2</b><span>たのむ</span></div>
+    <p>AIをひらきます。</p>
+    <div class="age">
+      <b>13歳未満の方は、道場生にたのんでください。</b>そばにいる人が、かわりに打ちます。<br>
+      13歳以上の方は、自分で操作してかまいません。
+    </div>
+    <div class="ai">
+      <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini<small>13歳以上／ログインすると便利</small></a>
+      <a href="https://duck.ai" target="_blank" rel="noopener">duck.ai<small>18歳以上／登録なしで楽</small></a>
+      <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT<small>13歳以上／回数は少なめ</small></a>
+    </div>
+    <ul>
+      <li><b>いまの画面の sketch.js を全部コピー</b>します(Ctrl+A → Ctrl+C)</li>
+      <li>下の文をAIに貼って、そのあとにコードを貼って送る</li>
+      <li>返ってきたコードで、sketch.js を<b>全部ぬりかえて ▶</b></li>
+    </ul>
+    <div class="row"><span class="lbl">そのまま使える文<small>「音が鳴る間かくを、もっと短くしてください。」</small></span>
+      <button data-copy="これは p5.js のスケッチです。
+音が鳴る間かくを、もっと短くしてください。
+変更したjavascript部分のコード全体を出してください。">コピー</button></div>
+    <p class="muted">2回目からは、コードを貼らなくてOK。続けてたのむだけです。</p>
+  </div>
+
+  <div class="step">
+    <div class="n"><b>3</b><span>のこす</span></div>
+    <ul>
+      <li>動いたら、席の<b>札に1行</b>書いてください</li>
+      <li>帰るときは、札を <b>「引き継いでOK」</b> にしておいてください</li>
+    </ul>
+    <div class="fuda">
+      席 <b>7</b>　｜　つくった人： <b>のだつ</b> ／ ____<br>
+      いまの版： <b>v5</b>　音を速くした<br>
+      ☐ 作業中　　☑ 引き継いでOK
+    </div>
+    <p class="muted">次の人が、あなたの続きを作ります。合作です。</p>
+  </div>
+
+  <hr class="sep">
+  <p class="muted">──── ここから下は、もっとやりたい人へ ────</p>
+
+  <!-- ====== ここから先 ====== -->
+
+  <h2>たのみ方</h2>
+  <p>やりたいことを、日本語でそのまま書くだけです。</p>
+  <ul>
+    <li><b>ひとつだけ</b>たのむ(まとめて頼むと失敗します)</li>
+    <li>最後に「変更したjavascript部分のコード全体を出してください」とつける</li>
+  </ul>
+  <div class="row"><span class="lbl">書き方の見本<small>〔 〕のところに、やりたいことを1つ書く</small></span>
+    <button data-copy="これは p5.js のスケッチです。
+〔ここに、やりたいことを1つ書く〕
+変更したjavascript部分のコード全体を出してください。">コピー</button></div>
+
+  <h2>やってみたいこと</h2>
+  <ul>
+    <li>音をもっと速く／ゆっくり</li>
+    <li>音を増やす・低い音を足す</li>
+    <li>色を変える・虹色にする</li>
+    <li>残像が残るようにする</li>
+    <li>四角や三角もまぜる</li>
+    <li>4回に1回、強い音を入れる</li>
+    <li>おさえたまま動かすと鳴るようにする</li>
+    <li>キーボードでも鳴るようにする</li>
+  </ul>
+  <p class="muted">文は自分で考えます。思いついたものを作ってください。</p>
+
+  <h2>うまくいかないとき</h2>
+  <div class="row"><span class="lbl">赤いエラーが出た<small>「次のエラーが出ました。原因を直したjavascript部分のコード全体を出してください。」</small></span>
+    <button data-copy="次のエラーが出ました。原因を直したjavascript部分のコード全体を出してください。&#10;&#10;">コピー</button></div>
+  <div class="row"><span class="lbl">音が出ない・画面が真っ黒<small>「実行しても音が出ません。原因を調べて、動くjavascript部分のコード全体を出してください。」</small></span>
+    <button data-copy="実行しても音が出ません。原因を調べて、動くjavascript部分のコード全体を出してください。">コピー</button></div>
+  <div class="row"><span class="lbl">音が1オクターブ低い<small>「音名ではなく、MIDIノート番号と midiToFreq() を使ってください。」</small></span>
+    <button data-copy="音名ではなく、MIDIノート番号と midiToFreq() を使ってください。">コピー</button></div>
+  <div class="row"><span class="lbl">前より悪くなった<small>「さっきの状態に戻してください。」</small></span>
+    <button data-copy="さっきの状態に戻してください。">コピー</button></div>
+  <div class="row"><span class="lbl">一部しか返ってこない<small>「javascript部分のコード全体を出してください。」</small></span>
+    <button data-copy="javascript部分のコード全体を出してください。">コピー</button></div>
+  <p class="muted">どうにもならないときは<b>手を挙げてください</b>。それが一番早いです。</p>
+
+  <h2>ゼロから作る</h2>
+  <p>p5.js Web Editor で新しいスケッチを作り、3つとも全部を貼りかえます。</p>
+  <p><a class="cta sub" href="https://editor.p5js.org" target="_blank" rel="noopener">p5.js Web Editor をひらく</a></p>
+  <div class="row"><span class="lbl">sketch.js<small>1番目に貼る</small></span><button data-target="c-js">コピー</button></div>
+  <details><summary>sketch.js の中身を見る</summary><pre id="c-js">// 音と光 / p5.js
+//
+// --- 変更履歴 ------------------------------------
+// v1  一定のリズムで音が鳴り、鳴るたびに円が広がる
+// --- ここまで ------------------------------------
+// ※ 変更したら「ここまで」の行の1つ上に、v2, v3 … と1行だけ足してください。
+//   すでにある行は書き換えないでください。
+
+// ---- この3つを変えるだけでも、かなり変わります ----
+const ONKAI  = [60, 62, 64, 67, 69];   // 使う音(ド レ ミ ソ ラ)
+const SOKUDO = 2000;  // 自動で鳴る音の間隔(ミリ秒)。小さいほど速い
+const IRO    = 200;   // 色あい(0〜360)
+// ---------------------------------------------------
+// ※ 音は数字で指定します。1 増やすと半音上、12 増やすと1オクターブ上。
+//    &#x27;A4&#x27; のような音名は使わないでください。p5.sound の不具合で、
+//    A と B だけ1オクターブ低く鳴ります。
+
+let synth;            // 音を出すもの
+let hajimatta = false;
+let tsugi = 0;        // 次に鳴らす時刻
+let marus = [];       // 画面に出ている円
+
+function setup() {
+  createCanvas(800, 500);
+  colorMode(HSB, 360, 100, 100, 100);
+  synth = new p5.PolySynth();
+  noStroke();
+}
+
+function draw() {
+  background(0, 0, 8);
+
+  // まだ始まっていないときは案内を出す
+  if (!hajimatta) {
+    fill(0, 0, 100);
+    textAlign(CENTER, CENTER);
+    textSize(24);
+    text(&#x27;画面をクリックすると始まります&#x27;, width / 2, height / 2);
+    return;
+  }
+
+  // 時間がきたら、自動で音をひとつ鳴らす
+  if (millis() &gt; tsugi) {
+    narasu(floor(random(ONKAI.length)), random(width), random(height), false);
+    tsugi = millis() + SOKUDO;
+  }
+
+  // 円を描く(だんだん大きく、だんだん うすく)
+  for (let i = marus.length - 1; i &gt;= 0; i--) {
+    const m = marus[i];
+    m.ookisa += 3;    // だんだん大きく
+    m.nokori -= 1;    // だんだん うすく
+    if (m.nokori &lt;= 0) {
+      marus.splice(i, 1);
+      continue;
+    }
+    fill(m.iro, 70, 100, m.nokori);
+    circle(m.x, m.y, m.ookisa);
+  }
+}
+
+// 音をひとつ鳴らして、同じ場所に円をひとつ出す
+// jibun が true のときは、自分でクリックした音。大きく・長く鳴らす
+function narasu(bangou, x, y, jibun) {
+  const tsuyosa = jibun ? 0.45 : 0.15;   // 音の大きさ
+  const nagasa  = jibun ? 0.9  : 0.5;    // 音の長さ(秒)
+
+  synth.play(midiToFreq(ONKAI[bangou]), tsuyosa, 0, nagasa);
+  marus.push({
+    x: x,
+    y: y,
+    ookisa: jibun ? 45 : 20,   // 自分で鳴らした音は、大きい円から始まる
+    nokori: 100,
+    iro: (IRO + bangou * 70) % 360
+  });
+}
+
+// 画面をクリックしたとき
+// (ブラウザの決まりで、一度クリックしないと音を出せません)
+function mousePressed() {
+  if (!hajimatta) {
+    userStartAudio();
+    hajimatta = true;
+    return;
+  }
+  // クリックした高さで、音の高さが変わる
+  const bangou = floor(map(mouseY, height, 0, 0, ONKAI.length));
+  narasu(constrain(bangou, 0, ONKAI.length - 1), mouseX, mouseY, true);
+}</pre></details>
+  <div class="row" style="margin-top:9px"><span class="lbl">style.css<small>2番目に貼る</small></span><button data-target="c-css">コピー</button></div>
+  <details><summary>style.css の中身を見る</summary><pre id="c-css">html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}</pre></details>
+  <div class="row" style="margin-top:9px"><span class="lbl">index.html<small>3番目に貼る</small></span><button data-target="c-html">コピー</button></div>
+  <details><summary>index.html の中身を見る</summary><pre id="c-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;title&gt;音と光 — 東北TECH道場&lt;/title&gt;
+
+    &lt;!-- p5.js 本体(1系に固定。生成AIが書くコードと相性が良い) --&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- p5.sound(音を扱う追加ライブラリ。本体には含まれていないので必須) --&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/addons/p5.sound.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;main&gt;&lt;/main&gt;
+    &lt;script src=&quot;sketch.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre></details>
+  <p class="muted" style="margin-top:9px">エディタ側を全部選んで(Ctrl+A)、上書きしてください。
+    ▶ を押して、画面をクリックすると音が鳴ります。</p>
+
+  <h2>さいごに</h2>
+  <ul>
+    <li>さいごに<b>みんなで投票</b>します。シールを配るので、好きな席の札に貼ってください</li>
+    <li>貼りに行くときに、ほかの席の音も聞いてみてください</li>
+  </ul>
+  <p id="row-submit">
+    <a class="cta sub" id="link-submit" target="_blank" rel="noopener">作ったコードを持ち帰る</a>
+  </p>
+  <p>
+    <a class="cta" id="link-community" target="_blank" rel="noopener">道場の案内を受け取る</a>
+    <a class="cta sub" id="link-survey" target="_blank" rel="noopener">アンケート</a>
+  </p>
+  <p class="muted">東北TECH道場は、月に1回あつまってAIでものづくりをしています。<br>
+    2011年にGoogleの震災復興支援として始まった開発者コミュニティです。</p>
+
+  <footer>
+    東北TECH道場 むつ・下北・青森道場(Google Developer Group)<br>
+    むつ下北創生キャンパス祭 2026年11月15日(日)
+  </footer>
+
+</div>
+
+<script>
+// ============== 当日までに、ここにURLを入れてください ==============
+const SETTINGS = {
+  共有ドキュメントURL: '',
+  コミュニティURL:     '',
+  アンケートURL:       ''
+};
+// =================================================================
+
+// 設定されたリンクだけ表示
+[['link-submit','共有ドキュメントURL','row-submit'],
+ ['link-community','コミュニティURL',null],
+ ['link-survey','アンケートURL',null]].forEach(function (t) {
+  const el = document.getElementById(t[0]);
+  const url = SETTINGS[t[1]];
+  if (!el) return;
+  if (url) { el.href = url; }
+  else { (document.getElementById(t[2]) || el).classList.add('hide'); }
+});
+
+// コピー処理
+function flash(btn) {
+  const before = btn.textContent;
+  btn.textContent = 'コピーしました';
+  btn.classList.add('done');
+  setTimeout(function () { btn.textContent = before; btn.classList.remove('done'); }, 1500);
+}
+function manual(text, btn) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); flash(btn); }
+  catch (e) { btn.textContent = 'コピーできません'; }
+  document.body.removeChild(ta);
+}
+document.querySelectorAll('button[data-copy],button[data-target]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    let text = btn.dataset.copy;
+    if (!text) {
+      const pre = document.getElementById(btn.dataset.target);
+      if (!pre) return;
+      text = pre.textContent;
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { flash(btn); })
+        .catch(function () { manual(text, btn); });
+    } else { manual(text, btn); }
+  });
+});
+</script>
+</body>
+</html>
