@@ -1,0 +1,38 @@
+create table students (
+    id varchar(3) primary key,
+    name varchar(20) not null
+) engine = InnoDB;
+
+create table courses (
+    id varchar(3) primary key,
+    name varchar(30) not null
+) engine = InnoDB;
+
+create table enrollments (
+    sid varchar(3),
+    cid varchar(3),
+    grade varchar(1),
+    primary key (sid, cid),
+    foreign key (sid)
+        references students (id),
+    foreign key (cid)
+        references courses (id)
+) engine = InnoDB;
+
+insert into students (id, name)
+values
+    ('S01', '佐藤'),
+    ('S02', '鈴木'),
+    ('S03', '高橋');
+
+insert into courses (id, name)
+values
+    ('D01', '英語'),
+    ('W01', '数学'),
+    ('P01', '情報');
+
+insert into enrollments (sid, cid, grade)
+values
+    ('S01', 'D01', 'B'),
+    ('S01', 'W01', 'C'),
+    ('S02', 'D01', 'A');
