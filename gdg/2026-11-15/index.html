@@ -227,7 +227,7 @@ function draw() {
       marus.splice(i, 1);
       continue;
     }
-    fill(m.iro, 70, 100, m.nokori);
+    fill(m.iro, 70, 100, m.nokori * m.koi);   // koi = こさ
     circle(m.x, m.y, m.ookisa);
   }
 }
@@ -235,15 +235,18 @@ function draw() {
 // 音をひとつ鳴らして、同じ場所に円をひとつ出す
 // jibun が true のときは、自分でクリックした音。大きく・長く鳴らす
 function narasu(bangou, x, y, jibun) {
-  const tsuyosa = jibun ? 0.45 : 0.15;   // 音の大きさ
-  const nagasa  = jibun ? 0.9  : 0.5;    // 音の長さ(秒)
+  // 自分で鳴らした音は、大きく・長く・こく。自動の音はひかえめに
+  const tsuyosa = jibun ? 0.55 : 0.12;   // 音の大きさ
+  const nagasa  = jibun ? 1.2  : 0.4;    // 音の長さ(秒)
+  const koi     = jibun ? 1.0  : 0.35;   // 円のこさ(1でそのまま、小さいほど うすい)
 
   synth.play(midiToFreq(ONKAI[bangou]), tsuyosa, 0, nagasa);
   marus.push({
     x: x,
     y: y,
-    ookisa: jibun ? 45 : 20,   // 自分で鳴らした音は、大きい円から始まる
-    nokori: 100,
+    ookisa: jibun ? 55 : 20,   // はじめの大きさ
+    nokori: 100,               // 消えるまでのカウント(こさとは別)
+    koi: koi,
     iro: (IRO + bangou * 70) % 360
   });
 }
